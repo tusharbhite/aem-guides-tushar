@@ -28,7 +28,6 @@ import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
-import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
@@ -40,8 +39,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Model(adaptables = SlingHttpServletRequest.class)
-public class ModelUsingSlingHttpServletRequestClass {
+@Model(adaptables = { SlingHttpServletRequest.class, Resource.class })
+public class ModelUsingBothAdaptables {
 
     @ValueMapValue(name=PROPERTY_RESOURCE_TYPE, injectionStrategy=InjectionStrategy.OPTIONAL)
     @Default(values="No resourceType")
@@ -58,10 +57,6 @@ public class ModelUsingSlingHttpServletRequestClass {
     @Default(values="No String")
     private String temporary; 
 
-    
-   /* @RequestAttribute
-    private String requestatributeString; 
-    */
     @Inject
     @Default(values = "noooo")
     private String listFrom;
@@ -110,7 +105,7 @@ public class ModelUsingSlingHttpServletRequestClass {
 
     public List<String> getListOfAllMethodsInCurrentClass(){
         List<String> result=new ArrayList<String>();
-        Method[] methods = ModelUsingSlingHttpServletRequestClass.class.getDeclaredMethods();
+        Method[] methods = ModelUsingBothAdaptables.class.getDeclaredMethods();
         for (Method method : methods) {
           //System.out.println(method.getName());
           result.add(method.getName());

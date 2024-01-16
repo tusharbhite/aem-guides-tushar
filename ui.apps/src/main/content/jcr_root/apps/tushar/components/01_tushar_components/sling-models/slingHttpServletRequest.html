@@ -1,2 +1,21 @@
 <h1>@Model(adaptables = slingHttpServletRequest.class)
 </h1>
+
+
+
+    <div class="cmp-helloworld__item" data-sly-use.model="com.tushar.aem.guides.core.models.ModelUsingSlingHttpServletRequestClass" data-sly-test="${model.message}">
+
+<h2>Current Class Path: ${model.currentClassName} </h2>
+<h2>Current Class Methods: </h2>
+<b	 data-sly-repeat.item="${model.listOfAllMethodsInCurrentClass}">${item}, &nbsp &nbsp</b>
+
+        <p class="cmp-helloworld__item-label">Model message:</p>
+        <pre class="cmp-helloworld__item-output"data-cmp-hook-helloworld="model">${model.message}</pre>
+
+${model.string}
+${model.message}
+${model.listFrom}
+PT= ${model.primaryTypeString}
+
+    </div>
+

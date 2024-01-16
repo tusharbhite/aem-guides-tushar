@@ -1,10 +1,10 @@
+<!--/*
 <sly data-sly-use.model="com.tushar.aem.guides.core.models.ModelUsingResourceClass"/>
 ${model.string}
 ${model.message}
 ${model.listFrom}
-
 PT= ${model.primaryTypeString}
-
+*/-->
 
 <div class="cmp-helloworld" data-cmp-is="helloworld">
     <h2 class="cmp-helloworld__title">Sightly Snippets</h2>
@@ -13,13 +13,16 @@ PT= ${model.primaryTypeString}
         <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="property">${properties.text}</pre>
     </div>
 
-<sly data-sly-test="${properties.listFrom == 'resource'}">
-    <div data-sly-include="${'resource.html' @ context='unsafe'}"></div>
-</sly>
+    <sly data-sly-test="${properties.listFrom == 'resource'}">
+        <div data-sly-include="${'resource.html' @ context='unsafe'}"></div>
+    </sly>
 
+    <sly data-sly-test="${properties.listFrom == 'slingHttpServletRequest'}">
+        <div data-sly-include="${'slingHttpServletRequest.html' @ context='unsafe'}"></div>
+    </sly>
 
-<sly data-sly-test="${properties.listFrom == 'slingHttpServletRequest'}">
-    <div data-sly-include="${'slingHttpServletRequest.html' @ context='unsafe'}"></div>
-</sly>
+    <sly data-sly-test="${properties.listFrom == 'other'}">
+        <div data-sly-include="${'bothAdaptables.html' @ context='unsafe'}"></div>
+    </sly>
 
 </div>

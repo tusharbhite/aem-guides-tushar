@@ -33,6 +33,9 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Model(adaptables = Resource.class)
@@ -93,5 +96,19 @@ public class ModelUsingResourceClass {
 
     public String nonGetterMethod(){
         return "nongettermethodstring";
+    }
+
+    public String getCurrentClassName(){
+        return this.getClass().getName();
+    }
+
+        public List<String> getListOfAllMethodsInCurrentClass(){
+        List<String> result=new ArrayList<String>();
+        Method[] methods = ModelUsingResourceClass.class.getDeclaredMethods();
+        for (Method method : methods) {
+          //System.out.println(method.getName());
+          result.add(method.getName());
+        }
+        return result;
     }
 }
