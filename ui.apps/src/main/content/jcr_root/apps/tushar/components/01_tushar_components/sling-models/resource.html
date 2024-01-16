@@ -1,0 +1,20 @@
+<h1>Sightly: @Model(adaptables = Resource.class)
+</h1>
+
+
+
+
+
+
+<h2>1. data-sly-test </h2>
+
+<p>Validates and conditionally removes the host element and it's content. Returned 'False' removes the element; Returned value 'true' retains the element</p>
+
+<div style="display: flex; align-items: baseline;"><h4>Statement: &nbsp;</h4> &ltp data-sly-test="${'${currentPage.title==dev}'}"&gt  Current Page Title is dev &lt/p&gt</div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Output: &nbsp;</h4> &ltp&gt  Current Page Title is dev &lt/p&gt</div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Render: &nbsp;</h4> <p data-sly-test="${currentPage.title=='dev'}">  Current Page Title is dev </p></div>
+
+<div style="display: flex; align-items: baseline;"><h4>Statement: &nbsp;</h4> &ltp data-sly-test="${'${!currentPage.title==dev}'}"&gt Current Page Title is not dev&lt/p&gt</div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Output: &nbsp;</h4> &ltp&gt  Current Page Title is not dev &lt/p&gt</div>
+<div style="display: flex; align-items: baseline;"><h4>Rendered Output: &nbsp;</h4> <p data-sly-test="${currentPage.title!='dev'}"> Current Page Title is not dev</p></div>
+

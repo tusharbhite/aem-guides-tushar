@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/tushar/clientlibs"/>
+    <filter root="/apps/tushar/components"/>
+    <filter root="/apps/tushar/i18n"/>
+</workspaceFilter>

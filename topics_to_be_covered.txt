@@ -1,0 +1,2 @@
+pages as part of code
+editable templates as part of a code

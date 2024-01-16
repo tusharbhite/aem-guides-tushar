@@ -1,0 +1,64 @@
+<h1>Sightly: Block Statements</h1>
+
+
+<h2>1. data-sly-test </h2>
+
+<p>Validates and conditionally removes the host element and it's content. Returned 'False' removes the element; Returned value 'true' retains the element</p>
+
+<div style="display: flex; align-items: baseline;"><h4>Statement: &nbsp;</h4> &ltp data-sly-test="${'${currentPage.title==dev}'}"&gt  Current Page Title is dev &lt/p&gt</div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Output: &nbsp;</h4> &ltp&gt  Current Page Title is dev &lt/p&gt</div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Render: &nbsp;</h4> <p data-sly-test="${currentPage.title=='dev'}">  Current Page Title is dev </p></div>
+
+<div style="display: flex; align-items: baseline;"><h4>Statement: &nbsp;</h4> &ltp data-sly-test="${'${!currentPage.title==dev}'}"&gt Current Page Title is not dev&lt/p&gt</div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Output: &nbsp;</h4> &ltp&gt  Current Page Title is not dev &lt/p&gt</div>
+<div style="display: flex; align-items: baseline;"><h4>Rendered Output: &nbsp;</h4> <p data-sly-test="${currentPage.title!='dev'}"> Current Page Title is not dev</p></div>
+
+
+<h2>2. data-sly-use </h2>
+
+<p>Used to initialize a Java class/Sling Model or JavaScript object. Parameters can be passed to the initialization using options</p>
+
+<div style="display: flex; align-items: baseline;"><h4>Statement: &nbsp;</h4> &ltp data-sly-use.componentModel="com.adobe.cq.wcm.core.components.models.Component"&gt ${'${ componentModel.id }'}  &lt/p&gt</div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Output: &nbsp;</h4> &ltp&gt sightly-ad2823e02b &lt/p&gt</div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Render: &nbsp;</h4> <p data-sly-use.componentModel="com.adobe.cq.wcm.core.components.models.Component">  ${ componentModel.id } </p></div>
+
+
+<h2>3. data-sly-unwrap </h2>
+
+<p>Trims the html element from the generated markup. </p>
+
+<div style="display: flex; align-items: baseline;"><h4>Statement: &nbsp;</h4> &lttag-to-be-removed data-sly-unwrap&gt&ltp&gtParent Tag Removed Successfully&lt/p&gt&lt/tag-to-be-removed&gt </div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Output: &nbsp;</h4> &ltp&gt Parent Tag Removed Successfully &lt/p&gt</div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Render: &nbsp;</h4> <tag-to-be-removed data-sly-unwrap><p>Parent Tag Removed Successfully</p></tag-to-be-removed> </div>
+
+<h2>4. data-sly-text </h2>
+
+<p>Inserts the content of its host element with the specified text by replacing it.
+Basically it will make current element empty (It will remove all child tags or texts anything) and insert value of expression inside current element. </p>
+
+<div style="display: flex; align-items: baseline;"><h4>Statement: &nbsp;</h4> &lttag-to-be-kept data-sly-text="${'${currentPage.title}'}"&gt&ltp&gtParent Tag kept Successfully&lt/p&gt&lt/tag-to-be-kept&gt </div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Output: &nbsp;</h4> &lttag-to-be-kept&gt dev &lt/tag-to-be-kept&gt</div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Render: &nbsp;</h4> <tag-to-be-kept data-sly-text="${currentPage.title}"><p>Parent Tag Kept Successfully</p></tag-to-be-kept> </div>
+
+<h2>5. data-sly-attribute </h2>
+
+<p> Helps to add attributes to the host element.</p>
+
+<div style="display: flex; align-items: baseline;"><h4>Statement: &nbsp;</h4> &ltp title="Page Title" data-sly-attribute.title="${'${currentPage.title}'}" &gt Title &lt/p&gt </div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Output: &nbsp;</h4> &ltp title="dev"  &gt Title  &lt/p&gt</div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Render: &nbsp;</h4> <p title="Page Title" data-sly-attribute.title="${currentPage.title}">Title</p> </div>
+
+
+<h2>6. data-sly-element </h2>
+
+<p> Used to replaces the element name of the host element of html tags.</p>
+
+<div style="display: flex; align-items: baseline;"><h4>Statement: &nbsp;</h4> &ltp-old data-sly-element="${'${p}'}" &gt Title &lt/p-old&gt </div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Output: &nbsp;</h4> &ltp  &gt Title  &lt/p&gt</div>
+<div style="display: flex; align-items: baseline;"><h4>HTML Render: &nbsp;</h4> <p-old data-sly-element="${'p'}">Text</p-old> </div>
+
+
+
+
+
+
