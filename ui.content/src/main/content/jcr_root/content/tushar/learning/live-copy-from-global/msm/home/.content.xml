@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-01-21T11:16:58.447+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastRolledout="{Date}2024-01-21T11:16:58.453+05:30"
+        cq:lastRolledoutBy="admin"
+        cq:template="/conf/tushar/settings/wcm/templates/tushar-secondary-pages"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:LiveRelationship,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="home"
+        jcr:uuid="1b2bbfff-199d-4d93-8f4d-bd8295bf4ebc"
+        sling:resourceType="tushar/components/page"
+        pageTitle="home">
+        <root
+            cq:lastRolledout="{Date}2024-01-21T11:16:58.386+05:30"
+            cq:lastRolledoutBy="admin"
+            jcr:mixinTypes="[cq:LiveRelationship]"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="tushar/components/container"
+            layout="responsiveGrid">
+            <container
+                cq:lastRolledout="{Date}2024-01-21T11:16:58.400+05:30"
+                cq:lastRolledoutBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tushar/components/container"
+                layout="responsiveGrid">
+                <text
+                    cq:lastRolledout="{Date}2024-01-21T11:16:58.434+05:30"
+                    cq:lastRolledoutBy="admin"
+                    jcr:lastModified="{Date}2024-01-21T11:16:58.425+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/text"
+                    text="&lt;p>&lt;b>National Integration Pledge&lt;/b>&lt;br>&#xd;&#xa;I solemnly pledge to work with dedication to preserve and strengthen the freedom and integrity of the nation. I further affirm that I shall never resort to violence and that all differences and disputes relating to religion, language, region or other political or economic grievances should be settled by peaceful and constitutional means. In their well being and prosperity alone lies my happiness.&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+                <text_1252017633
+                    cq:lastRolledout="{Date}2024-01-21T11:16:58.452+05:30"
+                    cq:lastRolledoutBy="admin"
+                    jcr:lastModified="{Date}2024-01-21T11:16:28.056+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/text"
+                    text="&lt;p>CHANGE 1&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+            </container>
+        </root>
+    </jcr:content>
+    <event/>
+</jcr:root>

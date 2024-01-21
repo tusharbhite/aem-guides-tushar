@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isTransCreated="{Boolean}true"
+        cq:lastModified="{Date}2024-01-21T14:19:31.416+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastTranslationDone="{Date}2024-01-21T14:19:31.416+05:30"
+        cq:lastTranslationUpdate="{Date}2024-01-21T14:19:10.280+05:30"
+        cq:template="/conf/tushar/settings/wcm/templates/tushar-secondary-pages"
+        cq:translationJob="[/content/projects/arabic_translation/arabic_translation_/jcr:content/dashboard/gadgets/translationjob]"
+        cq:translationMethod="MACHINE_TRANSLATION"
+        cq:translationProviderCloudConfig="/libs/settings/cloudconfigs/translation/msft-translation/msft_trial"
+        cq:translationProviderName="microsoft"
+        cq:translationSourcePath="/content/tushar/language-masters/en/about-us"
+        cq:translationStatus="READY_FOR_REVIEW"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="من نحن"
+        jcr:uuid="24fd7393-cb0e-42c1-9cb9-6e41cf319b58"
+        sling:resourceType="tushar/components/page"
+        pageTitle="من نحن">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="tushar/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tushar/components/container"
+                layout="responsiveGrid">
+                <text
+                    jcr:lastModified="{Date}2024-01-21T10:47:35.192+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/text"
+                    text="&lt;p>&lt;b>ديباجة الدستور الهندي&lt;/b>&lt;br>&#xd;&#xa;&lt;i>&lt;b>نحن، شعب الهند، وقد عقدنا العزم رسميا على تحويل الهند إلى جمهورية ديمقراطية علمانية اشتراكية ذات سيادة وتأمين لجميع مواطنيها:&lt;/b>&lt;/i>&lt;/p>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>العدالة الاجتماعية والاقتصادية والسياسية؛&lt;/li>&#xd;&#xa;&lt;li>حرية الفكر والتعبير والمعتقد والإيمان والعبادة؛&lt;/li>&#xd;&#xa;&lt;li>المساواة في المركز والفرص؛ والترويج بينهم جميعا&lt;/li>&#xd;&#xa;&lt;li>الأخوة التي تضمن كرامة الفرد ووحدة الأمة وسلامتها.&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;"
+                    textIsRich="true"/>
+                <text_735408959
+                    jcr:lastModified="{Date}2024-01-21T13:50:34.607+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/text"
+                    text="&lt;p>التغيير 4&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

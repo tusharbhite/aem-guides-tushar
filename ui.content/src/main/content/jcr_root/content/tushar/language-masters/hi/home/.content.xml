@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isTransCreated="{Boolean}true"
+        cq:lastModified="{Date}2024-01-21T14:29:39.513+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastTranslationDone="{Date}2024-01-21T14:29:39.513+05:30"
+        cq:lastTranslationUpdate="{Date}2024-01-21T14:29:25.025+05:30"
+        cq:template="/conf/tushar/settings/wcm/templates/tushar-secondary-pages"
+        cq:translationJob="[/content/projects/hindi_translation/hindi_translation/jcr:content/dashboard/gadgets/translationjob]"
+        cq:translationMethod="MACHINE_TRANSLATION"
+        cq:translationProviderCloudConfig="/libs/settings/cloudconfigs/translation/msft-translation/msft_trial"
+        cq:translationProviderName="microsoft"
+        cq:translationSourcePath="/content/tushar/language-masters/en/home"
+        cq:translationStatus="READY_FOR_REVIEW"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:language="en"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="को"
+        jcr:uuid="983eec5c-a944-47e2-8d9c-fdcd6daff178"
+        sling:resourceType="tushar/components/page"
+        pageTitle="को"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="tushar/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tushar/components/container"
+                layout="responsiveGrid">
+                <text
+                    jcr:lastModified="{Date}2024-01-21T10:47:02.301+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/text"
+                    text="&lt;p>&lt;b>राष्ट्रीय एकता शपथ&lt;/b>&lt;br>मैं राष्ट्र की स्वतंत्रता और अखंडता को बनाए रखने और मजबूत करने के लिए समर्पण के साथ काम करने की सत्यनिष्ठा से प्रतिज्ञा करता हूं। मैं आगे कहता हूं कि मैं कभी हिंसा का सहारा नहीं लूंगा और धर्म, भाषा, क्षेत्र या अन्य राजनीतिक या आर्थिक शिकायतों से संबंधित सभी मतभेदों और विवादों को शांतिपूर्ण और संवैधानिक तरीकों से सुलझाया जाना चाहिए। उनकी खुशहाली और समृद्धि में ही मेरी खुशी है।&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+                <text_1252017633
+                    jcr:lastModified="{Date}2024-01-21T11:16:28.056+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/text"
+                    text="&lt;p>परिवर्तन 1&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+            </container>
+        </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2024-01-21T11:22:07.552+05:30"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+    </jcr:content>
+    <event/>
+</jcr:root>

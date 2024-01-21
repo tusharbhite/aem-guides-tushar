@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-01-21T10:55:04.277+05:30"
+        cq:lastModifiedBy="admin"
+        cq:siteOwner="tushar"
+        cq:template="/conf/tushar/settings/wcm/templates/tushar-landing-page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="global"
+        jcr:uuid="560a25bf-f9c3-41fd-b654-4a223d4b0db5"
+        sling:resourceType="tushar/components/page"
+        navTitle="MSM"
+        pageTitle="MSM">
+        <root
+            jcr:mixinTypes="[]"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="tushar/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:mixinTypes="[]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tushar/components/container"
+                layout="responsiveGrid"/>
+        </root>
+    </jcr:content>
+</jcr:root>

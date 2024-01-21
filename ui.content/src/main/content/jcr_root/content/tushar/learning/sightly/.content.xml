@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-01-02T22:45:08.032+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/tushar/settings/wcm/templates/tushar-landing-page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Sightly"
+        sling:resourceType="tushar/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="tushar/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:lastModified="{Date}2024-01-02T19:14:31.829+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tushar/components/container">
+                <sightly_multifield
+                    jcr:lastModified="{Date}2024-01-02T15:01:58.525+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/sightly-multifield"
+                    description="&lt;p>Validates and conditionally removes the host element and it's content. Returned 'False' removes the element; Returned value 'true' retains the element&lt;/p>&#xd;&#xa;"
+                    processedHTML="&lt;p>&amp;lt;p&amp;gt; Current Page Title is dev &amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;p&amp;gt; Current Page Title is not dev &amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;"
+                    renderedOutput="&lt;p>Current Page Title is dev&lt;/p>&#xd;&#xa;&lt;p>Current Page Title is not dev&lt;/p>&#xd;&#xa;"
+                    sightlySyntax="&lt;p>&amp;lt;p data-sly-test=&amp;quot;${currentPage.title==dev}&amp;quot;&amp;gt; Current Page Title is dev &amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;p data-sly-test=&amp;quot;${!currentPage.title==dev}&amp;quot;&amp;gt; Current Page Title is not dev &amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;"
+                    textIsRich="[true,true,true,true]"
+                    title="1. data-sly-test"/>
+                <sightly_multifield_c
+                    jcr:lastModified="{Date}2024-01-02T15:05:03.783+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/sightly-multifield"
+                    description="&lt;p>Used to initialize a Java class/Sling Model or JavaScript object. Parameters can be passed to the initialization using options&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                    processedHTML="&lt;p>&amp;lt;p&amp;gt; sightly-ad2823e02b &amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;"
+                    renderedOutput="&lt;p>sightly-ad2823e02b&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                    sightlySyntax="&lt;p>&amp;lt;p data-sly-use.componentModel=&amp;quot;com.adobe.cq.wcm.core.components.models.Component&amp;quot;&amp;gt; ${ componentModel.id } &amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;"
+                    textIsRich="[true,true,true,true]"
+                    title="2. data-sly-use"/>
+                <sightly_multifield_1978520075
+                    jcr:lastModified="{Date}2024-01-02T19:06:43.131+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/sightly-multifield"
+                    description="&lt;p>Trims the html element from the generated markup.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                    processedHTML="&lt;p>&amp;lt;p&amp;gt; Parent Tag Removed Successfully &amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;"
+                    renderedOutput="&lt;h4>&amp;nbsp;&lt;/h4>&#xd;&#xa;&lt;p>Parent Tag Removed Successfully&lt;/p>&#xd;&#xa;"
+                    sightlySyntax="&lt;p>&amp;lt;tag-to-be-removed data-sly-unwrap&amp;gt;&amp;lt;p&amp;gt;Parent Tag Removed Successfully&amp;lt;/p&amp;gt;&amp;lt;/tag-to-be-removed&amp;gt;&lt;/p>&#xd;&#xa;"
+                    textIsRich="[true,true,true,true]"
+                    title="3. data-sly-unwrap"/>
+                <sightly_multifield_1570382137
+                    jcr:lastModified="{Date}2024-01-02T19:11:01.336+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/sightly-multifield"
+                    description="&lt;p>Inserts the content of its host element with the specified text by replacing it. Basically it will make current element empty (It will remove all child tags or texts anything) and insert value of expression inside current element.&lt;/p>&#xd;&#xa;"
+                    processedHTML="&lt;p>&amp;lt;tag-to-be-kept&amp;gt; Parent Tag kept Successfully&amp;lt;/tag-to-be-kept&amp;gt;&lt;/p>&#xd;&#xa;"
+                    renderedOutput="&lt;p>Parent Tag kept Successfully&lt;/p>&#xd;&#xa;"
+                    sightlySyntax="&lt;p>&amp;lt;tag-to-be-kept data-sly-text=&amp;quot;${currentPage.title}&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Parent Tag kept Successfully&amp;lt;/p&amp;gt;&amp;lt;/tag-to-be-kept&amp;gt;&lt;/p>&#xd;&#xa;"
+                    textIsRich="[true,true,true,true]"
+                    title="4. data-sly-text"/>
+                <sightly_multifield_1020611889
+                    jcr:lastModified="{Date}2024-01-02T19:18:16.314+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/sightly-multifield"
+                    description="&lt;p>Helps to add attributes to the host element.&lt;/p>&#xd;&#xa;"
+                    processedHTML="&lt;p>&amp;lt;p title=&amp;quot;dev&amp;quot; &amp;gt; Title &amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;"
+                    renderedOutput="&lt;p>Title&lt;/p>&#xd;&#xa;"
+                    sightlySyntax="&lt;p>&amp;lt;p title=&amp;quot;Page Title&amp;quot; data-sly-attribute.title=&amp;quot;${currentPage.title}&amp;quot; &amp;gt; Title &amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;"
+                    textIsRich="[true,true,true,true]"
+                    title="5. data-sly-attribute"/>
+                <sightly_multifield_6
+                    jcr:lastModified="{Date}2024-01-02T19:20:47.387+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/sightly-multifield"
+                    description="&lt;p>Used to replaces the element name of the host element of html tags.&lt;/p>&#xd;&#xa;"
+                    processedHTML="&lt;p>&amp;lt;p &amp;gt; Title &amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;"
+                    renderedOutput="&lt;p>Title&lt;/p>&#xd;&#xa;"
+                    sightlySyntax="&lt;p>&amp;lt;p-old data-sly-element=&amp;quot;${p}&amp;quot; &amp;gt; Title &amp;lt;/p-old&amp;gt;&lt;/p>&#xd;&#xa;"
+                    textIsRich="[true,true,true,true]"
+                    title="6. data-sly-element"/>
+                <sightly_multifield_2045852894
+                    jcr:lastModified="{Date}2024-01-02T20:49:04.644+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/sightly-multifield"
+                    description="&lt;p>This tag helps to repeat an element multiple times based on the list which is specified.&lt;/p>&#xd;&#xa;"
+                    processedHTML="&lt;p>&amp;lt;div&amp;gt;back-end&amp;lt;/div&amp;gt;&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;div&amp;gt;test&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;div&amp;gt;sightly&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;"
+                    renderedOutput="&lt;p>back-end&lt;/p>&#xd;&#xa;&lt;p>test&lt;/p>&#xd;&#xa;&lt;p>sightly&lt;/p>&#xd;&#xa;"
+                    sightlySyntax="&lt;p>&amp;lt;div data-sly-repeat&amp;#61;&amp;#34;${currentPage.listChildren}&amp;#34;&amp;gt;${item.name}&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;"
+                    textIsRich="[true,true,true,true]"
+                    title="7. data-sly-repeat"/>
+                <copy_of_sightly_mult
+                    jcr:lastModified="{Date}2024-01-02T21:01:55.168+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/sightly-multifield"
+                    description="&lt;p>List tag repeats the content of the host element for each enumerable property in the provided object.&lt;/p>&#xd;&#xa;&lt;p>Where 'item' is the current item in the iteration &amp;amp; itemList is the object holding the properties&lt;/p>&#xd;&#xa;&lt;p>.ItemList Properties:&lt;/p>&#xd;&#xa;&lt;table>&#xd;&#xa;&lt;tbody>&lt;tr>&lt;td>&lt;p>Property&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;td>&lt;p>Description&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>&lt;p>index:&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;td>&lt;p>zero-based counter (0..length-1).&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>&lt;p>count:&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;td>&lt;p>one-based counter (1..length).&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>&lt;p>first:&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;td>&lt;p>true if the current item is the first item.&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>&lt;p>middle:&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;td>&lt;p>true if the current item is neither the first nor the last item.&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>&lt;p>last:&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;td>&lt;p>true if the current item is the last item.&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>&lt;p>odd:&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;td>&lt;p>true if the index is odd.&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>&lt;p>even:&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;td>&lt;p>true if the index is even.&lt;/p>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;/tr>&lt;/tbody>&lt;/table>&#xd;&#xa;"
+                    processedHTML="&lt;p>&amp;lt;h6&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>    &amp;lt;p&amp;gt;index: 0 value: Back-End&amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>    &amp;lt;p&amp;gt;index: 1 value: test&amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>    &amp;lt;p&amp;gt;index: 2 value: Sightly&amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;/h6&amp;gt;&lt;/p>&#xd;&#xa;"
+                    renderedOutput="&lt;p>index: 0 value: Back-End&lt;/p>&#xd;&#xa;&lt;p>index: 1 value: test&lt;/p>&#xd;&#xa;&lt;p>index: 2 value: Sightly&lt;/p>&#xd;&#xa;"
+                    sightlySyntax="&lt;p>&amp;lt;h6 data-sly-list&amp;#61;&amp;#34;${currentPage.listChildren}&amp;#34;&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>    &amp;lt;dt&amp;gt;index: ${itemList.index}&amp;lt;/dt&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>    &amp;lt;dd&amp;gt;value: ${item.title}&amp;lt;/dd&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;/h6&amp;gt;&lt;/p>&#xd;&#xa;&lt;p> &lt;/p>&#xd;&#xa;"
+                    textIsRich="[true,true,true,true]"
+                    title="8. data-sly-list"/>
+                <copy_of_sightly_mult_359825774
+                    jcr:lastModified="{Date}2024-01-02T21:53:26.443+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/sightly-multifield"
+                    description="&lt;p>data-sly-resource is a Sightly tag that includes the result of rendering the indicated resource through the Sling resolution and rendering process 1. It is used to include a resource in the current resource, and the included resource can be a JSP, a Servlet, or another Sightly component&amp;nbsp;&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;"
+                    processedHTML="&lt;p>&amp;lt;div id=&amp;quot;container-0a6412ae63&amp;quot; class=&amp;quot;cmp-container&amp;quot;&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;div class=&amp;quot;aem-Grid aem-Grid--10 aem-Grid--default--10 &amp;quot;&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp; &amp;nbsp; &amp;lt;div class=&amp;quot;test aem-GridColumn aem-GridColumn--default--10&amp;quot;&amp;gt;&amp;lt;div&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;div class=&amp;quot;aem-Grid aem-Grid--12 aem-Grid--default--12 &amp;quot;&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;div&amp;gt;This is Test Resource&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp; &amp;nbsp; &amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;"
+                    renderedOutput="&lt;p>This is a test resource&lt;/p>&#xd;&#xa;"
+                    sightlySyntax="&lt;p>&amp;lt;div data-sly-resource=&amp;quot;${ resource @ resourceType='wcm/foundation/components/responsivegrid'}&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;div data-sly-resource=&amp;quot;${ resource @ resourceType='tushar/components/01_tushar_components/test-resource'}&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;"
+                    textIsRich="[true,true,true,true]"
+                    title="9. data-sly-resource"/>
+                <copy_of_sightly_mult_1467061977
+                    jcr:lastModified="{Date}2024-01-02T22:12:00.990+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/sightly-multifield"
+                    description="&lt;p>data-sly-include is used to include a resource in the current resource, and the included resource can be a JSP, a Servlet, or an HTML file 1. It is typically used to include a static HTML file within a component.&lt;/p>&#xd;&#xa;&lt;p>Please note that the included resource must be a valid HTML file.&lt;/p>&#xd;&#xa;&lt;p>In summary,&amp;nbsp;data-sly-resource&amp;nbsp;is used to include a component within another component, while&amp;nbsp;data-sly-include&amp;nbsp;is used to include a static HTML file within a component.&lt;/p>&#xd;&#xa;"
+                    processedHTML="&lt;p>&amp;lt;div&amp;gt;&amp;lt;h4&amp;gt;This is content of Test File&amp;lt;/h4&amp;gt;&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;"
+                    renderedOutput="&lt;p>This is content of Test File&lt;/p>&#xd;&#xa;"
+                    sightlySyntax="&lt;p>&amp;lt;div data-sly-include=&amp;quot;test-file.html&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;"
+                    textIsRich="[true,true,true,true]"
+                    title="10. data-sly-include"/>
+                <Copy_x0020_of_x0020_sightly_multifield_2045852894
+                    jcr:lastModified="{Date}2024-01-02T22:45:08.024+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/sightly-multifield"
+                    description="&lt;p>data-sly-template&amp;nbsp;is used to define a template that can be called using data-sly-call from other parts of the component.&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                    processedHTML="&lt;p>Without argument&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;div&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp; &amp;lt;p&amp;gt;Hello, World!&amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>With argument&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;div&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp; &amp;lt;p&amp;gt;Hi Hello World Argument&amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;"
+                    renderedOutput="&lt;p>Without argument&lt;/p>&#xd;&#xa;&lt;p>Hello, World!&lt;/p>&#xd;&#xa;&lt;p>With argument&lt;/p>&#xd;&#xa;&lt;p>Hi Hello World Argument&lt;/p>&#xd;&#xa;"
+                    sightlySyntax="&lt;p>Without argument&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;div data-sly-template.myTemplate&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp; &amp;lt;p&amp;gt;Hello, World!&amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;div data-sly-call=&amp;quot;${myTemplate}&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>With argument&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;div data-sly-template.myTemplateWithArgs=&amp;quot;${@ arg}&amp;quot;&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp; &amp;lt;p&amp;gt;Hi ${arg}&amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;/div&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;div data-sly-call=&amp;quot;${myTemplateWithArgs @ arg='Hello World Argument'}&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;"
+                    textIsRich="[true,true,true,true]"
+                    title="11.data-sly-template  &amp;  12 .data-sly-call "/>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

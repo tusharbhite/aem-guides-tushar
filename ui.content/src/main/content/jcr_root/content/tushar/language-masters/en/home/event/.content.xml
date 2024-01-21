@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-01-21T12:26:07.520+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/tushar/settings/wcm/templates/tushar-secondary-pages"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="event"
+        jcr:uuid="14ca9ff6-b117-4ea3-8e25-dbc2fc0d22cc"
+        sling:resourceType="tushar/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="tushar/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tushar/components/container"
+                layout="responsiveGrid">
+                <text
+                    jcr:lastModified="{Date}2024-01-21T10:46:39.886+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/text"
+                    text="&lt;p>&lt;b>General Pledge&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>India is my country. All Indians are my brothers and sisters. I love my country and I am proud of its rich and varied heritage. I shall strive to be worthy of it. I shall respect my parents, teachers and all elders and treat everyone with courtesy. To my country and all my people, I pledge my devotion. In their well being and prosperity alone lies my happiness.&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

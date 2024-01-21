@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-01-15T09:57:06.128+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/tushar/settings/wcm/templates/tushar-secondary-pages"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="test"
+        sling:resourceType="tushar/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="tushar/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tushar/components/container"
+                layout="responsiveGrid">
+                <test
+                    jcr:lastModified="{Date}2024-01-15T09:57:06.098+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/test"/>
+                <sightly_copy
+                    jcr:lastModified="{Date}2024-01-01T11:41:21.775+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/sightly"
+                    listFrom="blockstatements"/>
+                <sightly_multifield
+                    jcr:lastModified="{Date}2024-01-02T14:39:49.565+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/sightly-multifield"
+                    description="&lt;p>desc&lt;/p>&#xd;&#xa;"
+                    processedHTML="&lt;p>&amp;lt;p&amp;gt; Current Page Title is dev&amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;p&amp;gt; Current Page Title is not dev&amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;"
+                    renderedOutput="&lt;p>&amp;nbsp;Current Page Title is not dev&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;"
+                    renderedOutputTextArea="&lt;p data-sly-test=&quot;${currentPage.title == 'dev'}&quot;> Current Page Title is dev&lt;/p>&#xd;&#xa;&lt;p data-sly-test=&quot;${!currentPage.title == 'dev'}&quot;> Current Page Title is not dev&lt;/p> &lt;p data-sly-test=&quot;${false}&quot;> Current Page Title is not dev&lt;/p>&#xd;&#xa;"
+                    sightlySyntax="&lt;p>&amp;lt;p data-sly-test&amp;#61;&amp;#34;${currentPage.title&amp;#61;&amp;#61;dev}&amp;#34;&amp;gt; Current Page Title is dev&amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;&lt;p>&amp;lt;p data-sly-test&amp;#61;&amp;#34;${!currentPage.title&amp;#61;&amp;#61;dev}&amp;#34;&amp;gt; Current Page Title is not dev&amp;lt;/p&amp;gt;&lt;/p>&#xd;&#xa;"
+                    textIsRich="[true,true,true,true]"
+                    title="hiiiiiiiiiiiiiiiiiiiiii"/>
+            </container>
+        </root>
+    </jcr:content>
+    <global/>
+</jcr:root>

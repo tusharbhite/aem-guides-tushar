@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:cloudserviceconfigs="[cloudconfigs/translation/translationcfg/default_translation,cloudconfigs/translation/msft-translation/msft_trial]"
+        cq:conf="\0"
+        cq:isTransCreated="{Boolean}true"
+        cq:lastModified="{Date}2024-01-21T14:29:38.692+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastTranslationDone="{Date}2024-01-21T14:29:38.692+05:30"
+        cq:lastTranslationUpdate="{Date}2024-01-21T14:29:24.868+05:30"
+        cq:template="/conf/tushar/settings/wcm/templates/tushar-landing-page"
+        cq:translationJob="[/content/projects/hindi_translation/hindi_translation/jcr:content/dashboard/gadgets/translationjob]"
+        cq:translationMethod="MACHINE_TRANSLATION"
+        cq:translationProject="[/content/projects/hindi_translation/hindi_translation]"
+        cq:translationProviderCloudConfig="/libs/settings/cloudconfigs/translation/msft-translation/msft_trial"
+        cq:translationProviderName="microsoft"
+        cq:translationSourcePath="/content/tushar/language-masters/en"
+        cq:translationStatus="READY_FOR_REVIEW"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="हिंदी"
+        sling:resourceType="tushar/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="tushar/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tushar/components/container"
+                layout="responsiveGrid"/>
+        </root>
+    </jcr:content>
+    <about-us/>
+    <home/>
+</jcr:root>

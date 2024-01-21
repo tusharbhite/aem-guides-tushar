@@ -2,22 +2,36 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-01-21T12:20:15.083+05:30"
+        cq:lastModified="{Date}2024-01-21T14:34:59.555+05:30"
         cq:lastModifiedBy="admin"
+        cq:lastRolledout="{Date}2024-01-21T14:34:59.567+05:30"
+        cq:lastRolledoutBy="admin"
         cq:template="/conf/tushar/settings/wcm/templates/tushar-landing-page"
+        jcr:mixinTypes="[cq:LiveRelationship,cq:LiveSync]"
         jcr:primaryType="cq:PageContent"
-        jcr:title="United States"
+        jcr:title="English"
         sling:resourceType="tushar/components/page">
         <root
+            cq:lastRolledout="{Date}2024-01-21T14:34:59.545+05:30"
+            cq:lastRolledoutBy="admin"
+            jcr:mixinTypes="[cq:LiveRelationship]"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="tushar/components/container"
             layout="responsiveGrid">
             <container
+                cq:lastRolledout="{Date}2024-01-21T14:34:59.567+05:30"
+                cq:lastRolledoutBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="tushar/components/container"
                 layout="responsiveGrid"/>
         </root>
+        <cq:LiveSyncConfig
+            cq:isDeep="{Boolean}true"
+            cq:master="/content/tushar/language-masters/en"
+            cq:rolloutConfigs="[]"
+            jcr:primaryType="cq:LiveCopy"/>
     </jcr:content>
-    <en/>
-    <hindi/>
+    <about-us/>
+    <home/>
 </jcr:root>

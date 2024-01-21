@@ -2,11 +2,11 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-01-21T12:20:15.083+05:30"
+        cq:lastModified="{Date}2024-01-02T22:57:30.568+05:30"
         cq:lastModifiedBy="admin"
-        cq:template="/conf/tushar/settings/wcm/templates/tushar-landing-page"
+        cq:template="/conf/tushar/settings/wcm/templates/tushar-secondary-pages"
         jcr:primaryType="cq:PageContent"
-        jcr:title="United States"
+        jcr:title="test"
         sling:resourceType="tushar/components/page">
         <root
             jcr:primaryType="nt:unstructured"
@@ -15,9 +15,19 @@
             <container
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="tushar/components/container"
-                layout="responsiveGrid"/>
+                layout="responsiveGrid">
+                <test
+                    jcr:lastModified="{Date}2024-01-02T21:23:29.511+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/test"
+                    listFrom="resource"
+                    text="hhi"/>
+            </container>
         </root>
     </jcr:content>
-    <en/>
-    <hindi/>
+    <back-end/>
+    <test/>
+    <sightly/>
+    <global/>
 </jcr:root>

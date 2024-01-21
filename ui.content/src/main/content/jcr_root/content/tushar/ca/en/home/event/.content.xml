@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-01-21T13:00:17.892+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastRolledout="{Date}2024-01-21T13:00:17.904+05:30"
+        cq:lastRolledoutBy="admin"
+        cq:template="/conf/tushar/settings/wcm/templates/tushar-secondary-pages"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:LiveRelationship,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="event"
+        jcr:uuid="8f9ea871-7272-4e3f-9048-aabbc35e78da"
+        sling:resourceType="tushar/components/page">
+        <root
+            cq:lastRolledout="{Date}2024-01-21T13:00:17.878+05:30"
+            cq:lastRolledoutBy="admin"
+            jcr:mixinTypes="[cq:LiveRelationship]"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="tushar/components/container"
+            layout="responsiveGrid">
+            <container
+                cq:lastRolledout="{Date}2024-01-21T13:00:17.885+05:30"
+                cq:lastRolledoutBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tushar/components/container"
+                layout="responsiveGrid">
+                <text
+                    cq:lastRolledout="{Date}2024-01-21T13:00:17.903+05:30"
+                    cq:lastRolledoutBy="admin"
+                    jcr:lastModified="{Date}2024-01-21T13:00:17.889+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/text"
+                    text="&lt;p>&lt;b>General Pledge&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>India is my country. All Indians are my brothers and sisters. I love my country and I am proud of its rich and varied heritage. I shall strive to be worthy of it. I shall respect my parents, teachers and all elders and treat everyone with courtesy. To my country and all my people, I pledge my devotion. In their well being and prosperity alone lies my happiness.&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

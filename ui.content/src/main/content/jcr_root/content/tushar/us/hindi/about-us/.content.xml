@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isTransCreated="{Boolean}true"
+        cq:lastModified="{Date}2024-01-21T14:36:51.771+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastRolledout="{Date}2024-01-21T14:36:51.777+05:30"
+        cq:lastRolledoutBy="admin"
+        cq:lastTranslationDone="{Date}2024-01-21T14:29:39.054+05:30"
+        cq:lastTranslationUpdate="{Date}2024-01-21T14:29:24.948+05:30"
+        cq:template="/conf/tushar/settings/wcm/templates/tushar-secondary-pages"
+        cq:translationJob="[/content/projects/hindi_translation/hindi_translation/jcr:content/dashboard/gadgets/translationjob]"
+        cq:translationMethod="MACHINE_TRANSLATION"
+        cq:translationProviderCloudConfig="/libs/settings/cloudconfigs/translation/msft-translation/msft_trial"
+        cq:translationProviderName="microsoft"
+        cq:translationSourcePath="/content/tushar/language-masters/en/about-us"
+        cq:translationStatus="READY_FOR_REVIEW"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:LiveRelationship,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="हमारे बारे में"
+        jcr:uuid="6cd2f0d1-1a84-41f8-8330-2753cf7910b2"
+        sling:resourceType="tushar/components/page"
+        pageTitle="हमारे बारे में">
+        <root
+            cq:lastRolledout="{Date}2024-01-21T14:36:51.738+05:30"
+            cq:lastRolledoutBy="admin"
+            jcr:mixinTypes="[cq:LiveRelationship]"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="tushar/components/container"
+            layout="responsiveGrid">
+            <container
+                cq:lastRolledout="{Date}2024-01-21T14:36:51.754+05:30"
+                cq:lastRolledoutBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tushar/components/container"
+                layout="responsiveGrid">
+                <text
+                    cq:lastRolledout="{Date}2024-01-21T14:36:51.766+05:30"
+                    cq:lastRolledoutBy="admin"
+                    jcr:lastModified="{Date}2024-01-21T14:36:51.763+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/text"
+                    text="&lt;p>&lt;b>भारतीय संविधान की प्रस्तावना&lt;/b>&lt;br>&#xd;&#xa;&lt;i>&lt;b>हम, भारत के लोग, भारत को एक प्रभुत्वपूर्ण समाजवादी पंथनिरपेक्ष लोकतंत्रात्मक गणराज्य बनाने और उसके सभी नागरिकों को सुरक्षित करने के लिए सत्यनिष्ठा से संकल्प लेते हैं:&lt;/b>&lt;/i>&lt;/p>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>न्याय, सामाजिक, आर्थिक और राजनीतिक;&lt;/li>&#xd;&#xa;&lt;li>विचार, अभिव्यक्ति, विश्वास, विश्वास और पूजा की स्वतंत्रता;&lt;/li>&#xd;&#xa;&lt;li>स्थिति और अवसर की समानता; और उन सभी के बीच प्रचार करने के लिए&lt;/li>&#xd;&#xa;&lt;li>व्यक्ति की गरिमा और राष्ट्र की एकता और अखंडता सुनिश्चित करने वाला भाईचारा।&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;"
+                    textIsRich="true"/>
+                <text_735408959
+                    cq:lastRolledout="{Date}2024-01-21T14:36:51.776+05:30"
+                    cq:lastRolledoutBy="admin"
+                    jcr:lastModified="{Date}2024-01-21T14:36:51.768+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/text"
+                    text="&lt;p>परिवर्तन 4&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

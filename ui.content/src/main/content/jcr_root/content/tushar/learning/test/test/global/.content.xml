@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-01-21T10:57:48.412+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastRolledout="{Date}2024-01-21T10:57:48.416+05:30"
+        cq:lastRolledoutBy="admin"
+        cq:template="/conf/tushar/settings/wcm/templates/tushar-landing-page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:LiveRelationship,cq:LiveSync,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="global"
+        jcr:uuid="8bf15792-3309-4842-8b41-c51d312029c2"
+        sling:resourceType="tushar/components/page"
+        navTitle="MSM"
+        pageTitle="MSM">
+        <root
+            cq:lastRolledout="{Date}2024-01-21T10:57:48.408+05:30"
+            cq:lastRolledoutBy="admin"
+            jcr:mixinTypes="[cq:LiveRelationship]"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="tushar/components/container"
+            layout="responsiveGrid">
+            <container
+                cq:lastRolledout="{Date}2024-01-21T10:57:48.415+05:30"
+                cq:lastRolledoutBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tushar/components/container"
+                layout="responsiveGrid"/>
+        </root>
+        <cq:LiveSyncConfig
+            cq:isDeep="{Boolean}true"
+            cq:master="/content/tushar/learning/blueprint-source-path"
+            cq:rolloutConfigs="[/libs/msm/wcm/rolloutconfigs/default]"
+            jcr:primaryType="cq:LiveCopy"/>
+    </jcr:content>
+    <home/>
+    <about-us/>
+</jcr:root>

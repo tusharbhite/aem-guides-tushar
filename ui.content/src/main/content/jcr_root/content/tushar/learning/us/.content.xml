@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-01-21T12:19:31.553+05:30"
+        cq:lastModifiedBy="reference-adjustment-service"
+        cq:redirectTarget="/content/tushar/learning/us/en"
+        cq:template="/conf/tushar/settings/wcm/templates/page-content"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="us"
+        jcr:uuid="8502489f-1e46-4c32-9063-1bbcd89de38c"
+        sling:resourceType="tushar/components/page"/>
+    <en/>
+</jcr:root>
