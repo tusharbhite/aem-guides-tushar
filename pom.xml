@@ -86,7 +86,9 @@
     <aemanalyser.version>1.4.10</aemanalyser.version>
             
     <componentGroupName>Tushar Sites Project</componentGroupName>
-        
+
+     <env:SERVER_API_URL>my-cloud-server-url</env:SERVER_API_URL>
+         
   </properties>
       
   <build>
