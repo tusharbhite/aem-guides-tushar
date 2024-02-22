@@ -1,0 +1,6 @@
+{
+    "css-color": "RED",
+    "css-override": "#acs-commons-env-indicator { .. }",
+    "inner-html": "..",
+    "browser-title-prefix": "Local Author"
+}

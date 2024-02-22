@@ -43,7 +43,8 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-Import-Package: javax.annotation;version=0.0.0,*
+Import-Package: javax.annotation;version=0.0.0,*,
+                org.apache.sling.api.servlets;version="[2.3.1,2.3.9)";
                                 ]]></bnd>
                         </configuration>
                     </execution>
@@ -94,6 +95,12 @@ Import-Package: javax.annotation;version=0.0.0,*
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.core</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+	    <artifactId>org.apache.sling.api</artifactId>
+	        <version>2.27.0</version>
+	        <groupId>org.apache.sling</groupId>
+	        <scope>provided</scope>
         </dependency>
 
 
