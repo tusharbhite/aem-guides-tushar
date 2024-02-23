@@ -2,6 +2,8 @@
 <workspaceFilter version="1.0">
     <filter root="/conf/tushar" mode="merge"/>
     <filter root="/content/tushar" mode="merge"/>
+        <filter root="/etc/acs-commons" mode="merge"/>
+
     <filter root="/content/dam/tushar/asset.jpg" mode="merge"/>
     <filter root="/content/experience-fragments/tushar" mode="merge"/>
 
