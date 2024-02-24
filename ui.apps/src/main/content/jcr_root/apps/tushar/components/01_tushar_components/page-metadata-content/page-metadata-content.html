@@ -1,0 +1,12 @@
+<sly data-sly-use.model="com.tushar.aem.guides.core.models.PageMetadataContentModel" data-sly-test="${wcmmode.edit || wcmmode.preview}">
+    <h1>Page Metadata Content</h1>
+        <sly >
+          <ul>
+            <sly data-sly-list="${model.metaData.keySet.iterator}">
+              <li>
+                <b>${item} :</b>  ${model.metaData[item]}
+              </li>
+            </sly>
+          </ul>
+        </sly>
+</sly>
