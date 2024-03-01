@@ -1,0 +1,49 @@
+<sly data-sly-use.model="com.tushar.aem.guides.core.models.PeopleProfileModel"/>
+
+<!--/*
+${model.message}
+CF= ${model.peopleProfileCFPath}
+<div>
+  <h2>Content Fragment Details</h2>
+  <ul>
+    <sly data-sly-list.items="${model.peopleProfileCFPropertiesMap}">
+      <li><b>${items.key}</b>: ${items.value}</li>
+    </sly>
+  </ul>
+</div>
+${model.peopleProfileCFPropertiesMap.one_controversy}
+
+*/-->
+
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientLib.all @ categories='tushar.pp'}" />
+
+  <link rel=canonical href=https://www.ey.com/en_in/people/surabhi-marwah>
+  <title>${model.peopleProfileCFPropertiesMap.first_name} ${model.peopleProfileCFPropertiesMap.lastName}</title>
+
+<pp-body class="page-people page-s page-surabhi-marwah layout-people-profile-layout template-people-profile-template grid-bootstrap initialized on-top" data-theme-path=/etc/designs/zg/eydff/desktop data-path-id=a99202da9a51a99897b1ab1f1e184f70 data-assets-domain=https://assets.ey.com data-page-brand=Default>
+    <div class=container-fluid>
+      <div class=row>
+        <div id=content class="col-xs-12 initialized">
+          <div class=row>
+            <div class=layout-outer>
+              <div class=layout-inner>
+                <div class="col-xs-12 default-style">
+                  <div class="hero-banner-replacement paragraphSystem"></div>
+                </div>
+
+<sly data-sly-use.peopleprofileherohtml="peopleprofilehero.html" data-sly-call="${peopleprofileherohtml.peopleprofileherotemplate @ model=model}"></sly>
+
+<sly data-sly-use.peopleprofiledetailshtml="peopleprofiledetails.html" data-sly-call="${peopleprofiledetailshtml.peopleprofiledetailstemplate @ model=model}"></sly>
+
+<sly data-sly-use.peopleprofilemediahtml="peopleprofilemedia.html" data-sly-call="${peopleprofilemediahtml.peopleprofilemediatemplate @ model=model}"></sly>
+
+<sly data-sly-use.peopleprofileendblockhtml="peopleprofileendblock.html" data-sly-call="${peopleprofileendblockhtml.peopleprofileendblocktemplate @ model=model}"></sly>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</pp-body>

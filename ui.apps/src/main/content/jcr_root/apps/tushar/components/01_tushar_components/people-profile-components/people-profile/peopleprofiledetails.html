@@ -1,0 +1,99 @@
+<template data-sly-template.peopleprofiledetailstemplate="${@ model}">
+<h6>People profile Details template</h6>
+<div id=profile-description class="col-xs-12 col-md-12 container-full-width container-dark-background">
+                  <div class=row>
+                    <div id=profile-description-left class="col-xs-12 col-sm-12 col-md-3 col-lg-2 default-style">
+                      <div class=row>
+                        <div class="col-xs-12 col-sm-6 col-md-12 default-style">
+                          <div class="surfaceTags component section default-style col-xs-12 tags fixed-component">
+                            <div class="surface-tags content">
+                              <span class=tags-header>Areas of focus</span>
+
+							    <sly data-sly-list.item="${model.peopleProfileCFPropertiesMap.five_qualities}">
+                              		<a class=surface-tag href=https://www.ey.com/en_in/tax>${item}</a>
+                                </sly>
+
+                              <a class=surface-tag href=https://www.ey.com/en_in/tax>Tax</a>
+                              <a class=surface-tag href=https://www.ey.com/en_in/workforce>Workforce</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-12 default-style">
+                          <div class="officeLocation component section office-location fixed-component">
+                            <div class=content>
+                              <span class=office-heading>Address</span>
+                              <a class=city-country href=https://www.ey.com/en_in/locations/india#new-delhi>
+                                <span>${model.peopleProfileCFPropertiesMap.permanentAddress @ context='html'}</span>
+
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+<div id=profile-description-right class="col-xs-12 col-md-9 col-lg-8 col-lg-offset-1 default-style">
+                      <div class=row>
+                        <div class="col-xs-12 col-md-12 col-lg-12 col-lg-offset-0 default-style">
+                          <div class="richText component section richText-copy-block col-xs-12 copy-block fixed-component read-more-target-0 activated is-open" style=height:806px>
+                            <div class=component-content>
+                              <div class=richText-content>
+
+								${model.peopleProfileCFPropertiesMap.about_text @ context='html'}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 default-style">
+                          <div class="readMore component section default-style col-xs-12 initialized read-more-target-0 activated is-open">
+                            <div class=component-content>
+                              <a href=# class="read-more sf-hidden" data-lines-desktop=8 data-lines-mobile=8>Read more</a>
+                              <a href=# class=read-less>Read less</a>
+                            </div>
+                          </div>
+                          <div class="under-copy-block paragraphSystem"></div>
+                        </div>
+                      </div>
+</div>
+                  </div>
+                </div>
+
+
+<h6>People profile Details template-end</h6>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
