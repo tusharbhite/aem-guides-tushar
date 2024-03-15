@@ -3,7 +3,7 @@
 async function updateSRC(title, imageElement){
 //var title="the avengers";
 title=title.replaceAll(" ","%20");
-console.log("Title "+title);
+//console.log("Title "+title);
     var url ='/bin/movieposter?title='+title;
 
 // Make a GET request to the URL using fetch API
@@ -20,10 +20,10 @@ fetch(url)
     console.error("Error:", error); // Handle any errors during the request
   });
 */
-    console.log("fetching url"+url)
+    //console.log("fetching url"+url)
   const response = await fetch(url);
   const data = await response.text();
-    console.log("Fetched string:", data); // Log the fetched string
+    //console.log("Fetched string:", data); // Log the fetched string
 
     imageElement.src = data;
 
@@ -43,7 +43,7 @@ fetch(url)
     const textElement = slide.querySelector('.text b.movie-title');
 
     const textContent = textElement.innerHTML;
-      console.log("textContent"+textContent);
+      //console.log("textContent"+textContent);
     const imageElement = slide.querySelector('img');
 
 	await updateSRC(textContent,imageElement);

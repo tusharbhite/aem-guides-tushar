@@ -10,21 +10,19 @@
                               <span class=tags-header>Areas of focus</span>
 
 							    <sly data-sly-list.item="${model.peopleProfileCFPropertiesMap.five_qualities}">
-                              		<a class=surface-tag href=https://www.ey.com/en_in/tax>${item}</a>
-                                </sly>
-
-                              <a class=surface-tag href=https://www.ey.com/en_in/tax>Tax</a>
-                              <a class=surface-tag href=https://www.ey.com/en_in/workforce>Workforce</a>
+                              		<a class=surface-tag href=https://www.ey.com/en_in/tax>${item.toString}</a>
+                                </sly>	
+                              
                             </div>
                           </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-12 default-style">
                           <div class="officeLocation component section office-location fixed-component">
                             <div class=content>
-                              <span class=office-heading>Address</span>
+                              <span class=office-heading>Office</span>
                               <a class=city-country href=https://www.ey.com/en_in/locations/india#new-delhi>
-                                <span>${model.peopleProfileCFPropertiesMap.permanentAddress @ context='html'}</span>
-
+                                <span>New Delhi</span>
+                                <span>, IN</span>
                               </a>
                             </div>
                           </div>
@@ -38,7 +36,12 @@
                             <div class=component-content>
                               <div class=richText-content>
 
-								${model.peopleProfileCFPropertiesMap.about_text @ context='html'}
+								<p>${model.peopleProfileCFPropertiesMap.introductoryText @ context='html'}</p>
+                                <p>${model.peopleProfileCFPropertiesMap.first_name} is a Partner with People Advisory Services practice and also co-leads the Private Client Services at EY India.</p>
+                                <p>${model.peopleProfileCFPropertiesMap.first_name} has over 18 years of experience in various tax and regulatory aspects of employee mobility, compensation structuring, immigration planning, succession planning, family businesses enterprise and foreign exchange control regulations.</p>                               
+
+<h4>How ${model.peopleProfileCFPropertiesMap.first_name}&nbsp;is building a better working world</h4>
+                                <p>"I continuously engage with our clients advising them on different regulatory and tax matters and help them achieve their ambitions. I constantly aim to win our clients confidence and become their trusted advisor."</p>
                               </div>
                             </div>
                           </div>
@@ -47,7 +50,6 @@
                           <div class="readMore component section default-style col-xs-12 initialized read-more-target-0 activated is-open">
                             <div class=component-content>
                               <a href=# class="read-more sf-hidden" data-lines-desktop=8 data-lines-mobile=8>Read more</a>
-                              <a href=# class=read-less>Read less</a>
                             </div>
                           </div>
                           <div class="under-copy-block paragraphSystem"></div>

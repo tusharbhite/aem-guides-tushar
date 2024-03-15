@@ -174,21 +174,21 @@ public class PeopleProfileModel {
         return  getFragmentProperties(peopleProfileCFPath+"/jcr:content/data/master");
     }
 
-    public Map<String, String> getMoviesData() {
-        LOGGER.debug("Inside GetMoviesData");
-        Map<String, String> map = new HashMap<>();
-        for (Object o:moviesList){
-            String posterURL="empty";
-            try {
-                posterURL = MovieAPIOPS.getPosterUrlFromMovieName(o.toString());
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            map.put(o.toString(), posterURL);
-            LOGGER.debug("Movie Name"+o.toString()+"posterURL "+posterURL);
-        }
-        return  map;
-    }
+    // public Map<String, String> getMoviesData() {
+    //     LOGGER.debug("Inside GetMoviesData");
+    //     Map<String, String> map = new HashMap<>();
+    //     for (Object o:moviesList){
+    //         String posterURL="empty";
+    //         try {
+    //             posterURL = MovieAPIOPS.getPosterUrlFromMovieName(o.toString());
+    //         } catch (IOException e) {
+    //             // TODO Auto-generated catch block
+    //             e.printStackTrace();
+    //         }
+    //         map.put(o.toString(), posterURL);
+    //         LOGGER.debug("Movie Name"+o.toString()+"posterURL "+posterURL);
+    //     }
+    //     return  map;
+    // }
 
 }
