@@ -1,0 +1,33 @@
+<div class="card mb-8">
+  <div class="row g-0">
+    <div class="col-md-7" style="height: 400px;overflow: hidden;">
+      <img src="${properties.image}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-5">
+      <div class="card-body">
+        <h1 class="card-title">${properties.movietitle}</h1>
+        <p class="card-text">${properties.description @ context='html'}</p>
+
+		<div class="ratings">
+		<h5>Ratings: ${properties.rating} / 5<h5>
+        <p class="card-text" rating="${properties.rating}"></p>
+			<span class="fa fa-star checked-star"></span>
+            <span class="fa fa-star checked-star"></span>
+            <span class="fa fa-star checked-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+		</div>
+
+		<br/>
+		<div><div class="h5">Language : </div> <span> ${properties.language}</span></div>
+<br/>
+		<div class="d-grid col-12">
+          <button class="btn btn-primary" type="button">Watch Now</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

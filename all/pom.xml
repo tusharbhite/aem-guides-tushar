@@ -60,6 +60,12 @@
                             <type>zip</type>
                             <target>/apps/tushar-packages/application/install</target>
                         </embedded>
+                              <embedded>
+                                <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
+                                <artifactId>accesscontroltool-oakindex-package</artifactId>
+                                <type>zip</type>
+                                <target>/apps/tushar-packages/application/install</target>
+                            </embedded> 
                         <embedded>
                             <groupId>com.tushar.aem.guides</groupId>
                             <artifactId>aem-guides-tushar.core</artifactId>

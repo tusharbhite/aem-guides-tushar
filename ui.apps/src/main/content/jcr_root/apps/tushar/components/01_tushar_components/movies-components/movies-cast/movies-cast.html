@@ -1,0 +1,44 @@
+<br/>
+
+<div class="card">
+&nbsp&nbsp
+<h2>&nbsp&nbspCast and Crew</h2>
+<div class="row row-cols-1 row-cols-md-6 g-4">
+&nbsp&nbsp
+<sly data-sly-list.item="${properties.name}">   
+  <div class="col">
+    <div class="card">
+
+		<div style="height: 150px;
+    overflow: hidden;">
+      <img class="img-fluid" src="${properties.photo[itemList.index]}" alt="...">
+
+		</div>
+      <div class="card-body" style="height: 80px;
+    overflow: hidden;">
+        <h6 class="card-title">${item}</h6>
+      </div>
+    </div>
+  </div>
+</sly>
+
+<br/>
+
+<!---------------------------------------
+
+  <div class="col">
+    <div class="card">
+      <img src="https://www.w3schools.com/bootstrap4/img_avatar1.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+
+-------------------------------------------!>
+</div>
+<br/>
+</div>
+
+<br/>

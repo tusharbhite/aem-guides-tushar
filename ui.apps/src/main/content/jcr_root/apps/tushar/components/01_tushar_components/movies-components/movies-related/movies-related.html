@@ -1,0 +1,53 @@
+<br/>
+
+<div class="card">
+<h2>&nbsp&nbspRelated Movies</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+<sly data-sly-list.item="${properties.movieTitles}">   
+
+<div class="col">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-7">
+      <img src="https://www.w3schools.com/bootstrap4/img_avatar1.png" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-5">
+      <div class="card-body">
+        <h5 class="card-title">${item}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+</sly>
+
+
+
+<!---------------------------------------
+image=${properties.moviePosters[itemList.index]}
+
+title=${item}
+<div class="col">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-7">
+      <img src="https://www.w3schools.com/bootstrap4/img_avatar1.png" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-5">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+-------------------------------------------!>
+
+
+</div>
+<br/>
+</div>
+
+<br/>

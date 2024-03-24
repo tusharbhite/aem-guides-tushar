@@ -1,3 +1,6 @@
-pages as part of code
+pages as part of code-done
 editable templates as part of a code
 nested sling models
+user pesmissions as a code
+acs commons manage publication 
+manage deletion

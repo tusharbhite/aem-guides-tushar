@@ -1114,7 +1114,28 @@ Bundle-DocURL:
         <scope>test</scope>
                     
       </dependency>
-              
+      <dependency>
+        <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
+        <artifactId>accesscontroltool-package</artifactId>
+        <type>content-package</type>
+        <classifier>cloud</classifier>
+        <version>3.0.10</version>
+      </dependency>
+
+      <dependency>
+        <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
+        <artifactId>accesscontroltool-oakindex-package</artifactId>
+        <type>zip</type>
+        <classifier>cloud</classifier>
+        <version>3.0.10</version>
+      </dependency>
+
+      <dependency>
+        <groupId>biz.netcentric.aem</groupId>
+        <artifactId>aem-nodetypes</artifactId>
+        <version>6.5.5.0</version>
+      </dependency>     
+                  
     </dependencies>
         
   </dependencyManagement>

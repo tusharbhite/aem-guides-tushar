@@ -2,9 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-03-20T12:10:58.189+05:30"
-        cq:lastModifiedBy="admin"
-        cq:template="/conf/tushar/settings/wcm/templates/tushar-landing-page"
+        cq:template="/conf/tushar/settings/wcm/templates/tushar-movies"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="tushar/components/page">
         <root
@@ -14,13 +12,7 @@
             <container
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="tushar/components/container"
-                layout="responsiveGrid">
-                <various_fields
-                    jcr:lastModified="{Date}2024-03-20T12:10:58.168+05:30"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="tushar/components/01_tushar_components/various-fields"/>
-            </container>
+                layout="responsiveGrid"/>
         </root>
     </jcr:content>
 </jcr:root>
