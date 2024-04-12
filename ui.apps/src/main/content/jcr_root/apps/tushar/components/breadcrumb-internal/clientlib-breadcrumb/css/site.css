@@ -1,0 +1,42 @@
+
+ul.breadcrumb-internal {
+  padding: 10px 16px;
+  list-style: none;
+    background-color:none;
+    margin-bottom: 0rem;
+}
+ul.breadcrumb-internal li {
+  display: inline;
+  font-size: 18px;
+    white-space: nowrap;
+}
+ul.breadcrumb-internal li+li:before {
+  padding: 8px;
+  color: black;
+  content: "			\00a0";
+}
+ul.breadcrumb-internal li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+ul.breadcrumb-internal li a i{
+  color: black !important;
+}
+ul.breadcrumb-internal li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
+.sticky-on-scroll {
+  position: sticky; /* Enables sticky positioning */
+  top: 0; /* Sticks to the top of the viewport */
+    width: 100%;
+    text-align: center;
+}
+
+.sticky-on-scroll.reached-top {
+  position: fixed; /* Becomes fixed at the top when scrolled */
+        z-index: 5;
+    background-color: white;
+}

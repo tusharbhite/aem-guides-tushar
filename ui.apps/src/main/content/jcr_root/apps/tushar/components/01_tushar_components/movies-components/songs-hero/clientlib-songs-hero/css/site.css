@@ -1,0 +1,261 @@
+
+
+
+
+.music-container{
+    width: 100%;
+    display: flex;
+    place-items: center;
+}
+
+.music-container .music-body{
+    box-shadow: 0 20px 50px #3d11839f;
+    background: #fff;
+    padding: 1.3rem;
+    border-radius: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.music-container .btn{
+ outline: none;
+    border: 0;
+    background: #eee6fc;
+    font-size: 0.9rem;
+    color: #7D30FA;
+    height: 2.188rem;
+    width: 2.188rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.music-container .top-icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.music-container .volume{
+    z-index: 5;
+}
+
+.music-container .layer{
+    z-index: 4;
+    position: absolute;
+    background:#ffff;
+    border: 2px solid #eee6fc;
+    height: 2.188rem;
+    width: 17.5rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 1.3rem;
+    border-radius: 1.5rem;
+    display: grid;
+    place-items: center;
+    visibility: hidden;
+}
+.music-container .volume-slider,.progress-bar{
+    position: relative;
+    width: 100%;
+    height: 0.2rem;
+    background: #eee6fc;
+}
+
+.music-container .volume-slider{
+    width: 80%;
+}
+
+.music-container .volume-slider {
+    right: -15px;;
+}
+
+.music-container .volume-slider .bar,.progress-bar .progress-line{
+	display: block;
+	width: 0;
+	height: inherit;
+	background-color: #7D30FA;
+}
+
+.music-container .volume-slider .bar{
+    width: 100%;
+}
+
+.music-container .volume-slider .volumerange, .progress-bar .progress{
+   width: 100%;
+  -webkit-appearance: none;
+  height: inherit;
+  background: transparent;
+  outline: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.music-container .volume-slider .volumerange::-webkit-slider-thumb,  .progress-bar .progress::-webkit-slider-thumb{
+	-webkit-appearance: none;
+	height: 0.7rem;
+    width: 0.7rem;
+	background-color: #7D30FA;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* volume range slider design end */
+
+.music-container .layer.hide{
+    visibility: visible;
+}
+
+.music-container .music-img{
+    margin-top: 1rem;
+    width: 17.5rem;
+    height: 15rem;
+    overflow: hidden;
+    border-radius: 1.4hrem;
+}
+
+.music-container .music-img img{
+    object-fit: cover;
+    /*height: 100%;*/
+    width: 100%;
+}
+
+.music-container .music-info{
+    text-align: center;
+}
+
+.music-container .music-info h2{
+    font-size: 1rem;
+    margin-top: 1rem;
+    letter-spacing: 0.02rem;
+    color: rgb(117, 116, 116);
+    color: #7D30FA;
+}
+
+.music-container .music-progress{
+    margin-top: 1rem;
+}
+
+.music-container .music-progress .progress-bar{
+    background: #ebdfff;
+    height: 0.2rem;
+    width: 100%;
+    margin-bottom: 0.4rem;
+    position: relative;
+}
+
+.music-container .progress-bar{
+    cursor: pointer;
+}
+
+.music-container .progress{
+    background: #7D30FA;
+    width: 0;
+    /*height: 100%;*/
+    position: relative;
+}
+
+.music-container .progress::before{
+    content: "";
+    position: absolute;
+    height: 0.7rem;
+    width: 0.7rem;
+    border-radius: 50%;
+    top: 50%;
+    right: -5px;
+    z-index: 2;
+    transform: translateY(-50%);
+    background: inherit;
+    /*transition: all 0.1s ease;*/
+}
+
+.music-container .duration{
+    display: flex;
+    color: #7D30FA;
+    justify-content: space-between;
+}
+
+.music-container .duration span{
+    font-size: 0.7rem;
+}
+
+.music-container .music-controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.music-container .prevbtn, .nextbtn, .playpause{
+    border: 0;
+    outline: 0;
+    font-size: 2rem;
+    background: #fff;
+    color: #7D30FA;
+    cursor: pointer;
+}
+
+.music-container .prevbtn:hover, .nextbtn:hover{
+    color: #5717be;
+}
+
+
+.music-container .playpause{
+    font-size: 1.7rem;
+    /* position: absolute; */
+    background: #7D30FA;
+    height: 4.5rem;
+    width: 4.5rem;
+    color: #fff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.music-container .fa-play{
+    position: relative; 
+    display: inline-block;
+    left: 0.1rem;
+}
+
+
+
+.music-container .main-controls{
+    position: relative;
+    /* border: 1px solid #b88ffa; */
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.3rem;
+}
+
+.music-container .color{
+    color: #fc00b0;
+}
+
+/* music list */
+
+.music-container .list-close{
+    background: none;
+    font-size: 1.1rem;
+    color: #ff1b1bf3;
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+}
+
+.music-container .songs-list{
+    position: absolute;
+    width: 100%;
+    /*height: 100%;*/
+    background: #fff;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    visibility: hidden;
+}
+.music-container .showlist{
+    visibility: visible;
+}
+

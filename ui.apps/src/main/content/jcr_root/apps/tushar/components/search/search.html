@@ -21,18 +21,24 @@
          data-cmp-min-length="${search.searchTermMinimumLength}"
          data-cmp-results-size="${search.resultsSize}">
     <div class="cmp_search__info" aria-live="polite" role="status"></div>
-    <form class="cmp-search__form" data-cmp-hook-search="form"
+    <form class="cmp-search__form d-flex" data-cmp-hook-search="form"
           method="get" action="${currentPage.path @ addSelectors=['searchresults'], extension='json', suffix = search.relativePath}"
           autocomplete="off">
         <div class="cmp-search__field">
-            <i class="cmp-search__icon fa fa-fw fa-search" data-cmp-hook-search="icon" style="color:white"></i>
+            <!--/*<i class="cmp-search__icon fa fa-fw fa-search" data-cmp-hook-search="icon" style="color:white"></i>*/-->
             <span class="cmp-search__loading-indicator" data-cmp-hook-search="loadingIndicator"></span>
-            <input class="cmp-search__input" data-cmp-hook-search="input" type="text" name="fulltext" placeholder="${'Search' @ i18n}"
+            <input class="form-control me-2 cmp-search__input" data-cmp-hook-search="input" type="text" name="fulltext" placeholder="${'Search' @ i18n}"
                    role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-invalid="false" aria-expanded="false">
+
             <button class="cmp-search__clear" data-cmp-hook-search="clear" aria-label="${'Clear' @ i18n}">
                 <i class="cmp-search__clear-icon"></i>
             </button>
         </div>
+
+		<span></span>
+
+			<button class="btn btn-primary ms-2" type="button"><i class="fas fa-search"></i></button>
+
     </form>
     <div class="cmp-search__results" aria-label="${'Search results' @ i18n}" data-cmp-hook-search="results" role="listbox" aria-multiselectable="false"></div>
     <sly data-sly-include="itemTemplate.html"/>

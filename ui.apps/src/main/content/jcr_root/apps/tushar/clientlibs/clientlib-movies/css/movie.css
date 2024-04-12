@@ -1,0 +1,13 @@
+.container, div.root, .responsivegrid {
+    max-width: none !important;
+}
+
+div.root {
+    max-width: none !important;
+}
+
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    --bs-gutter-x: 0.8rem !important;
+
+}

@@ -1,0 +1,77 @@
+
+    <sly data-sly-use.model="com.tushar.aem.guides.core.models.GenericGroupGridModel" />
+<h1 class="text-center text-capitalize">${currentPage.title} ${currentPage.parent.title}</h1>
+
+<div class="row row-cols-2 row-cols-md-5 row-cols-sm-2 g-4" data-sly-list.item="${model.childPages}">
+  <div class="col">
+    <div class="card">
+      <img loading="lazy" src="${item.properties.primaryimage}" class="card-img-top posterimg" alt="...">
+      <div class="card-body">
+        <a href="${item.path @extension='html'}"><h5 class="card-title">${item.title}</h5></a>
+        <p class="card-text" data-sly-test="${item.properties.tagLine!='NA'}">${item.properties.tagLine}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--/*
+
+
+    <h6 data-sly-list="${model.ChildPages}">
+    
+
+        <dt>path: ${item.path}</dt>
+    
+        <dt>title: ${item.title}</dt>
+
+        <dt>index: ${itemList.index}</dt>
+
+        <dt>songs: ${item.ChildPages.size}</dt>
+
+        <dt>image: ${item.properties.primaryimage}</dt>
+
+    </h6>
+
+*/-->
+<style>
+
+    .posterimg {
+        height: 300px;
+        width: 270px;
+        object-fit: cover;
+    }
+
+.card{
+overflow:hidden;
+}
+
+.card-body {
+    height: 70px;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+
+    
+    .posterimg {
+        height: 200px;
+        width: 170px;
+        object-fit: cover;
+    }
+
+.card {
+
+    height: 300px;
+    overflow: hidden;}
+
+.card-body {
+    height: 40px;
+    overflow: hidden;
+}
+
+    }
+
+
+
+</style>

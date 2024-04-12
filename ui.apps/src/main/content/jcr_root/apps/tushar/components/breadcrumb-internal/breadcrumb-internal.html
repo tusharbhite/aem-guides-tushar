@@ -1,0 +1,44 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2021 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+
+
+<span class="sticky-on-scroll">
+<ul data-sly-test="${!currentPage.parent.properties.isSongsParentPage}" class="breadcrumb-internal">
+  <li class="mx-2"><a href="#movie-hero-id"><i class="fa-solid fa-film"></i> Poster</a></li>
+  <li class="mx-2"><a href="#movie-trailer-id"><i class="fa-solid fa-video"></i> Trailer</a></li>
+  <li class="mx-2"><a href="#movie-plot-id"><i class="fa-solid fa-cash-register"></i> Plot</a></li>
+  <li class="mx-2"><a href="#flat-black-player-container"><i class="fa-solid fa-music"></i> Songs</a></li>
+  <li class="mx-2"><a href="#movie-cast-id"><i class="fa-solid fa-people"></i> Cast</a></li>
+  <li class="mx-2"><a href="#movie-review"><i class="fa-solid fa-star-half-stroke"></i> Review</a></li>
+  <li class="mx-2"><a href="#related-items"><i class="fa-solid fa-sitemap"></i> Related Items</a></li>
+</ul>
+
+
+<ul data-sly-test="${currentPage.parent.properties.isSongsParentPage}" class="breadcrumb-internal">
+  <li class="mx-2"><a href="#songs-hero-id"><i class="fa-solid fa-music"></i>PLayer</a></li>
+  <li class="mx-2"><a href="#movie-trailer-id"><i class="fa-solid fa-video"></i>Movie</a></li>
+  <li class="mx-2"><a href="#movie-plot-id"><i class="fa-solid fa-cash-register"></i>Lyrics</a></li>
+  <li class="mx-2"><a href="#flat-black-player-container"><i class="fa-solid fa-sitemap"></i>Details</a></li>
+  <li class="mx-2"><a href="#movie-cast-id"><i class="fa-solid fa-people"></i> Singers</a></li>
+</ul>
+
+
+</span>
+
+
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientLib.all @ categories='clientlib-breadcrumb-internal'}" />
+

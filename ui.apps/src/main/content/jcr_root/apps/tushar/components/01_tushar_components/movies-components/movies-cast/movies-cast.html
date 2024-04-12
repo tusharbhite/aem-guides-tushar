@@ -1,15 +1,17 @@
 <br/>
 
-<div class="card">
+<div class="" id="movie-cast-id">
 &nbsp&nbsp
-<h2>&nbsp&nbspCast and Crew</h2>
-<div class="row row-cols-1 row-cols-md-6 g-4">
-&nbsp&nbsp
+<h2 data-sly-test="${!currentPage.parent.properties.isSongsParentPage}">&nbspCast and Crew</h2>
+
+<h2 data-sly-test="${currentPage.parent.properties.isSongsParentPage}">&nbspSingers</h2>
+
+<div class="row row-cols-2 row-cols-md-6 row-cols-sm-2 g-4">
 <sly data-sly-list.item="${properties.name}">   
-  <div class="col">
+  <div class="col mr-2 ml-2" data-sly-test="${itemList.index < 6}">
     <div class="card">
 
-		<div style="height: 150px;
+		<div style="height: 200px;
     overflow: hidden;">
       <img class="img-fluid" src="${properties.photo[itemList.index]}" alt="...">
 
@@ -20,6 +22,25 @@
       </div>
     </div>
   </div>
+
+	<div class="col mr-2 ml-2 secondarycast hideElement" id="moreCast" data-sly-test="${itemList.index > 6}">
+    <div class="card">
+
+		<div style="height: 200px;
+    overflow: hidden;">
+      <img class="img-fluid" src="${properties.photo[itemList.index]}" alt="...">
+
+		</div>
+      <div class="card-body" style="height: 80px;
+    overflow: hidden;">
+        <h6 class="card-title">${item}</h6>
+      </div>
+    </div>
+  </div>
+
+
+
+
 </sly>
 
 <br/>
@@ -39,6 +60,12 @@
 -------------------------------------------!>
 </div>
 <br/>
+
+		<div class="d-grid col-12">
+          <button class="btn btn-primary mt-3 mb-3" id="viewallcast" type="button">View Full Cast</button>
+        </div>
+
+
 </div>
 
 <br/>

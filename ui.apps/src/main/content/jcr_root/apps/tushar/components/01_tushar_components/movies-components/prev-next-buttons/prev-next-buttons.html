@@ -1,0 +1,23 @@
+<div class="container mt-3 mb-3" data-sly-test.pathOfCurrentPage="${currentPage.path}"  data-sly-use.pnmodel="${'com.tushar.aem.guides.core.models.PrevNextLinksModel' @pathOfCurrentPage=pathOfCurrentPage}">
+
+    <div class="row row-cols-2">
+        <div class="col-md-6 col-sm-6 d-md-flex justify-content-md-start">
+
+          <a data-sly-test="${pnmodel.prevPagePath}" href="${pnmodel.prevPagePath @extension='html'}"><button class="btn btn-light text-dark" type="button"><i class="fa-solid fa-chevron-left"></i> Previous Page</button></a>
+
+        </div>
+        <div class="col-md-6 col-sm-6 d-md-flex justify-content-md-end">
+
+          <a data-sly-test="${pnmodel.nextPagePath}" href="${pnmodel.nextPagePath @extension='html'}"><button class="btn btn-light text-dark" type="button"> Next Page <i class="fa-solid fa-chevron-right"></i> </button></a>
+
+        </div>
+    </div>
+
+</div>
+
+<!----------------/*
+<sly data-sly-use.pnmodel="com.tushar.aem.guides.core.models.PrevNextLinksModel" />
+<p>${pnmodel.message} </p>
+<p>Prev Path ${pnmodel.prevPagePath}  <br/>Next Path ${pnmodel.nextPagePath}</p>
+
+*/-------------!>

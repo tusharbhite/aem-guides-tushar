@@ -58,7 +58,7 @@
 
 
 
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark"
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark mt-3"
 	 data-sly-use.navigation="com.adobe.cq.wcm.core.components.models.Navigation"
      data-sly-use.template="core/wcm/components/commons/v1/templates.html"
      data-sly-use.groupTemplate="group.html"
@@ -81,13 +81,18 @@
      <sly data-sly-call="${groupTemplate.group @ items=navigation.items}"></sly>
 	  </ul>
 
-      <form class="d-flex">
+      <!--/*<form class="d-flex">
+
+
         <input class="form-control me-2" type="text" placeholder="Search">
         <button class="btn btn-primary" type="button">Search</button>
-      </form>
+      </form>*/-->
 
+				<sly data-sly-resource="${'global-search' @ resourceType='tushar/components/search'}"></sly>
+				<sly data-sly-resource="${'language-switcher' @ resourceType='tushar/components/01_tushar_components/lanuage-switcher'}"></sly>				
 
 	</div>
 </div>
 </nav>
 <sly data-sly-call="${template.placeholder @ isEmpty=!hasContent, classAppend='cmp-navigation'}"></sly>
+

@@ -1,0 +1,24 @@
+<div data-sly-test="${!properties.groupStyle}" class="container" data-sly-list.item="${currentPage.listChildren}">
+<h6>${itemList.count} : <a href="${item.path @ extension='html'}"> ${item.properties.jcr:title}</a><span> ${item.properties.tagLine}<span></h6>
+</div>
+
+
+<div data-sly-test="${!properties.groupStyle}" class="container">
+	<h1 class="text-center">Movies</h1>
+
+
+</div>
+
+<div data-sly-test="${properties.groupStyle=='detailedlist'}" class="container">
+	<sly data-sly-include="/apps/tushar/components/01_tushar_components/movies-components/generic-group/list.html">  </sly>
+</div>
+
+
+
+<div data-sly-test="${properties.groupStyle=='grid'}" class="container">
+
+
+	<sly data-sly-include="/apps/tushar/components/01_tushar_components/movies-components/generic-group/grid.html">  </sly>
+
+
+</div>

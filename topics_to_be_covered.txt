@@ -4,3 +4,41 @@ nested sling models
 user pesmissions as a code
 acs commons manage publication 
 manage deletion
+
+add jsonstring in every movie 
+category page depending on tag/movie genere
+Action
+Adventure
+Horror
+value2
+value1
+Romance
+War
+History
+Sci-Fi
+Sport
+value323
+Drama
+Thriller
+Music
+Crime
+Biography
+Fantasy
+Animation
+Family
+Comedy
+Mystery
+Musical
+
+generic group (movies, songs, peoples) - list , grid, cards, links variations 
+search box (movies, songs, peoples)- search filter pagination  sorting 
+global search
+
+calender component 
+
+table component
+render condition
+Image collage component
+Sitemap
+google captcha
+ifrmae of content page
