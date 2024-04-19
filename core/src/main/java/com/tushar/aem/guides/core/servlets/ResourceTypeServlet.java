@@ -1,4 +1,3 @@
-// /*
 // package com.tushar.aem.guides.core.servlets;
 // import com.tushar.aem.guides.core.utils.MovieAPIOPS;
 // import java.io.BufferedReader;
@@ -43,7 +42,7 @@
 //  */
 // @Component(service={Servlet.class})
 // @SlingServletPaths("/bin/songs")
-// public class SongsServlet extends SlingSafeMethodsServlet {
+// public class ResourceTypeServlet extends SlingSafeMethodsServlet {
 
 //     @Override
 //      protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException
@@ -70,4 +69,3 @@
       
       
 // }
-// */

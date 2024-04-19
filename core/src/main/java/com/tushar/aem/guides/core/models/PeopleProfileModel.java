@@ -22,8 +22,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.jcr.RepositoryException;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
+
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
