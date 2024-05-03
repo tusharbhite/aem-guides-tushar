@@ -42,3 +42,4 @@ Image collage component
 Sitemap
 google captcha
 ifrmae of content page
+extend core component's default sling model

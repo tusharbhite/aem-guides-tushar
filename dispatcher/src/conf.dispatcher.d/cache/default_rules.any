@@ -30,11 +30,13 @@
 	/glob "/content/screens/svc.channels.json"
 	/type "deny"
 }
-/0011 {
-	/glob "/content/screens/svc/channels.channels.json"
-	/type "deny"
-}
-/0012 {
-	/glob "/screens/channels.json"
-	/type "deny"
-}
+#
+#/0011 {
+#	/glob "/content/screens/svc/channels.channels.json"
+#	/type "deny"
+#}
+#/0012 {
+#	/glob "/screens/channels.json"
+#	/type "deny"
+#}
+#

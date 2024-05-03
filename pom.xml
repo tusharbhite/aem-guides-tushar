@@ -83,7 +83,7 @@
             
     <aem.sdk.api>2023.7.12790.20230720T124230Z-230600</aem.sdk.api>
             
-    <aemanalyser.version>1.4.10</aemanalyser.version>
+    <aemanalyser.version>1.5.8</aemanalyser.version>
             
     <componentGroupName>Tushar Sites Project</componentGroupName>
 
@@ -1066,13 +1066,13 @@ Bundle-DocURL:
     <scope>provided</scope>
 </dependency> -->
 
-<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup 
 <dependency>
     <groupId>org.jsoup</groupId>
     <artifactId>jsoup</artifactId>
     <version>1.17.2</version>
 </dependency>
-
+-->
 
 
                   

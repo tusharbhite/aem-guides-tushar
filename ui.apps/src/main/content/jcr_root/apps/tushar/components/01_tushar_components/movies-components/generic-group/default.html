@@ -1,0 +1,6 @@
+    <sly data-sly-use.model="com.tushar.aem.guides.core.models.GenericGroupGridModel" />
+<h1 class="text-center text-capitalize">${currentPage.title}</h1>
+
+<div data-sly-test="${!properties.groupStyle}" class="container" data-sly-list.item="${model.childPages}">
+<h6>${itemList.count} : <a href="${item.path @ extension='html'}"> ${item.properties.jcr:title}</a><span> ${item.properties.tagLine}<span></h6>
+</div>

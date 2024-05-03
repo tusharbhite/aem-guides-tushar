@@ -4,4 +4,8 @@
 # By default, it includes the default rules.
 #
 
-$include "./default_rules.any"
+#$include "./default_rules.any"
+/0000 {
+	/glob "*"
+	/type "allow"
+}
