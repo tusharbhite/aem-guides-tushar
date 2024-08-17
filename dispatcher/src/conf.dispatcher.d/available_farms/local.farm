@@ -32,14 +32,15 @@
 	# for a second time.
 	/cache {
 		# The cacheroot must be equal to the document root of the webserver
-		/docroot "/var/www/localhost/htdocs"
+		/docroot "/mnt/var/www/html"
 		# sets the level upto which files named ".stat" will be created in the
 		# document root of the webserver. when an activation request for some
 		# handle is received, only files within the same subtree are affected
 		# by the invalidation.
 		/statfileslevel "2"
 		# caches also authorized data
-		/allowAuthorized "0"
+		/allowAuthorized "1"
+		
 		# Flag indicating whether the dispatcher should serve stale content if
 		# no remote server is available.
 		/serveStaleOnError "1"
@@ -51,6 +52,7 @@
 		/rules {
 			$include "../cache/rules.any"
 		}
+
 		# the invalidate section defines those pages which are 'invalidated' after
 		# any activation. please note that, the activated page itself and all 
 		# related documents are flushed on an modification. for example: if the 
@@ -59,22 +61,16 @@
 		/invalidate {
 			/0000 {
 				/glob "*"
-				/type "deny"
+				/type "allow"
 			}
 			/0001 {
 				/glob "*.html"
 				/type "allow"
 			}
-			# to ensure that AEM forms HTMLs are not auto-invalidated due to invalidation of any other resource. It is supposed to be deleted only after its own activation.
-			/0002
-			{
-				/glob "/content/forms/**/*.html"
-				/type "deny"
-			}
 		}
-		/allowedClients {
-			$include "../cache/default_invalidate.any"
-		}
+	#	/allowedClients {
+			#$include "../cache/default_invalidate.any"
+	#	}
 		# The ignoreUrlParams section contains query string parameter names that
 		# should be ignored when determining whether some request's output can be
 		# cached or delivered from cache.
@@ -83,7 +79,6 @@
 		# Marketing parameters can normally be ignored on most websites as they are tracked
 		# through different means. 
 		/ignoreUrlParams {
-			/0001 { /glob "*" /type "deny" }
 		 	/0002 { /glob "q" /type "allow" }
 			$include "../cache/marketing_query_parameters.any"
 		}
@@ -115,6 +110,6 @@
 		# next to the cache file is created, with modification time equal to the
 		# expiry date. When the cache file is requested past the modification time
 		# it is automatically re-requested from the backend.
-		/enableTTL "1"
+		#/enableTTL "1"
 	}
 }

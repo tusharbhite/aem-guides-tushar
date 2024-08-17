@@ -49,6 +49,7 @@ Include conf.d/variables/custom.vars
 		DispatcherUseProcessedURL	On
 		# Default setting to allow all errors to come from the aem instance
 		DispatcherPassError		0
+		
 	</IfModule>
 	<IfModule mod_rewrite.c>
 		RewriteEngine	on
