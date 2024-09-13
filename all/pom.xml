@@ -83,6 +83,24 @@
                             <type>zip</type>
                             <target>/apps/tushar-packages/application/install</target>
                         </embedded>
+
+                         <!-- Code package that deploys ONLY to AEM Author 
+                         THis is for learning that targets can be any of the content or application 
+                         and onstallation paths can be similar to the below mentioned  
+                          Instll to Publish Only
+                                 <target>/apps/my-app-packages/content/install.publish</target>
+                          Install to author only
+                                 <target>/apps/my-app-packages/application/install.author</target>
+                          Install vendor packages to specific path
+                                 <target>/apps/vendor-packages/container/install</target>
+
+                        <embedded>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>my-app.ui.apps.author</artifactId>
+                            <type>zip</type>
+                            <target>/apps/my-app-packages/application/install.author</target>
+                        </embedded> -->
+                        
                     </embeddeds>
                 </configuration>
             </plugin>

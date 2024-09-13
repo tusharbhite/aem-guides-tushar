@@ -1,1 +1,5 @@
 Environment variables can be directly edited from windows Edit Environment variables for System Option.
+
+Expose localhost to the internet www
+npm install -g localtunnel
+lt --port 4502

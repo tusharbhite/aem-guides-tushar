@@ -3,6 +3,8 @@
     <filter root="/conf/tushar" mode="merge"/>
     <filter root="/content/tushar" mode="merge"/>
         <filter root="/etc/acs-commons" mode="merge"/>
+                <filter root="/etc/anagram" mode="merge"/>
+
         <filter root="/content/cq:tags" mode="update"/>
 
     <filter root="/content/dam/content-fragments" mode="merge"/>
