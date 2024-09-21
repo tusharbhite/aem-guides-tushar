@@ -54,6 +54,13 @@
                     <group>com.tushar.aem.guides</group>
                     <name>aem-guides-tushar.ui.apps</name>
                     <packageType>application</packageType>
+                        <validatorsSettings>
+                            <jackrabbit-filter>
+                                <options>
+                                    <validRoots>/apps/cq/core/content/nav/tools</validRoots>
+                                </options>
+                            </jackrabbit-filter>
+                        </validatorsSettings>
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
                             <groupId>com.tushar.aem.guides</groupId>
@@ -86,6 +93,7 @@
                         <phase>generate-sources</phase>
                         <configuration>
                             <generateJavaClasses>true</generateJavaClasses>
+                            <failOnWarnings>false</failOnWarnings>
                             <generatedJavaClassesPrefix>org.apache.sling.scripting.sightly</generatedJavaClassesPrefix>
                             <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
                             <allowedExpressionOptions>

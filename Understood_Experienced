@@ -3,3 +3,9 @@ Environment variables can be directly edited from windows Edit Environment varia
 Expose localhost to the internet www
 npm install -g localtunnel
 lt --port 4502
+
+download txt file from aem
+/crx/de/download.jsp?path/content/dam/wknd/AEM-Keywords.txt/jcr:content/renditions/original/jcr:content/jcr:data&index=0
+/content/dam/wknd/AEM-Keywords.txt
+
+
