@@ -43,7 +43,15 @@
                     jpegQuality="{Long}85"
                     titleValueFromDAM="true"
                     uuidDisabled="true">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicated_publish="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicatedBy="admin"
+                        cq:lastReplicatedBy_publish="admin"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <plugins jcr:primaryType="nt:unstructured">
                         <crop
                             jcr:primaryType="nt:unstructured"
@@ -81,7 +89,15 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Text"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicated_publish="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicatedBy="admin"
+                        cq:lastReplicatedBy_publish="admin"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <rtePlugins jcr:primaryType="nt:unstructured">
                         <paraformat
                             jcr:primaryType="nt:unstructured"
@@ -184,7 +200,15 @@
                     allowedTypes="[h2,h3,h4,h5,h6]"
                     linkDisabled="false"
                     type="h2">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicated_publish="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicatedBy="admin"
+                        cq:lastReplicatedBy_publish="admin"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_641528232375303>
             </title>
             <experiencefragment jcr:primaryType="nt:unstructured">
@@ -212,7 +236,15 @@
                     jcr:title="Page Root"
                     sling:resourceType="wcm/core/components/policy/policy"
                     components="[group:Tushar Sites Project - Content,/apps/tushar/components/form/container,group:Tushar Sites Project - Structure]">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicated_publish="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicatedBy="admin"
+                        cq:lastReplicatedBy_publish="admin"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
                             <mapping_1575024218483
@@ -238,14 +270,22 @@
                 </policy_1574694950110>
                 <policy_1574695586800
                     jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
-                    jcr:lastModified="{Date}2024-01-01T11:55:14.101+05:30"
+                    jcr:lastModified="{Date}2024-03-31T09:15:55.519+05:30"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Tushar Sites Components,group:Tushar Sites Project - Content,/apps/tushar/components/form/container]"
+                    components="[group:Tushar Sites Components,group:Tushar Sites Project - Content,/apps/tushar/components/form/container,/apps/tushar/components/search]"
                     layoutDisabled="false">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicated_publish="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicatedBy="admin"
+                        cq:lastReplicatedBy_publish="admin"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
                             <mapping_1575030255082
@@ -279,11 +319,22 @@
                 </policy_649128221558427>
                 <policy_1575040440977
                     jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
+                    jcr:lastModified="{Date}2024-03-31T10:22:20.601+05:30"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Tushar Sites Project - Content,/apps/tushar/components/form/container]">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    components="[group:Tushar Sites Components,group:Tushar Sites Project - Content,/apps/tushar/components/form/container,/apps/tushar/components/search]"
+                    layoutDisabled="false">
+                    <jcr:content
+                        cq:lastReplicated="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicated_publish="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicatedBy="admin"
+                        cq:lastReplicatedBy_publish="admin"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
                             <mapping_1575024218483
@@ -307,6 +358,90 @@
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1575040440977>
+                <policy_116418645131100
+                    jcr:lastModified="{Date}2024-03-25T21:38:38.619+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="tushar-movies"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Tushar Sites Components,group:Tushar Sites Project - Content,group:Tushar Sites Project - Structure]"
+                    layoutDisabled="false">
+                    <jcr:content
+                        cq:lastReplicated="{Date}2024-04-30T23:54:11.244+05:30"
+                        cq:lastReplicated_publish="{Date}2024-04-30T23:54:11.244+05:30"
+                        cq:lastReplicatedBy="admin"
+                        cq:lastReplicatedBy_publish="admin"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
+                </policy_116418645131100>
+                <policy_1727010298805
+                    cq:styleDefaultClasses="backgroubd-red"
+                    cq:styleDefaultElement="div"
+                    jcr:lastModified="{Date}2024-09-22T18:40:01.066+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Test Container Theme"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Tushar Sites Components,group:Tushar Sites Project - Content,/apps/tushar/components/form/container,/apps/tushar/components/search]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:authoring jcr:primaryType="nt:unstructured">
+                        <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                            <mapping_1575030255082
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="media"
+                                assetMimetype="image/*"
+                                droptarget="image"
+                                resourceType="tushar/components/image"/>
+                            <mapping_1575030260142
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="content"
+                                assetMimetype="text/html"
+                                droptarget="experiencefragment"
+                                resourceType="tushar/components/experiencefragment"/>
+                            <mapping_1575030269139
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="media"
+                                assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
+                                droptarget="contentfragment"
+                                resourceType="tushar/components/contentfragment"/>
+                        </assetToComponentMapping>
+                    </cq:authoring>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Container Themes"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="backgroubd-red"
+                                    cq:styleElement="div"
+                                    cq:styleId="1727010342529"
+                                    cq:styleLabel="backgroubd-red"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="backgroubd-white"
+                                    cq:styleElement="div"
+                                    cq:styleId="1727010357211"
+                                    cq:styleLabel="backgroubd-white"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="backgroubd-green"
+                                    cq:styleElement="div"
+                                    cq:styleId="1727010366413"
+                                    cq:styleLabel="backgroubd-green"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="backgroubd-blue"
+                                    cq:styleElement="div"
+                                    cq:styleId="1727010378089"
+                                    cq:styleLabel="backgroubd-blue"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1727010298805>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
                 <policy_1575031387650
@@ -315,7 +450,15 @@
                     jcr:title="Content Teaser"
                     sling:resourceType="wcm/core/components/policy/policy"
                     titleType="h3">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicated_publish="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicatedBy="admin"
+                        cq:lastReplicatedBy_publish="admin"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1575031387650>
             </teaser>
             <download jcr:primaryType="nt:unstructured">
@@ -329,20 +472,92 @@
                     displayFormat="true"
                     displaySize="true"
                     titleType="h3">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicated_publish="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicatedBy="admin"
+                        cq:lastReplicatedBy_publish="admin"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1575032193319>
             </download>
             <page jcr:primaryType="nt:unstructured">
                 <policy
                     jcr:description="Includes the required client libraries."
+                    jcr:lastModified="{Date}2024-03-25T21:31:27.927+05:30"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Generic Page"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    clientlibs="[tushar.dependencies,tushar.site]"
+                    clientlibs="[tushar.dependencies,tushar.site,tushar.clientlib-movies,clientlib-bootstrap,tushar.fa]"
+                    clientlibsAsync="false"
                     clientlibsJsHead="tushar.dependencies">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicated_publish="{Date}2024-04-30T12:45:48.024+05:30"
+                        cq:lastReplicatedBy="admin"
+                        cq:lastReplicatedBy_publish="admin"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy>
+                <policy_1727008229157
+                    cq:styleDefaultClasses="gh"
+                    jcr:lastModified="{Date}2024-09-25T22:10:55.996+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Style Theme"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibsAsync="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Themes"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="bodyclass"
+                                    cq:styleId="1727008335099"
+                                    cq:styleLabel="Dark"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1727008229157>
             </page>
+            <_x0030_1_tushar_components jcr:primaryType="nt:unstructured">
+                <various-fields jcr:primaryType="nt:unstructured">
+                    <policy_1727006474438
+                        jcr:lastModified="{Date}2024-09-22T20:15:08.552+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Test Policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Various Field Themes"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="backgroubd-red"
+                                        cq:styleId="1727016257610"
+                                        cq:styleLabel="backgroubd-red"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="backgroubd-green"
+                                        cq:styleId="1727016279265"
+                                        cq:styleLabel="backgroubd-green"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1727006474438>
+                </various-fields>
+            </_x0030_1_tushar_components>
         </components>
     </tushar>
 </jcr:root>

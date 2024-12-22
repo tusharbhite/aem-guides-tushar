@@ -1,4 +1,4 @@
-package com.tushar.aem.guides.core.services.impl;
+package com.tushar.aem.guides.core.services.learning;
 
 import java.util.Random;
 import org.slf4j.Logger;
@@ -6,8 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
-
-import com.tushar.aem.guides.core.services.Activities;
+import com.tushar.aem.guides.core.services.learning.Activities;
 
 @Component(
     service = { Activities.class }
@@ -26,6 +25,11 @@ public class ActivitiesImpl implements Activities {
         int randomIndex = random.nextInt(activities.length);
         return activities[randomIndex];
     }
+
+    public String getCurrentString() {
+        return "Current String";
+    }
+
 
     @Activate
     protected void activate() {

@@ -1,0 +1,3 @@
+{
+    "envVar":"$[env:SERVER_API]"
+}

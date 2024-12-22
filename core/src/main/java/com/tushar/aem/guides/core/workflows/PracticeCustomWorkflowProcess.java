@@ -22,10 +22,10 @@ public class PracticeCustomWorkflowProcess implements WorkflowProcess{
             String payloadType = workItem.getWorkflowData().getPayloadType();
 
             if (StringUtils.equals(payloadType, "JCR_PATH")) {
-                logger.error("Payload type: {}", payloadType);
+                logger.error("PracticeCustomWorkflowProcess Payload type: {}", payloadType);
 
                 String path = workItem.getWorkflowData().getPayload().toString();
-                logger.error("Payload path: {}", path);
+                logger.error("PracticeCustomWorkflowProcess Payload path: {}", path);
             }
 
             String args = metaDataMap.get("PROCESS_ARGS", String.class);

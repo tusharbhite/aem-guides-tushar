@@ -1,0 +1,19 @@
+.backgroubd-red {
+   color: white !important; /* Sets text color to white */
+   background-color: red !important; /* Sets background color to black */
+}
+
+.backgroubd-white {
+   color: white !important; /* Sets text color to white */
+   background-color: white !important; /* Sets background color to black */
+}
+
+.backgroubd-green {
+   color: white !important; /* Sets text color to white */
+   background-color: green !important; /* Sets background color to black */
+}
+
+.backgroubd-blue {
+   color: white !important; /* Sets text color to white */
+   background-color: blue !important; /* Sets background color to black */
+}

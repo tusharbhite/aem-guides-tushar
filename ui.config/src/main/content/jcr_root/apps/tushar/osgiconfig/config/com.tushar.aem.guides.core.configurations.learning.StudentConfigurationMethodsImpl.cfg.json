@@ -1,0 +1,7 @@
+{
+    "getStudentName": "$[env:SERVER_API]",
+    "getRollNumber": 1020,
+    "getSubjects": ["Java","C++"],
+    "getCountries": "India",
+    "getRegular": true
+  }

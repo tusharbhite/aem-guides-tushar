@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/libs/settings/wcm/designs/default"
+        cq:lastModified="{Date}2024-01-26T10:22:22.844+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/libs/cq/workflow/templates/model"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Practice Content Workflow Model"
+        sling:resourceType="cq/workflow/components/pages/model"
+        lastSynced="{Date}2024-12-18T19:11:18.676+05:30">
+        <flow
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <participant
+                jcr:lastModified="{Date}2024-01-25T20:49:42.222+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Participant"
+                sling:resourceType="cq/workflow/components/model/participant">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PARTICIPANT="tushar"/>
+            </participant>
+            <or
+                jcr:lastModified="{Date}2024-01-25T20:50:30.454+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/workflow/components/model/or"
+                branches="2"
+                orSplit="true">
+                <_x0031_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <activateresourceproc
+                        jcr:description="A process to activate a page or asset"
+                        jcr:lastModified="{Date}2024-01-25T20:50:47.808+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Activate Page/Asset"
+                        sling:resourceType="wcm/workflow/components/workflow/activateresourceprocess">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.day.cq.wcm.workflow.process.ActivatePageProcess"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </activateresourceproc>
+                    <process
+                        jcr:lastModified="{Date}2024-01-25T22:56:57.881+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Process"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.tushar.aem.guides.core.workflows.PracticeCustomWorkflowProcess"
+                            PROCESS_ARGS="User=tushar,age=28"/>
+                    </process>
+                </_x0031_>
+                <_x0032_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <process_1233286389
+                        jcr:lastModified="{Date}2024-01-26T00:08:51.059+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Practice Workflow pass value from one process step to another"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.tushar.aem.guides.core.workflows.PracticeFirstCustomWorkflowProcess"
+                            PROCESS_ARGS="User=tushar,age=28"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </process_1233286389>
+                    <process_1167326953
+                        jcr:lastModified="{Date}2024-01-26T00:19:27.495+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Practice Second Workflow Process 2nd "
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.tushar.aem.guides.core.workflows.PracticeSecondWorkflowProcess"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </process_1167326953>
+                </_x0032_>
+            </or>
+        </flow>
+    </jcr:content>
+</jcr:root>

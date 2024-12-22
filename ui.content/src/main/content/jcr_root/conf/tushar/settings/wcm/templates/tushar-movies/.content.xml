@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
     jcr:primaryType="cq:Template">
     <jcr:content
-        cq:lastModified="{Date}2024-03-20T23:34:16.614+05:30"
+        cq:lastModified="{Date}2024-03-26T23:56:59.762+05:30"
         cq:lastModifiedBy="admin"
         cq:templateType="/conf/tushar/settings/wcm/template-types/page"
         jcr:primaryType="cq:PageContent"

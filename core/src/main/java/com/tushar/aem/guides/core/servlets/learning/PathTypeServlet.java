@@ -1,4 +1,4 @@
-package com.tushar.aem.guides.core.servlets;
+package com.tushar.aem.guides.core.servlets.learning;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ import org.osgi.service.component.annotations.Component;
  */
 @Component(service={Servlet.class})
 @SlingServletPaths("/bin/resourcemap")
-public class ResourceMapServlet extends SlingSafeMethodsServlet {
+public class PathTypeServlet extends SlingSafeMethodsServlet {
     @Override
      protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException
       {
@@ -25,5 +25,6 @@ public class ResourceMapServlet extends SlingSafeMethodsServlet {
         String mappedURLString=resolver.map(path);
         response.getWriter().println(mappedURLString);
       } 
-    
+    // Hit 
+    // http://localhost:4502/bin/resourcemap?path=content/tushar/us/en/home/about-us/jcr:content
 }

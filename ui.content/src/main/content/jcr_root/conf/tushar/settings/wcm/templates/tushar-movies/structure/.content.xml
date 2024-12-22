@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
+        cq:lastModified="{Date}2024-03-26T23:56:59.762+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2024-04-30T23:54:11.244+05:30"
+        cq:lastReplicated_publish="{Date}2024-04-30T23:54:11.244+05:30"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/tushar/settings/wcm/templates/tushar-movies"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
+        jcr:uuid="fdded46f-6440-4231-8d12-8b110ccb7e98"
         sling:resourceType="tushar/components/page">
         <root
             jcr:primaryType="nt:unstructured"
@@ -13,12 +24,49 @@
             <experiencefragment-header
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="tushar/components/experiencefragment"
-                fragmentVariationPath="/content/experience-fragments/tushar/us/en/site/header/master"/>
+                fragmentVariationPath="/content/experience-fragments/tushar/us/en/site/header/master">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="12"/>
+                </cq:responsive>
+            </experiencefragment-header>
+            <container_1975848456
+                jcr:lastModified="{Date}2024-03-25T21:38:00.429+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tushar/components/container">
+                <back_button
+                    jcr:lastModified="{Date}2024-03-25T21:39:20.957+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/movies-components/back-button"/>
+                <prev_next_buttons
+                    jcr:lastModified="{Date}2024-03-26T11:42:25.451+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="tushar/components/01_tushar_components/movies-components/prev-next-buttons"
+                    type="submit"/>
+            </container_1975848456>
             <container
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="tushar/components/container"
                 editable="{Boolean}true"
-                layout="responsiveGrid"/>
+                layout="responsiveGrid">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="12"/>
+                </cq:responsive>
+            </container>
+            <experiencefragment
+                jcr:lastModified="{Date}2024-03-21T20:39:22.813+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tushar/components/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/tushar/us/en/site/footer/master"/>
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">

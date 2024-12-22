@@ -3,4 +3,5 @@
     jcr:primaryType="cq:Page">
     <jcr:content jcr:primaryType="nt:unstructured"/>
     <people-profile/>
+    <people-profile1/>
 </jcr:root>

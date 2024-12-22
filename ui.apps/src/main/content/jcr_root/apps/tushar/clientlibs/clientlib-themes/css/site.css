@@ -1,0 +1,9 @@
+.bodyclass {
+    color: white !important; /* Sets text color to white */
+    background-color: black !important; /* Sets background color to black */
+}
+
+.bodyclass * {
+    background-color: black; /* Ensures all elements have a black background */
+    color: white; /* Ensures all text is white */
+}

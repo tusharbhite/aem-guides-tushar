@@ -4,9 +4,12 @@
 window.addEventListener('load', function() {
   // Get the value of the movieJson attribute from the div
   const movieJsonDiv = document.getElementById('movieJsonDiv');
+  if (movieJsonDiv != null)
+  {
   const relatedItemsDiv = document.getElementById('relatedItemsDiv');
-
+ 
   const movieJsonString = movieJsonDiv.getAttribute('moviejson');
+  
   // Parse the JSON string into a JavaScript object
   const jsonObject = JSON.parse(movieJsonString);
 	//alert(jsonObject)
@@ -98,5 +101,5 @@ window.addEventListener('load', function() {
 				castBody.scrollIntoView();	
 
             });
-
+          }
 });

@@ -1,0 +1,12 @@
+ul {
+   list-style-type: none;
+}
+ul ul {
+   display: none;
+}
+ul ul.active {
+   display: block;
+}
+li {
+   cursor: pointer;
+}

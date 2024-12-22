@@ -1,5 +1,5 @@
 <template data-sly-template.peopleprofiledetailstemplate="${@ model}">
-<h6>People profile Details template</h6>
+<!-- <h6>People profile Details template</h6> -->
 <div id=profile-description class="col-xs-12 col-md-12 container-full-width container-dark-background">
                   <div class=row>
                     <div id=profile-description-left class="col-xs-12 col-sm-12 col-md-3 col-lg-2 default-style">
@@ -7,10 +7,10 @@
                         <div class="col-xs-12 col-sm-6 col-md-12 default-style">
                           <div class="surfaceTags component section default-style col-xs-12 tags fixed-component">
                             <div class="surface-tags content">
-                              <span class=tags-header>Areas of focus</span>
+                              <span class="tags-header yellow-text">Qualities</span>
 
 							    <sly data-sly-list.item="${model.peopleProfileCFPropertiesMap.five_qualities}">
-                              		<a class=surface-tag href=https://www.ey.com/en_in/tax>${item.toString}</a>
+                              		<a style ="text-transform: capitalize;" class=surface-tag>${item}</a>
                                 </sly>	
                               
                             </div>
@@ -19,10 +19,10 @@
                         <div class="col-xs-12 col-sm-6 col-md-12 default-style">
                           <div class="officeLocation component section office-location fixed-component">
                             <div class=content>
-                              <span class=office-heading>Office</span>
-                              <a class=city-country href=https://www.ey.com/en_in/locations/india#new-delhi>
-                                <span>New Delhi</span>
-                                <span>, IN</span>
+                              <span class="yellow-text office-heading">Address</span>
+                              
+                              <a class=city-country href=>
+                                <span>${model.peopleProfileCFPropertiesMap.permanent_address}</span>
                               </a>
                             </div>
                           </div>
@@ -32,13 +32,13 @@
 <div id=profile-description-right class="col-xs-12 col-md-9 col-lg-8 col-lg-offset-1 default-style">
                       <div class=row>
                         <div class="col-xs-12 col-md-12 col-lg-12 col-lg-offset-0 default-style">
-                          <div class="richText component section richText-copy-block col-xs-12 copy-block fixed-component read-more-target-0 activated is-open" style=height:806px>
+                          <div class="richText component section richText-copy-block col-xs-12 copy-block fixed-component read-more-target-0 activated is-open" style=height:600px>
                             <div class=component-content>
                               <div class=richText-content>
 
-								<p>${model.peopleProfileCFPropertiesMap.introductoryText @ context='html'}</p>
-                                <p>${model.peopleProfileCFPropertiesMap.first_name} is a Partner with People Advisory Services practice and also co-leads the Private Client Services at EY India.</p>
-                                <p>${model.peopleProfileCFPropertiesMap.first_name} has over 18 years of experience in various tax and regulatory aspects of employee mobility, compensation structuring, immigration planning, succession planning, family businesses enterprise and foreign exchange control regulations.</p>                               
+                                <h4 class="yellow-text">About ${model.peopleProfileCFPropertiesMap.first_name}</h4>
+                                <p data-sly-test="${model.peopleProfileCFPropertiesMap.about_text}">${model.peopleProfileCFPropertiesMap.about_text @ context ='html'}</p>
+                                <p data-sly-test="${!model.peopleProfileCFPropertiesMap.about_text}">${model.peopleProfileCFPropertiesMap.first_name} has over 18 years of experience in various tax and regulatory aspects of employee mobility, compensation structuring, immigration planning, succession planning, family businesses enterprise and foreign exchange control regulations.</p>                               
 
 <h4>How ${model.peopleProfileCFPropertiesMap.first_name}&nbsp;is building a better working world</h4>
                                 <p>"I continuously engage with our clients advising them on different regulatory and tax matters and help them achieve their ambitions. I constantly aim to win our clients confidence and become their trusted advisor."</p>
@@ -57,10 +57,91 @@
                       </div>
 </div>
                   </div>
-                </div>
+                
+<div class="container" style="background: #2e2e38">
+  <div class="row">
+    <h3 class="yellow-text text-center">${model.peopleProfileCFPropertiesMap.first_name}'s Basic Details</h3>
+
+    <table class="table table-bordered table-dark border-light details-table">
+
+      <tbody>
+        <tr>
+          <th scope="row">Age</th>
+          <td>${model.peopleProfileCFPropertiesMap.age}</td>
+        </tr>
+        <tr>
+          <th scope="row">Date Of Birth</th>
+          <td>${'yyyy-MM-dd' @ format=model.peopleProfileCFPropertiesMap.date_of_birth}</td>
+        </tr>
+        <tr>
+          <th scope="row">Married</th>
+          <td colspan="2">${model.peopleProfileCFPropertiesMap.educationQualification}</td>
+        </tr>
+        <tr>
+          <th scope="row">Height</th>
+          <td colspan="2">${model.peopleProfileCFPropertiesMap.height}</td>
+        </tr>
+        <tr>
+          <th scope="row">Weight</th>
+          <td colspan="2">${model.peopleProfileCFPropertiesMap.weight}</td>
+        </tr>
+        <tr>
+          <th scope="row">Zodiac Sign</th>
+          <td colspan="2">${model.peopleProfileCFPropertiesMap.zodiacSign}</td>
+        </tr>
+        <tr>
+          <th scope="row">Nationality</th>
+          <td colspan="2">${model.peopleProfileCFPropertiesMap.nationality}</td>
+        </tr>     
+        <tr>
+          <th scope="row">Married</th>
+          <td colspan="2">${model.peopleProfileCFPropertiesMap.marital_status}</td>
+        </tr>
+        <tr>
+          <th scope="row">Famous For</th>
+          <td colspan="2">${model.peopleProfileCFPropertiesMap.famousFor}</td>
+        </tr>
+        <tr>
+          <th scope="row">Education Qualification</th>
+          <td colspan="2">${model.peopleProfileCFPropertiesMap.educationQualification}</td>
+        </tr>
+        <tr>
+          <th scope="row">Net Worth</th>
+          <td colspan="2">${model.peopleProfileCFPropertiesMap.netWorth}</td>
+        </tr>   
+        <tr>
+          <th scope="row">Food Habbit</th>
+          <td colspan="2">${model.peopleProfileCFPropertiesMap.foodHabbit}</td>
+        </tr>
+        <tr>
+          <th scope="row">Religion</th>
+          <td colspan="2">${model.peopleProfileCFPropertiesMap.religion}</td>
+        </tr>
+        <tr>
+          <th scope="row">Eye Colour</th>
+          <td colspan="2">${model.peopleProfileCFPropertiesMap.eyeColour}</td>
+        </tr>
+        <tr>
+          <th scope="row">Hair Colour</th>
+          <td colspan="2">${model.peopleProfileCFPropertiesMap.hairColour}</td>
+        </tr>
+        <tr>
+          <th scope="row">Married</th>
+          <td colspan="2">${model.peopleProfileCFPropertiesMap.age}</td>
+        </tr>                                                                                                
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h3 class="yellow-text text-center">${model.peopleProfileCFPropertiesMap.first_name}'s Hobbies</h3>
+<div class="text-center" data-sly-list.item="${model.peopleProfileCFPropertiesMap.hobbies}">
+  <span style="font-size: larger; text-transform: capitalize;" class="badge rounded-pill bg-secondary">${item}</span>
+</div>
 
 
-<h6>People profile Details template-end</h6>
+</div>
+<!-- <h6>People profile Details template-end</h6> -->
 </template>
 
 

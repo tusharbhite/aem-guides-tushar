@@ -5,7 +5,9 @@
     <filter root="/apps/tushar/i18n"/>
     <filter root="/apps/tushar/tools"/>
     <filter root="/apps/tushar/text-file-editor"/>
-    <filter root="/apps/tushar/config"/>
+    <!--<filter root="/apps/tushar/config"/>-->
+    <filter root="/apps/tushar/osgiconfig"/> 
+    <filter root="/apps/wcm"/>
     <filter root="/apps/tushar/groovy-scripts"/>
     <filter root="/apps/cq/core/content/nav/tools/tushar-tools"/>
 
