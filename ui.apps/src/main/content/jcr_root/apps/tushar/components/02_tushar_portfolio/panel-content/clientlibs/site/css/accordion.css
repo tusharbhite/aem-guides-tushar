@@ -1,0 +1,41 @@
+/*List CSS*/
+
+.coral3-SelectList{
+    -webkit-text-size-adjust: 100%;
+    font-family: adobe-clean,Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: .8125rem;
+    line-height: 1.0625rem;
+    color: #323232;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    overflow-y: auto;
+    display: block;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: .0625rem solid #d0d0d0;
+    background-color: #fff;
+}
+
+.coral3-SelectList-item{
+    -webkit-text-size-adjust: 100%;
+    font-family: adobe-clean,Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: .8125rem;
+    color: #323232;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    display: block;
+    margin: 0;
+    text-decoration: none;
+    cursor: pointer;
+    padding: .75rem .625rem;
+    min-height: 1.125rem;
+    line-height: 1.125rem;
+}
+
+coral-selectlist{
+    border: .0625rem solid #d0d0d0;
+}
