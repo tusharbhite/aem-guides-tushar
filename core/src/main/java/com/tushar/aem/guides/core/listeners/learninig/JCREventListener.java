@@ -14,9 +14,9 @@ import javax.jcr.observation.EventListener;
 
 
 @Component(immediate = true,service= EventListener.class)
-public class JCREventHandler implements EventListener{
+public class JCREventListener implements EventListener{
 
-    private static final Logger log = LoggerFactory.getLogger(JCREventHandler.class);
+    private static final Logger log = LoggerFactory.getLogger(JCREventListener.class);
     private Session session;
 
     @Reference

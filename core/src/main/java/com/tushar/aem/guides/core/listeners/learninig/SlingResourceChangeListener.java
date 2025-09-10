@@ -26,9 +26,9 @@ import java.util.Set;
                 ResourceChangeListener.CHANGES+"=CHANGED"
         }
 )
-public class ResourceEventHAndler implements ResourceChangeListener{
+public class SlingResourceChangeListener implements ResourceChangeListener{
 
-    private static final Logger LOG = LoggerFactory.getLogger(ResourceEventHAndler.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SlingResourceChangeListener.class);
     @Reference
     ResourceResolverFactory resourceResolverFactory;
 

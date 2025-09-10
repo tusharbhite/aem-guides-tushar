@@ -15,8 +15,13 @@
  */
 package com.tushar.aem.guides.core.schedulers;
 
+import org.apache.sling.commons.scheduler.ScheduleOptions;
+import org.apache.sling.commons.scheduler.Scheduler;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Deactivate;
+import org.osgi.service.component.annotations.Modified;
+import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
@@ -35,9 +40,11 @@ public class SimpleScheduledTask implements Runnable {
     @ObjectClassDefinition(name="A scheduled task",
                            description = "Simple demo for cron-job like task with properties")
     public static @interface Config {
+        @AttributeDefinition(name = "Scheduler Name")
+        String scheduler_name() default "SimpleScheduledTask";
 
         @AttributeDefinition(name = "Cron-job expression")
-        String scheduler_expression() default "*/30 * * * * ?";
+        String scheduler_expression() default "*/01 * * * * ?";
 
         @AttributeDefinition(name = "Concurrent task",
                              description = "Whether or not to schedule this task concurrently")
@@ -45,21 +52,36 @@ public class SimpleScheduledTask implements Runnable {
 
         @AttributeDefinition(name = "A parameter",
                              description = "Can be configured in /system/console/configMgr")
-        String myParameter() default "";
+        String myParameter() default "test-parameter";
     }
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private String myParameter;
+
+    
+    @Reference
+    private Scheduler scheduler;
     
     @Override
     public void run() {
-        logger.debug("SimpleScheduledTask is now running, myParameter='{}'", myParameter);
+        logger.error("SimpleScheduledTask runing >>>>>>>>>>>");
+    }
+
+    public void addScheduler(Config config) {
+        ScheduleOptions options = scheduler.EXPR(config.scheduler_expression());
+        options.name(config.scheduler_name());
+        options.canRunConcurrently(config.scheduler_concurrent());
+        // Add scheduler to call depending on option passed.
+        scheduler.schedule(this, options);
+        logger.info("Scheduler added successfully name='{}'", config.scheduler_name());
     }
 
     @Activate
     protected void activate(final Config config) {
-        myParameter = config.myParameter();
+        logger.info("Scheduling now SimpleScheduledTask ");
+        addScheduler(config);
+        myParameter = config.myParameter();        
     }
 
 }

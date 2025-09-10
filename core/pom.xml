@@ -10,7 +10,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>aem-guides-tushar.core</artifactId>
-    <name>Tushar Sites Project - Core</name>
+    <name>AEM Guides Tushar Sites Project - Core</name>
     <description>Core bundle for Tushar Sites Project</description>
     <build>
         <plugins>
