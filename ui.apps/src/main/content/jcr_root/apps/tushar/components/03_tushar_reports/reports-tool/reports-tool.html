@@ -1,0 +1,46 @@
+<reports-tool-body>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">Reports</h2>
+        </div>
+        <ul class="report-list">
+            <li class="report-item" data-report-name="report-1" data-report-url="/content/dam/reports/pages-reports.xlsx" data-script-path="/var/groovyconsole/scripts/pages-report.groovy">Pages Report</li>
+            <li class="report-item" data-report-name="report-2" data-report-url="/content/dam/reports/experience-fragments-report.xlsx" data-script-path="/var/groovyconsole/scripts/experience-fragments-report.groovy">Experience Fragments Report</li>
+            <li class="report-item" data-report-name="report-3">Report 3</li>
+        </ul>
+    </div>
+
+    <div class="main-content" id="main-content">
+        <header class="navbar">
+            <button class="toggle-btn" id="toggle-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <h1 class="page-title">Dashboard</h1>
+        </header>
+
+        <div class="content-container">
+            <div class="button-group">
+                <label for="file-upload" class="button">
+                    <input type="file" id="file-upload" accept=".xlsx" hidden>
+                    File Upload
+                </label>
+                <button class="button" id="get-latest-report-btn">Get Existing Report</button>
+                <button class="button" id="generate-report-btn">Generate New Report</button>
+            </div>
+            
+            <div id="data-display" class="data-display">
+                <p>Upload an Excel file or select a report from the sidebar.</p>
+            </div>
+        </div>
+    </div>
+</reports-tool-body>
+
+
+<!--/*<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></*/-->
+
+
+  <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" 
+    data-sly-call="${clientlib.all @ categories='tushar-reports-tool'}"/>
+
