@@ -6,15 +6,16 @@
             const generateReportBtn = document.getElementById('generate-report-btn');
             const dataDisplay = document.getElementById('data-display');
             const reportItems = document.querySelectorAll('.report-item');
-const username = "admin";
-const password = "admin";
+            const reportList = document.querySelectorAll('.report-list');            
+            const username = "admin";
+            const password = "admin";
 
 
             // Handle sidebar toggle
             toggleBtn.addEventListener('click', () => {
                 sidebar.classList.toggle('collapsed');
                 toggleBtn.classList.toggle('active');
-                
+
                 // For mobile view
                 if (window.innerWidth <= 768) {
                     sidebar.classList.toggle('active');
@@ -81,7 +82,15 @@ const password = "admin";
                 item.addEventListener('click', () => {
                     reportItems.forEach(i => i.classList.remove('active'));
                     item.classList.add('active');
+
                     displayMessage(`Selected report: <strong>${item.textContent}</strong>. Click 'Get Latest Report' to view data.`, 'info');
+                    getLatestReportBtn.click();
+					const activeReport = document.querySelector('.report-item.active');
+					if (activeReport) {
+                       // activeReport                        
+                        var pageTitle=document.querySelector(".page-title");
+                        pageTitle.textContent=activeReport.textContent;
+                    }
                 });
             });
 
@@ -142,6 +151,7 @@ const password = "admin";
                 }
 
                 const table = document.createElement('table');
+                table.classList.add("op-table");
                 const headerRow = document.createElement('tr');
                 
                 // Create table headers from the first row of data
@@ -167,7 +177,7 @@ const password = "admin";
                 dataDisplay.innerHTML = '';
                 dataDisplay.appendChild(table);
             }
-            
+
             // Function to display a message inside the data container
             function displayMessage(message, type) {
                 dataDisplay.innerHTML = `<p class="${type}-message">${message}</p>`;
@@ -242,6 +252,10 @@ const password = "admin";
                     }
                 }, 1500);
             }
+
+            const csd=document.querySelector('.report-list li');
+			csd.click();
+
         });
 
 

@@ -1,13 +1,31 @@
 <reports-tool-body>
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <h2 class="sidebar-title">Reports</h2>
+            <h2 class="sidebar-title">Reports List</h2>
         </div>
-        <ul class="report-list">
-            <li class="report-item" data-report-name="report-1" data-report-url="/content/dam/reports/pages-reports.xlsx" data-script-path="/var/groovyconsole/scripts/pages-report.groovy">Pages Report</li>
-            <li class="report-item" data-report-name="report-2" data-report-url="/content/dam/reports/experience-fragments-report.xlsx" data-script-path="/var/groovyconsole/scripts/experience-fragments-report.groovy">Experience Fragments Report</li>
-            <li class="report-item" data-report-name="report-3">Report 3</li>
-        </ul>
+
+<ul data-sly-list="${currentNode.children @ begin = 0, end = 9}">
+    <li>${item.title}</li>
+</ul>
+
+
+<ul class="report-list">
+
+        <h1 data-sly-repeat.citem=${currentNode.nodes}> <!--/*${citem.name}*/-->
+        	<h1 data-sly-repeat.ditem=${citem.nodes} data-sly-set.reportName="test" data-sly-set.itemNumber="${index}">
+
+                    <h1 data-sly-list.eitem=${ditem.properties}>
+                        <sly data-sly-test="${eitem.name == 'text' }" data-sly-set.reportName= ${eitem.value}></sly>
+                        <sly data-sly-test="${eitem.name == 'scriptPath' }" data-sly-set.scriptPath= ${eitem.value}></sly>
+                        <sly data-sly-test="${eitem.name == 'targetLocation' }" data-sly-set.targetLocation= ${eitem.value}></sly>
+                    </h1>
+                <li class="report-item" data-report-name="report-3" data-report-url="${targetLocation}" data-script-path="${scriptPath}">${reportName}</li>
+
+			</h1>
+        </h1>
+
+</ul>
+
     </div>
 
     <div class="main-content" id="main-content">
@@ -17,19 +35,30 @@
                 <span></span>
                 <span></span>
             </button>
-            <h1 class="page-title">Dashboard</h1>
+            <h1 class="page-title" style="width: 40%;">All in One Reports Dashboard</h1>
+
+			<div style="width:30%"></div>
+                <button class="button" id="generate-report-btn">Generate New Report</button>
+
+<div style="width:5%"></div>
+
+				<button class="button" id="download-report-btn">Download</button>
+
+
+
+
         </header>
 
         <div class="content-container">
             <div class="button-group">
-                <label for="file-upload" class="button">
+                <label for="file-upload" class="button" style="display:none">
                     <input type="file" id="file-upload" accept=".xlsx" hidden>
                     File Upload
                 </label>
-                <button class="button" id="get-latest-report-btn">Get Existing Report</button>
-                <button class="button" id="generate-report-btn">Generate New Report</button>
+                <button class="button" id="get-latest-report-btn" style="display:none">Get Existing Report</button>
+
             </div>
-            
+
             <div id="data-display" class="data-display">
                 <p>Upload an Excel file or select a report from the sidebar.</p>
             </div>
