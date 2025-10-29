@@ -1,0 +1,74 @@
+final def query = buildQuery();
+// query.setLimit(10);
+final def result = query.execute()
+
+count = 0;
+println 'No Of nodes found :' + result.nodes.size();
+
+result.nodes.each { node->
+ println node.path   
+}
+
+def buildQuery() {
+    def queryManager = session.workspace.queryManager;
+    // def statement = "SELECT * FROM [cq:Page] AS s WHERE ISDESCENDANTNODE(s, [/content/tushar])";
+    // def statement = "SELECT * FROM [cq:Page]"; //Find All Pages in Instance
+    // def statement = "SELECT * FROM [cq:Page] AS t WHERE ISCHILDNODE(t, [/content/tushar])"; //Find All Direct Child Pages
+    // def statement = "SELECT * FROM [cq:PageContent] AS t WHERE ISDESCENDANTNODE(t, [/content/tushar])"; //Find all JCR content nodes under a path
+    // def statement = "SELECT * FROM [dam:Asset]";//Find all assets
+    // def statement = "SELECT * FROM [nt:base] AS t WHERE t.[jcr:mixinTypes] = 'mix:versionable'";
+    // def statement = "SELECT * FROM [cq:Page] AS t WHERE NAME(t) LIKE 'home%'"; //Find all  pages where the node name starts with 'home' 
+    // def statement = "SELECT * FROM [cq:Page] AS t WHERE NAME(t) = 'home'"; //Find all  pages where the node name equals to 'home' 
+    // def statement = "SELECT * FROM [nt:base] AS t WHERE ISDESCENDANTNODE(t, [/content/dam/wknd]) AND NOT (t.[jcr:primaryType] = 'sling:Folder')"; //Select all nodes except sling:Folder in a path:
+    // def statement = "SELECT * FROM [cq:Page] AS t WHERE ISDESCENDANTNODE(t, [/content/tushar]) AND DEPTH(t) = 3";
+    // def statement = "SELECT * FROM [nt:base] AS t WHERE ISDESCENDANTNODE(t, [/content]) AND NOT (t.[jcr:primaryType] IN ('nt:unstructured', 'cq:PageContent'))"; // Select all nodes that are not nt:unstructured and not cq:PageContent
+    // def statement = "SELECT * FROM [nt:base] AS t WHERE t.[jcr:uuid] = '216624b6-98a7-4988-847c-2c93a238bf5c'";  // Select all nodes matching specific property value
+    // def statement = "SELECT * FROM [cq:Page] AS page WHERE ISDESCENDANTNODE(page, [/content/tushar/language-masters/hi_in]) UNION SELECT * FROM [dam:Asset] AS asset WHERE ISDESCENDANTNODE(asset, [/content/dam/wknd/en/site])";
+    // def statement = "SELECT * FROM [nt:base] AS t WHERE ISDESCENDANTNODE(t, [/content/tushar/language-masters/en/home/media-hub/movies/marathi/2010]) and t.[jcr:title] LIKE '%Mumbai%'";  // Property value matching partial string  (case sensitive)
+    // def statement = "SELECT * FROM [cq:Page] AS t WHERE ISDESCENDANTNODE(t, [/content/tushar/language-masters/en/home/media-hub/movies/marathi/2010]) and NOT t.[jcr:title] = '%Mumbai%'";  // Property value Not matching partial string  (case sensitive)
+    // def statement = "SELECT * FROM [cq:PageContent] AS t WHERE t.[hiddenInNav] = TRUE and ISDESCENDANTNODE(t, [/content/tushar/language-masters/en/home/media-hub/movies/marathi])"; //Filter by a boolean property being true:
+    // def statement = "SELECT * FROM [cq:PageContent] AS t WHERE ISDESCENDANTNODE(t, [/content/tushar/language-masters/en/home/media-hub/movies/marathi/2010]) and t.[id] > 1000"; //Filter pages by a custom integer property being greater than a value
+    // def statement = "SELECT * FROM [cq:Page] AS t WHERE ISDESCENDANTNODE(t, [/content/tushar/language-masters/en/home/media-hub/movies/marathi/2010]) and t.[jcr:content/id] > 1000"; //Filter pages by a custom property of a child node
+    // def statement = "SELECT * FROM [cq:Page] AS t WHERE ISDESCENDANTNODE(t, [/content/tushar/language-masters/en/home/media-hub/movies/marathi/2010]) and t.[jcr:content/jcr:title] = 'Mumbai Pune Mumbai'"; //Filter pages by a custom property of a child node
+    // def statement = "SELECT * FROM [cq:Page] AS t WHERE t.[custom:property] IS NULL"; //Find nodes with Property not exist or property value is null 
+    // def statement = "SELECT * FROM [cq:Page] AS t WHERE t.[jcr:title] IS NOT NULL"; //Find nodes with Property exist and property value is not null 
+    // def statement = "SELECT * FROM [cq:Page] AS t WHERE t.[jcr:content/root/container/media_title/genere] = 'genere:action'"; // Filter by a multi-value property containing a specific value (exact match)
+    // def statement = "SELECT * FROM [cq:Page] AS t WHERE t.[jcr:content/root/container/media_title/genere] like '%enere:actio%'"; // Filter by a multi-value property containing a specific value (wildcard match)
+    // def statement = "SELECT * FROM [nt:base] AS t WHERE t.[jcr:uuid] = '216624b6-98a7-4988-847c-2c93a238bf5c' OR  t.[jcr:uuid] = 'cfc4f993-683f-453d-8473-d0afa54b0597'"; //OR Condition
+    // def statement = "SELECT * FROM [nt:base] AS t WHERE t.[jcr:uuid] = '216624b6-98a7-4988-847c-2c93a238bf5c' AND  t.[jcr:createdBy] = 'admin'"; //AND Condition
+    // def statement = "SELECT * FROM [nt:base] AS t WHERE t.[jcr:uuid] IN('216624b6-98a7-4988-847c-2c93a238bf5c','cfc4f993-683f-453d-8473-d0afa54b0597')"; //IN Clause
+    // def statement = "SELECT * FROM [cq:PageContent] AS t WHERE t.[jcr:title] NOT LIKE '%Archived%'"; //Filter nodes using NOT LIKE (excluding certain paths/values):
+    // def statement = "SELECT * FROM [cq:PageContent] AS t WHERE t.['imdb-rating'] BETWEEN 7 AND 8"; //IN Clause
+    // def statement = "SELECT * FROM [cq:PageContent] AS t WHERE t.[jcr:created] >= CAST('2024-01-01T00:00:00.000Z' AS DATE)"; //Filter pages created on or after a specific date (JCR DATE format)
+    // def statement = "SELECT * FROM [cq:PageContent] AS t WHERE t.[cq:lastModified] < CAST('2024-03-01T12:00:00.000Z' AS DATE)"; //Filter pages last modified before a specific date:
+    // def statement = "SELECT * FROM [cq:Page] AS t WHERE t.[jcr:content/jcr:created] >= CAST('2025-10-11T00:00:00.000Z' AS DATE) AND t.[jcr:content/jcr:created] < CAST('2025-10-12T00:00:00.000Z' AS DATE)"; //Filter pages that were created today 
+    // def statement = "SELECT * FROM [cq:Page] AS t WHERE CONTAINS(t.*, 'admin')"; // Simple full-text search across all properties of a node
+    // def statement = "SELECT * FROM [nt:base] AS t WHERE CONTAINS(t.title, 'm')"; // Simple full-text search across particular property of a node
+    // def statement = "SELECT * FROM [cq:Page] AS t WHERE CONTAINS(t.*, 'Mumbai -pune')"; //Full-text search excluding a specific term(pune)
+    
+    // def statement = "SELECT parent.* FROM [cq:Page] AS parent INNER JOIN [nt:base] AS child ON ISCHILDNODE(child,parent) WHERE ISDESCENDANTNODE(parent, '/content') AND child.[cq:template] = '/conf/tushar/settings/wcm/templates/media-hub-template'"; //Join example
+    // def statement = "SELECT * FROM [cq:PageContent] AS x where x.[hiddenInNav]=true and ISDESCENDANTNODE(x, [/content/tushar/language-masters/en/home/media-hub/movies/marathi/2010]) UNION SELECT * FROM [nt:unstructured] AS x where x.[hiddenInNav]=true and ISDESCENDANTNODE(x, [/content/tushar/language-masters/en/home/media-hub/movies/marathi/2010])"; // Union Example if two nodes with two different primary types contains same property name
+    // def statement = "SELECT * FROM [cq:PageContent] AS x where x.[hiddenInNav]=true and ISDESCENDANTNODE(x, [/content/tushar/language-masters/en/home/media-hub/movies/marathi/2010]) UNION SELECT * FROM [nt:unstructured] AS x where ISDESCENDANTNODE(x, [/content/tushar/language-masters/en/home/media-hub/movies/marathi/2010])"; // Union Example Finding two different primary types of nodes with different conditions
+    // def statement = "SELECT parentPage.* FROM [cq:Page] AS parentPage INNER JOIN [nt:unstructured] AS component ON ISDESCENDANTNODE(component, parentPage) WHERE component.[sling:resourceType] = 'tushar/components/02_media_hub/media-metadata' and ISDESCENDANTNODE(parentPage, [/content/tushar/language-masters/en/home/media-hub/movies/marathi])"; //
+//  Find page componets                    def statement = "SELECT page.* FROM [cq:Page] AS page INNER JOIN [nt:unstructured] AS comp ON ISDESCENDANTNODE(comp, page) WHERE comp.[sling:resourceType] = 'tushar/components/02_media_hub/media-metadata'"; //
+    // def statement = "SELECT * FROM [dam:Asset] AS t WHERE t.[jcr:content/metadata/dc:format] <> 'application/pdf'"; //Find all assets that are not of type PDF (MIME type check)
+//Ordering, Limiting, and Grouping (10 Queries)    
+    // def statement = "SELECT * FROM [cq:Page] AS t where ISDESCENDANTNODE(t, [/content/tushar/language-masters/en/home/media-hub/movies/marathi/2014]) ORDER BY t.[cq:lastModified] DESC"; // Select pages ordered by modification date (most recent first)
+    // def statement = "SELECT * FROM [dam:Asset] AS t ORDER BY t.[jcr:content/metadata/dc:title] ASC"; //Select assets ordered alphabetically by title
+    // def statement = "SELECT * FROM [cq:Page] AS t ORDER BY t.[jcr:content/jcr:title] ASC, t.[jcr:content/cq:lastModified] DESC"; //Select nodes, ordered by multiple properties (title ASC, then modification DESC):
+    // def statement = "SELECT * FROM [cq:Page] AS t ORDER BY t.[jcr:created] ASC"; //
+    // def statement = "SELECT * FROM [nt:base] AS t WHERE t.[cq:lastReplicationAction] = 'Activate'"; // ALl published Pages, assets
+    // def statement = "SELECT * FROM [nt:base] AS t WHERE t.[sling:resourceType] IS NULL"; //
+    // def statement = "SELECT * FROM [nt:base] AS t WHERE NAME(t) LIKE '%.%'"; //Find all nodes that contain a dot in their name (usually indicative of imports or special files):
+    // def statement = "SELECT comp.* FROM [nt:unstructured] AS comp INNER JOIN [nt:base] AS child ON ISCHILDNODE(child, comp) WHERE NAME(child) = 'image'"; //Find components that have a specific child node name (e.g., 'image'):
+    // def statement = "SELECT * FROM [dam:Asset] AS t WHERE t.[jcr:content/metadata/dam:size] < 5242880"; // Find all assets smaller than 5MB (5 * 1024 * 1024 bytes):
+    // def statement = "SELECT * FROM [nt:base] AS t WHERE t.[jcr:primaryType] LIKE 'cq:%'"; //
+    
+    
+    // def statement = "SELECT page.* FROM [cq:Page] AS page INNER JOIN [nt:base] AS jcrContent ON ISCHILDNODE(jcrContent, page) INNER JOIN [nt:unstructured] AS component ON ISDESCENDANTNODE(component, jcrContent) WHERE NAME(jcrContent) = 'jcr:content' AND ISDESCENDANTNODE(page, '/content/tushar') AND component.[sling:resourceType] = 'tushar/components/02_media_hub/media-metadata2'"; //
+    // def statement = ""; //
+    // def statement = ""; //
+
+    
+    queryManager.createQuery(statement, 'JCR-SQL2');
+}

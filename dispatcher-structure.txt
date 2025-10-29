@@ -1,0 +1,299 @@
+# name of the dispatcher
+/name "internet-server"
+
+# each farm configures a set off (loadbalanced) renders
+/farms
+ {
+    #include the file myFarm.any in the /farms configuration 
+    $include "myFarm.any"    
+
+    #include all the files if the files farm_1.any through to farm_5.any
+    $include "farm_*.any"
+
+    #Use Env variables
+    /docroot "${PWD}/cache"
+
+  # first farm entry (label is not important, just for your convenience)
+   /website
+     {
+     /clientheaders
+       {
+       # list of HTTP headers that Dispatcher passes from the client HTTP request to the renderer (AEM publish instance)
+       "CSRF-Token"
+       "X-Forwarded-Proto"
+       "referer"
+       "user-agent"
+       "authorization"
+       }
+     /virtualhosts
+       {
+        #Dispatcher begins at the lowest farm and progresses upward in the dispatcher.any file
+        #For each farm, Dispatcher begins with the topmost value in the virtualhosts property and progresses down the list of values.
+        #The first-encountered virtual host that matches all three of the host, the scheme, and the uri of the request is used.
+        #If no virtualhosts values have a host part that matches the host of the request, the topmost virtual host of the topmost farm is used.
+        #you should place your default virtual host at the top of the virtualhosts property. Place it in the topmost farm of your dispatcher.any file.
+        
+        # "*" handles all requests
+        "*"
+       # List of URLs for this Web site
+        "www.myCompany.com"
+        "www.myCompany.ch"
+        "www.mySubDivison.*"
+
+       }
+     /sessionmanagement
+       {
+       # settings for user authentification
+       #To enable secure sessions /allowAuthorized Set to "0" in the /cache section to enable this feature.
+       #when you set /allowAuthorized 0 requests that include authentication information are not cached.
+
+       #directory that stores the session information. If the directory does not exist, it is created.
+       #do not point to the root folder (/directory "/")
+       /directory "/usr/local/apache/.sessions"
+
+       #encode is optional property, default value is md5, Uses md5 for encryption using the md5 algorithm, or hex for hexadecimal encoding.
+       /encode "md5"
+
+       #header is opptional property , default value is  HTTP:authorization, The name of the HTTP header or cookie that stores the authorization information. 
+       /header "HTTP:authorization"
+
+       #timeout is optional property, default valueis 800, The number of seconds until the session times out after it has been used last.
+       /timeout "800"
+       }
+     /renders
+       {
+       # List of AEM instances that render the documents
+       /myRenderer {
+            # hostname or IP of the renderer
+            /hostname "aem.myCompany.com"
+            # port of the renderer
+            /port "4503"
+            # connection timeout in milliseconds, "0" (default) waits indefinitely
+            /timeout "0"
+            #/receiveTimeout Specifies the time in milliseconds that a response is allowed to take. The default is "600000", causing Dispatcher to wait for 10 Minutes. A setting of "0" eliminates the timeout.
+            #/ipv4 If value is 0 Dispatcher uses the getaddrinfo function (for IPv6) if value is 1 then the gethostbyname function (for IPv4) for obtaining the IP address of the render. The default value is 0.
+            #/secure If the /secure property has a value of "1", Dispatcher uses HTTPS to communicate with the AEM instance.
+            #/always-resolve When set to "1", it resolves the host-name on every request (the Dispatcher never caches any IP address and this results in performance impact)If the property is not set, the IP address is cached by default.
+        }
+        # AEM instance that runs on the same computer as Dispatcher:
+        /myLocalRenderer
+        {
+            /hostname "127.0.0.1"
+            /port "4503"
+        }
+       }
+     /filter
+     #Use the /filter section to specify the HTTP requests that Dispatcher accepts. All other requests are sent back to the web server with a 404 error code (page not found). If no /filter section exists, all requests are accepted.
+     #allowlist strategy for your /filter section: First, deny access to everything. Allow access to content as needed.
+     #/type indicates whether to allow or deny access for the requests
+
+       {
+       # List of filters
+       #Example filter: Deny all
+       /0001  { /type "deny" /url "*"  }
+       #Example filter: Deny access to specific areas
+       /0002  { /type "deny" /url "*.asp"  }
+       #Enable POST requests
+       /0003 { /type "allow" /method "POST" /url "/content/[.]*.form.html" }
+       #Allow access to the Workflow console
+       /0004  {  /type "allow"  /url "/libs/cq/workflow/content/console*"  }
+       #Use regular expressions
+       /005  {  /type "allow" /extension '(css|gif|ico|js|png|swf|jpe?g)' }
+       #Filter extra elements of a request URL
+       /006 {
+        /type "deny"
+        /path "/content/*"
+        /selectors '(feed|rss|pages|languages|blueprint|infinity|tidy|sysview|docview|query|jcr:content|_jcr_content|search|childrenlist|ext|assets|assetsearch|[0-9-]+)'
+        /extension '(json|xml|html|feed)'
+        }
+       #Allow one level JSON request
+       /0007 { /type "allow" /method "GET" /extension 'json' "*.1.json" } 
+       #Restrict query strings, The following example allows the a=* query string and denies all other query strings for URLs that resolve to the /etc node
+       /0008 { /type "deny" /method "POST" /url "/etc/*" }
+       /0009 { /type "allow" /method "GET" /url "/etc/*" /query "a=*" }
+       }
+     /vanity_urls
+       {
+       # List of vanity URLs
+        #For each vanity URL that you have configured for an AEM or CQ page, ensure that the /filter configuration denies the URL. If necessary, add a filter that denies the URL.
+
+        # The path to the vanity URL service that runs on the render instance. The value of this property must be "/libs/granite/dispatcher/content/vanityUrls.html".
+        /url "/libs/granite/dispatcher/content/vanityUrls.html"
+        #The path to the local file where Dispatcher stores the list of vanity URLs. Make sure that the Dispatcher has write-access to this file.
+        /file "/tmp/vanity_urls"
+        #In (Seconds) The time between calls to the vanity URL service.
+        /delay 300
+        # default value is 1, By adding /loadOnStartup 0 (see the sample below), you can disable the loading of vanity URLs on startup.
+        /loadOnStartup 1
+
+       }
+     /cache
+       {
+        #directory where cached files are stored, If you use multiple farms, each farm must use a different document root.
+        /docroot "/opt/dispatcher/cache"
+        #the file to use as the statfile,Dispatcher uses this file to register the time of the most recent content update,The statfile has no content. When content is updated, the Dispatcher updates the timestamp. The default statfile is named .stat and is stored in the docroot. 
+        /statfile  "/tmp/dispatcher-website.stat"
+        #/allowAuthorized property controls whether requests that contain any of the following authentication information are cached:
+        #The authorization header
+        #A cookie named authorization
+        #A cookie named login-token
+        /allowAuthorized "0"
+
+        # /rules property controls which documents are cached according to the document path.
+        #Dispatcher never caches a document in the 4 circumstances: Request URI contains a question mark (?) (dynaic pages as search results), 2.The file extension is missing., 3.The authentication header is set (configurable)., 4.AEM instance responds with the following headers: no-cache or no-store or must-revalidate
+        /rules
+            {
+            # List of files that are cached, 
+            #Each item in the /rules property includes a glob pattern and a type
+            #Cache everything
+            /0000  {  /glob "*"   /type "allow" }
+            /0001  { /glob "/en/news/*" /type "deny" }
+            /0002  { /glob "*/private/*" /type "deny"  }
+            }
+
+        /invalidate
+            {
+            # List of files that are auto-invalidated when content is updated
+            /0000  { /glob "*" /type "deny" }
+            #invalidates all HTML pages
+            /0001 { /glob "*.html" /type "allow" }
+            /0002 { /glob "*.zip" /type "allow" }
+            /0002 { /glob "*/analytics.sitecatalyst.js"  /type "allow"}
+            }
+        /ignoreUrlParams
+        {
+            # ignore-all-url-parameters-by-dispatcher-and-requests-are-cached
+            /0001 { /glob "*" /type "allow" }
+            # allow-the-url-parameter-nocache-to-bypass-dispatcher-on-every-request
+            /0002 { /glob "nocache" /type "deny" }
+        }
+        /allowedClients property defines specific clients that are allowed to flush the cache. The globbing patterns are matched against the IP.
+        The following example: denies access to any client and explicitly allows access to the localhost
+        /allowedClients
+        {
+        /0001 { /glob "*.*.*.*"  /type "deny" }
+        /0002 { /glob "127.0.0.1" /type "allow" }
+        }
+
+        #headers property lets you define the HTTP header types that Dispatcher is going to cache.
+        /headers {
+            "Cache-Control"
+            "Content-Disposition"
+            "Content-Type"
+            "Expires"
+        }
+
+
+
+    }
+     /statistics
+     #statistics section defines categories of files for which Dispatcher scores the responsiveness of each render. Dispatcher uses the scores to determine which render to send a request.
+     #The first category pattern that matches the URI is the category of the file. No more category patterns are evaluated.
+     #Dispatcher supports a maximum of eight statistics categories. If you define more than eight categories, only the first 8 are used.
+     #If the request includes a renderid cookie, Dispatcher uses the specified render. Otherwise, it compares render statistics: identifies the request URI category, selects the render with the lowest response score for that category, or defaults to the first render if none is chosen. Scores are based on past response times and connection outcomes, updated per request attempt.    
+     #/unavailablePenalty property sets the time (in tenths of a second) that is applied to the render statistics when a connection to the render fails.
+
+       {
+       /categories
+         {
+         # The document categories that are used for load balancing estimates
+         /search { /glob "*search.html" }
+         /html { /glob "*.html" }
+         /others  { /glob "*" }
+         }
+       }
+
+     #/stickyConnectionsFor property defines one folder that contains sticky documents.
+     #Dispatcher sends all requests, from a single user that are in this folder, to the same render instance. Sticky connections ensure that session data is present and consistent for all documents. This mechanism uses the renderid cookie.  
+     /stickyConnectionsFor "/myFolder"
+     /health_check
+     #health_check property to specify a URL that is checked when a 500 status code occurs. If this page also returns a 500 status code, the instance is considered to be unavailable and a configurable time penalty ( /unavailablePenalty) is applied to the render before retrying.
+       {
+         # Page gets contacted when an instance returns a 500
+         /url "/health_check.html"
+       }
+     #The /retryDelay property (default value 1) sets the time (in seconds) that Dispatcher waits between rounds of connection attempts with the farm renders. For each round, the maximum number of times the Dispatcher attempts a connection to a render is the number of renders in the farm.  
+     /retryDelay "1"
+     #numberOfRetries property sets the maximum number of rounds of connection attempts that Dispatcher performs with the renders. If Dispatcher cannot successfully connect to a render after this number of retries, Dispatcher returns a failed response.
+     /numberOfRetries "5"
+
+     /unavailablePenalty "1"
+      #To resend failed requests to alternate renders, enable failover on your Dispatcher farm. If a render returns HTTP 503, Dispatcher retries with another render. For other 50x errors, it requests the health_check page. If that returns 500, Dispatcher retries the original request with a different render; if it returns 200, Dispatcher forwards the original 500 error to the client.
+     /failover "1"
+     }
+ }
+
+
+##NOTES 
+#If /statfileslevel is configured, Dispatcher ignores the /statfile property and uses .stat as the name.
+
+#Use the /statfileslevel property to invalidate cached files according to their path:
+ Dispatcher creates .statfiles in each folder from the docroot folder to the level that you specify. The docroot folder is level 0.
+ The statfile has no content. When content is updated, the Dispatcher updates the timestamp. The default statfile is named .stat and is stored in the docroot.
+ Files are invalidated by touching the .stat file. The .stat file’s last modification date is compared to the last modification date of a cached document. The document is refetched if the .stat file is newer.
+ When a file at a certain level is invalidated, all .stat files from the docroot to the level of the invalidated file or the configured statsfilevel (whichever is smaller) are touched.
+ For example: if you set the statfileslevel property to 6 and a file is invalidated at level 5 then every .stat file from docroot to 5 are touched. Continuing with this example, if a file is invalidated at level 7 then every stat file from docroot to six are touched (since /statfileslevel = "6").
+ Only resources along the path to the invalidated file are affected. 
+ example: a website uses the structure /content/myWebsite/xx/. If you set statfileslevel as 3
+ When a file in /content/myWebsite/xx is invalidated, then every .stat file from docroot down to /content/myWebsite/xxis touched and /content/myWebsite/yy or /content/anotherWebSite. remains untouched.
+ Invalidation can be prevented by sending an extra Header CQ-Action-Scope:ResourceOnly. This method can be used to flush particular resources without invalidating other parts of the cache. 
+ If you specify a value for the /statfileslevel property, the /statfile property is ignored.
+
+#/invalidateHandler
+#/invalidateHandler property lets you define a script that is called for each invalidation request received by Dispatcher.
+/invalidateHandler "/opt/dispatcher/scripts/invalidate.sh"
+
+Dispatcher cache file permissions
+The mode property specifies what file permissions are applied to new directories and files in the cache.
+The default value is 0755, which allows the owner to read, write, or search and the group and others to read or search.
+
+/gracePeriod property defines the number of seconds a stale, auto-invalidated resource may still be served from the cache after the last occurring activation. The property can be used in a setup where a batch of activations would otherwise repeatedly invalidate the entire cache. The recommended value is 2 seconds.
+
+Configure time based cache invalidation - /enableTTL
+Time-based cache invalidation depends on the /enableTTL property and the presence of regular expiration headers from the HTTP standard. If you set the property to 1 (/enableTTL "1"), it evaluates the response headers from the backend.
+If /enableTTL is set to 1, the file expiration is checked. If the file has expired according to the set TTL, no other checks are performed and the cached file is re-requested from the backend.
+
+
+ sticky Connections For 
+#for multiple paths
+/stickyConnections {
+  /paths {
+    "/content/image"
+    "/content/video"
+    "/var/files/pdfs"
+  }
+}
+
+Setting /ignoreEINTR to "1" causes Dispatcher to continue to attempt to read data until the complete response is read. The default value is 0 and deactivates the option.
+
+#Design patterns for glob properties
+Pattern */geo*     { zero or more }
+Match /content/geometrixx node , /content/geometrixx-outdoors
+
+Pattern *outdoors/??/*  { exact one character for ? }
+Match /content/geometrixx-outdoors/en/men.html"
+Not Match /content/geometrixx-outdoors/en.html
+
+Pattern *[o]men.html*   { [ & ] Demarks the beginning and end of a character class.}  
+Match /content/geometrixx-outdoors/en/women.html
+Not Match /content/geometrixx-outdoors/en/men.html
+
+Pattern *[m-p]men.html*  { - denotes a range of characters. }
+Match /content/geometrixx-outdoors/en/women.html
+Not Match /content/geometrixx-outdoors/en/men.html
+
+Pattern  *[!o]men.html*    {!	Negates the character}
+Match /content/geometrixx-outdoors/en/men.html
+Not Match /content/geometrixx-outdoors/en/women.html
+
+Alternative for ! is ^ character
+
+default log level is high (that is, level 3 = Debug), so that the Dispatcher logs all errors and warnings. 
+You can enable Trace Logging by setting the log level to 4 
+
+When adding the header X-Dispatcher-Info to a request, Dispatcher answers whether the target was cached, returned from cached, or not cacheable at all. The response header X-Cache-Info contains this information in a readable form. 
+This functionality is not enabled by default, so for the response header X-Cache-Info to be included, 
+the farm must contain the following entry:
+/info "1"
+
+

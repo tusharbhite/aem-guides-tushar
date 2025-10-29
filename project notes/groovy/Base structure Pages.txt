@@ -1,0 +1,98 @@
+import com.day.cq.wcm.api.PageManager
+import org.apache.sling.api.resource.ResourceResolver
+
+// --- Configuration ---
+def parentPath = "/content/tushar/language-masters/en/home/media-hub/movies" // ⚠️ IMPORTANT: Change this to your desired root path
+def templatePath = "/conf/tushar/settings/wcm/templates/media-hub-template" // ⚠️ IMPORTANT: Change this to your actual template path
+def languagePages = ["Marathi", "Hindi", "English", "Other"]
+def startYear = 1950
+def endYear = 2025
+
+// --- Get Services ---
+def resourceResolver = sling.getService(ResourceResolver.class)
+def pageManager = resourceResolver.adaptTo(PageManager.class)
+
+if (!pageManager) {
+    println "❌ Error: Could not adapt ResourceResolver to PageManager. Check AEM service availability."
+    return
+}
+
+println "Starting page creation process..."
+println "----------------------------------------------------"
+println "Target Parent Path: ${parentPath}"
+println "Template Used:      ${templatePath}"
+
+// Helper function to convert a display title (e.g., "English") to a valid JCR node name (e.g., "english")
+def toNodeName = { String title ->
+    return title.toLowerCase().replaceAll('\\s+', '-')
+}
+
+def createdPageCount = 0
+
+// 1. Get the parent page resource
+def parentPage = pageManager.getPage(parentPath)
+
+if (!parentPage) {
+    println "❌ Error: Parent page not found at: ${parentPath}. Please check the path."
+    resourceResolver.close()
+    return
+}
+
+// 2. Create the main language pages
+languagePages.each { languageTitle ->
+    def languageNodeName = toNodeName(languageTitle)
+    
+    try {
+        // Create the language page
+        def langPage = pageManager.create(
+            parentPage.getPath(),   // Parent path
+            languageNodeName,       // Node name (e.g., 'marathi')
+            templatePath,           // Template path
+            languageTitle           // Display title
+        )
+
+        if (langPage) {
+            println "\n  ➡️ Created Language Page: ${langPage.getPath()}"
+            createdPageCount++
+
+            // 3. Create year-wise child pages under the new language page
+            (startYear..endYear).each { year ->
+                def yearNodeName = year.toString() // e.g., '1950'
+                
+                // Create the year page
+                def yearPage = pageManager.create(
+                    langPage.getPath(),     // New parent path
+                    yearNodeName,           // Node name (e.g., '1950')
+                    templatePath,           // Same template
+                    yearNodeName            // Display title (can also be 'News ${year}')
+                )
+                
+                if (yearPage) {
+                    // console output for created year pages is optional due to verbosity
+                    // println "     -> Created Year Page: ${yearPage.getPath()}"
+                    createdPageCount++
+                } else {
+                    println "     ❌ Failed to create Year Page: ${langPage.getPath()}/${yearNodeName}"
+                }
+            }
+        } else {
+            println "  ❌ Failed to create Language Page: ${parentPage.getPath()}/${languageNodeName}"
+        }
+
+    } catch (Exception e) {
+        println "  ⚠️ Exception during creation of ${languageTitle}: ${e.getMessage()}"
+    }
+}
+
+// 4. Commit and close
+if (resourceResolver.hasChanges()) {
+    resourceResolver.commit()
+    save()
+    println "\n****************************************************"
+    println "✅ Successfully created ${createdPageCount} pages and committed changes."
+    println "****************************************************"
+} else {
+    println "\nNo changes were made. (Total pages to create: ${languagePages.size() * (endYear - startYear + 1)})"
+}
+
+resourceResolver.close()

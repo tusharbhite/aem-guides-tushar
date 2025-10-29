@@ -1,0 +1,281 @@
+// Groovy Script to read an XLSX file from DAM and generate AEM pages based on row data.
+// Requires Apache POI dependencies to be available in the AEM environment.
+
+import com.day.cq.dam.api.Asset
+import com.day.cq.commons.jcr.JcrConstants
+import com.day.cq.wcm.api.PageManager
+import com.day.cq.wcm.api.WCMException
+import org.apache.poi.ss.usermodel.WorkbookFactory
+import org.apache.poi.ss.usermodel.Row
+import org.apache.poi.ss.usermodel.Cell
+import org.apache.poi.ss.usermodel.CellType
+import org.apache.poi.ss.usermodel.DateUtil
+import org.apache.poi.ss.usermodel.Workbook
+import org.apache.sling.api.resource.ResourceResolver
+import org.apache.commons.lang3.StringUtils
+import java.io.InputStream
+
+// -------------------------------------------------------------------------------------
+// 1. CONFIGURATION
+// -------------------------------------------------------------------------------------
+
+// The path to the XLSX file in AEM DAM
+def DAM_FILE_PATH = "/content/dam/tushar/Movies-Test.xlsx"
+
+// The path to the standard AEM page to be copied as a template for new movie pages
+def TEMPLATE_PAGE_PATH = "/content/tushar/language-masters/en/home/media-hub/movies/jawan" 
+
+// Root paths for the destination pages
+def ROOT_PATHS = [
+    "hi": "/content/tushar/language-masters/en/home/media-hub/movies/hindi",
+    "en": "/content/tushar/language-masters/en/home/media-hub/movies/english",
+    "mr": "/content/tushar/language-masters/en/home/media-hub/movies/marathi", // NEW: Marathi Path
+    "other": "/content/tushar/language-masters/en/home/media-hub/movies/other" // Fallback path
+]
+
+// The expected column headers and their 0-based index in the XLSX file (used for property mapping)
+def COLUMN_HEADERS = [
+    "id", "title", "vote_average", "vote_count", "status", "release_date", "year", "revenue", "runtime", 
+    "budget", "imdb_id", "original_language", "original_title", "overview", "popularity", "tagline", 
+    "genres", "production_companies", "production_countries", "spoken_languages", "cast", "director", 
+    "director_of_photography", "writers", "producers", "music_composer", "imdb_rating", "imdb_votes", 
+    "poster_path"
+]
+
+// -------------------------------------------------------------------------------------
+// 2. UTILITY FUNCTIONS
+// -------------------------------------------------------------------------------------
+
+/**
+ * Normalizes a string to be a valid JCR node name (lowercase, dashes for spaces, removes special chars).
+ * @param title The input title string.
+ * @return A JCR-safe node name.
+ */
+def getValidNodeName(String title) {
+    if (!title) return null
+    def name = title.toLowerCase()
+    // Remove characters that are illegal in JCR node names
+    name = name.replaceAll(/[^a-z0-9\s-]/, '')
+    // Replace spaces and multiple dashes with a single dash
+    name = name.replaceAll(/\s+/, '-')
+    name = name.replaceAll(/--+/, '-')
+    // Trim leading/trailing dashes
+    return StringUtils.strip(name, '-')
+}
+
+/**
+ * Normalizes a header string to be a valid JCR property name (lowercase, underscores replaced by dashes).
+ * @param header The column header string.
+ * @return A JCR-safe property name.
+ */
+def getValidPropertyName(String header) {
+    if (!header) return null
+    def name = header.toLowerCase()
+    // Replace underscores with dashes and clean up any trailing dashes
+    return name.replaceAll('_', '-').replaceAll(/^-+|-+$/, '')
+}
+
+/**
+ * Reads the cell value and handles different cell types.
+ */
+def getCellValue(Cell cell) {
+    if (cell == null) return ""
+
+    switch (cell.getCellType()) {
+        case CellType.STRING:
+            return cell.getStringCellValue()
+        case CellType.NUMERIC:
+            if (DateUtil.isCellDateFormatted(cell)) {
+                return cell.getDateCellValue().format("yyyy-MM-dd") // Format date for consistency
+            } else {
+                return cell.getNumericCellValue()
+            }
+        case CellType.BOOLEAN:
+            return cell.getBooleanCellValue()
+        case CellType.FORMULA:
+            // Attempt to get the calculated value
+            try {
+                return cell.getCachedFormulaResultType() == CellType.STRING ? cell.getStringCellValue() : cell.getNumericCellValue()
+            } catch (Exception e) {
+                return ""
+            }
+        default:
+            return ""
+    }
+}
+
+// -------------------------------------------------------------------------------------
+// 3. MAIN EXECUTION
+// -------------------------------------------------------------------------------------
+
+def session = session
+def resourceResolver = resourceResolver
+def pageManager = resourceResolver.adaptTo(PageManager.class)
+
+if (!pageManager) {
+    println("ERROR: PageManager not available. Aborting.")
+    return
+}
+
+def asset = resourceResolver.getResource(DAM_FILE_PATH)?.adaptTo(Asset.class)
+
+if (!asset) {
+    println("ERROR: DAM asset not found at path: ${DAM_FILE_PATH}")
+    return
+}
+
+println("STATUS: Reading XLSX file from: ${DAM_FILE_PATH}")
+
+InputStream inputStream = null
+Workbook workbook = null
+int pagesCreatedCount = 0
+
+// try {
+    inputStream = asset.getOriginal().getStream()
+    workbook = WorkbookFactory.create(inputStream)
+    def sheet = workbook.getSheetAt(0) // Assuming data is in the first sheet (index 0)
+
+    // Iterate through rows, skipping the header row (index 0)
+    for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+        Row row = sheet.getRow(i)
+        if (row == null) continue
+
+        // 1. Extract necessary values from the row
+        // ORIGINAL_LANGUAGE is at index 11
+        def originalLanguage = getCellValue(row.getCell(COLUMN_HEADERS.indexOf("original_language"))).toString().toLowerCase()
+        // TITLE is at index 1
+        def movieTitle = getCellValue(row.getCell(COLUMN_HEADERS.indexOf("title"))).toString()
+        // YEAR is at index 6
+        def movieYear = getCellValue(row.getCell(COLUMN_HEADERS.indexOf("year")))?.intValue()
+        
+        if (StringUtils.isBlank(movieTitle) || movieYear == null) {
+            println("WARNING: Skipping row ${i} due to missing TITLE or Year.")
+            continue
+        }
+
+        // 2. Determine the base root path based on language
+        def basePath = ROOT_PATHS.get(originalLanguage) ?: ROOT_PATHS.get("other")
+        def yearPath = "${basePath}/${movieYear}"
+        
+        // 3. Ensure the Year page exists
+        def yearPage = pageManager.getPage(yearPath)
+        if (!yearPage) {
+            println("INFO: Creating year page: ${yearPath}")
+            try {
+                // Get the parent page node (e.g., 'english' node)
+                def parentPath = basePath
+                // Use a standard template or null to create a simple cq:Page structure
+                pageManager.create(parentPath, String.valueOf(movieYear), "/libs/wcm/core/templates/blank", String.valueOf(movieYear), true)
+            } catch (WCMException e) {
+                println("ERROR: Failed to create year page ${yearPath}: ${e.getMessage()}")
+                continue
+            }
+        }
+
+        // 4. Determine the new page path and name
+        def pageName = getValidNodeName(movieTitle)
+        if (!pageName) {
+            println("WARNING: Skipping row ${i} as TITLE resulted in an invalid node name.")
+            continue
+        }
+        def newPagePath = "${yearPath}/${pageName}"
+
+        // 5. Copy the template page
+        if (pageManager.getPage(newPagePath)) {
+            println("WARNING: Movie page already exists: ${newPagePath}. Skipping creation.")
+            continue
+        }
+
+        println("INFO: Creating movie page: ${newPagePath}")
+        try {
+            //  templatePage = resourceResolver.getResource(TEMPLATE_PAGE_PATH)?.adaptTo(Page.class)
+
+            // Copy the standard page template
+            def newPage = pageManager.copy(getPage(TEMPLATE_PAGE_PATH), newPagePath,  pageName, true, true)
+            // def newPage = pageManager.copy(getPage(TEMPLATE_PAGE_PATH), newPagePath, null, true, true)
+
+            if (newPage) {
+                pagesCreatedCount++
+                
+                // 6. Update properties on jcr:content
+                def jcrContentNode = newPage.getContentResource()?.adaptTo(javax.jcr.Node.class)
+                
+                if (jcrContentNode) {
+                    println("DEBUG: Setting properties for: ${newPagePath}")
+                    
+                    // Add the raw title
+                    jcrContentNode.setProperty("jcr:title", movieTitle)
+                    
+                    // Iterate through all expected headers and set properties
+                    for (int c = 0; c < COLUMN_HEADERS.size(); c++) {
+                        def header = COLUMN_HEADERS[c]
+                        def propName = getValidPropertyName(header)
+                        def propValue = getCellValue(row.getCell(c))
+                        
+                        // Check 1: Ensure property name is valid and not a JCR system property
+                        if (propName && !propName.startsWith("jcr:")) {
+                            
+                            boolean isValueValid = true;
+
+                            if (propValue == null) {
+                                isValueValid = false;
+                            } else if (propValue instanceof String) {
+                                // Check for blank/empty string AND string "0" (since some zero values might be read as text)
+                                String s = propValue.toString().trim()
+                                if (s.isEmpty() || s.equals("0")) {
+                                    isValueValid = false;
+                                }
+                            } else if (propValue instanceof Number) {
+                                // Check for numeric zero (0 or 0.0)
+                                if (propValue.doubleValue() == 0.0) {
+                                    isValueValid = false;
+                                }
+                            }
+                            
+                            // Check 2: Only set the property if the value is not null, not blank/empty, and not zero
+                            if (isValueValid) {
+                                // POI returns numbers as Double, ensure we store appropriate type
+                                if (propValue instanceof Double) {
+                                    // Decide whether to store as long (integer) or double (float)
+                                    if (propValue % 1 == 0) {
+                                        jcrContentNode.setProperty(propName, propValue.intValue())
+                                    } else {
+                                        jcrContentNode.setProperty(propName, propValue)
+                                    }
+                                } else {
+                                    jcrContentNode.setProperty(propName, propValue.toString())
+                                }
+                            } else {
+                                println("DEBUG: Skipping property ${propName} because value is null, blank, or zero.")
+                            }
+                        }
+                    }
+                } else {
+                    println("ERROR: Could not get jcr:content node for new page: ${newPagePath}")
+                }
+            }
+        } catch (WCMException e) {
+            println("ERROR: Error creating or copying page ${newPagePath}: ${e.getMessage()}")
+        }
+    }
+
+    // 7. Save Session
+    if (session.hasPendingChanges()) {
+        session.save()
+        println("STATUS: --- Groovy Script finished. Successfully created/updated ${pagesCreatedCount} pages. ---")
+    } else {
+        println("STATUS: --- Groovy Script finished. No pages were created or updated. ---")
+    }
+
+// } catch (Exception e) {
+//     println("FATAL ERROR during XLSX processing: ${e.getMessage()}")
+//     e.printStackTrace()
+// } finally {
+//     // 8. Close resources
+//     if (workbook != null) {
+//         try { workbook.close() } catch (IOException ignored) {}
+//     }
+//     if (inputStream != null) {
+//         try { inputStream.close() } catch (IOException ignored) {}
+//     }
+// }

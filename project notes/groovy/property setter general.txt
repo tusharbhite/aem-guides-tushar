@@ -1,0 +1,217 @@
+/**
+ * Generic Groovy function to set properties on a JCR node, handling
+ * single-valued, multivalued, and multifield structures.
+ *
+ * NOTE: This script assumes it is run within the AEM Groovy Console
+ * environment where 'session' is often a pre-bound variable.
+ */
+
+// Import necessary JCR classes
+import javax.jcr.Node
+import javax.jcr.Session
+import com.day.cq.commons.jcr.JcrConstants
+
+/**
+ * Sets properties at a given node path based on the property type.
+ *
+ * @param nodePath The absolute path of the JCR node to update (e.g., "/content/my-site/en/jcr:content/root/container/component")
+ * @param propertyName The name of the property to set (e.g., "title" or "tags")
+ * @param propertyValues The value(s) to set (String/Number, List, or List of Maps)
+ * @param propertyType A string indicating the type: 'single', 'multivalued', or 'multifield'
+ * @return String status message.
+ */
+def setNodeProperties(String nodePath, String propertyName, Object propertyValues, String propertyType) {
+    // Get the current JCR session (if running in Groovy Console, 'session' is often available)
+    // def session = getSession()
+
+    if (!session.nodeExists(nodePath)) {
+        return "ERROR: Node not found at path: ${nodePath}"
+    }
+
+    Node node = session.getNode(nodePath)
+    propertyType = propertyType?.toLowerCase()
+
+    try {
+        switch (propertyType) {
+            case 'single':
+                // ------------------------------------------------
+                // Case 1: Single-Valued Property (String, Number, Boolean)
+                // ------------------------------------------------
+                node.setProperty(propertyName, propertyValues)
+                break
+
+            case 'multivalued':
+                // ------------------------------------------------
+                // Case 2: Multivalued Property (List/Array of simple types)
+                // Ensures all previous properties are removed before setting new ones.
+                // ------------------------------------------------
+
+                // 1. Remove existing property
+                if (node.hasProperty(propertyName)) {
+                    node.getProperty(propertyName).remove()
+                    println "Removed existing multivalued property: ${propertyName}"
+                }
+
+                // 2. Set the new array/list property
+                if (propertyValues instanceof List || propertyValues.getClass().isArray()) {
+                    node.set(propertyName, propertyValues)
+                } else {
+                    throw new IllegalArgumentException("Multivalued property type requires a List or Array.")
+                }
+                break
+
+            case 'multifield':
+                // ------------------------------------------------
+                // Case 3: Multifield (Stored as indexed child nodes, e.g., node0, node1)
+                // Ensures all previous child nodes are removed before creating new ones.
+                // ------------------------------------------------
+
+                if (!(propertyValues instanceof List)) {
+                    throw new IllegalArgumentException("Multifield property type requires a List of Maps.")
+                }
+
+                // 1. Remove existing child nodes (item0, item1, etc.)
+                // Collect node names instead of Node objects for safer removal against JCR state changes.
+                def childNamesToRemove = []
+                node.getNodes().each { child ->
+                    // Check if the child node name matches the multifield pattern (item followed by digits)
+                    if (child.getName().matches("item\\d+")) {
+                        childNamesToRemove << child.getName()
+                    }
+                }
+
+                // Explicitly check for existence and remove using the parent node reference
+                childNamesToRemove.each { childName ->
+                    if (node.hasNode(childName)) {
+                        node.getNode(childName).remove()
+                        println "Removed old multifield child node: ${nodePath}/${childName}"
+                    }
+                }
+                
+                // 2. Create new child nodes and set nested properties
+                propertyValues.eachWithIndex { Map item, int index ->
+                    // Using 'item' prefix as requested
+                    def childNodeName = "item${index}"
+                    
+                    // Create the new child node (nt:unstructured is the default for most components)
+                    Node childNode = node.addNode(childNodeName, JcrConstants.NT_UNSTRUCTURED)
+                    
+                    // Set the nested properties within the child node
+                    item.each { key, value ->
+                        if (value != null) {
+                             if (value instanceof List || value.getClass().isArray()) {
+                                // Handle nested multivalued properties within a multifield item
+                                childNode.setProperty(key.toString(), value)
+                             } else {
+                                childNode.setProperty(key.toString(), value.toString())
+                             }
+                        }
+                    }
+                    println "Created new multifield child node: ${childNode.getPath()}"
+                }
+
+                break
+
+        
+              
+            default:
+                return "ERROR: Invalid propertyType specified. Use 'single', 'multivalued', or 'multifield'."
+        }
+
+        // Save the changes to the JCR
+        if (session.hasPendingChanges()) {
+            session.save()
+            return "SUCCESS: Properties updated and session saved at ${nodePath}"
+        } else {
+            return "SUCCESS: No changes pending (node already had these values) at ${nodePath}"
+        }
+
+    } catch (Exception e) {
+        // Log the error and roll back any changes if possible
+        session.refresh(false)
+        return "FATAL ERROR setting property on ${nodePath}: ${e.getMessage()}"
+    }
+}
+
+// // --- EXAMPLE 1: Single-Valued ---
+// def componentPath = "/content/tushar/language-masters/en/home/media-hub/movies/marathi/2024/navra-mazha-navsacha-2/jcr:content/root/container/media_title"
+
+// def status1 = setNodeProperties(
+//     componentPath,
+//     "jcr:title",
+//     "Jawan2",
+//     "single"
+// )
+// println "\n--- Single-Valued Result ---"
+// println status1
+
+
+// def componentPath = "/content/tushar/language-masters/en/home/media-hub/movies/marathi/2024/navra-mazha-navsacha-2/jcr:content/root/container/container/media_soundtracks"
+
+// // --- EXAMPLE 2: Multivalued ---
+// def status2 = setNodeProperties(
+//     componentPath,
+//     "soundtracks",
+//     ["red", "blue", "green", "yellow"],
+//     "multivalued"
+// )
+// println "\n--- Multivalued Result ---"
+// println status2
+
+// --- EXAMPLE 3: Multifield (List of Maps) ---
+// componentPath="/content/tushar/language-masters/en/home/media-hub/movies/marathi/2024/navra-mazha-navsacha-2/jcr:content/root/container/container_1681952233/media_cast/Copy of contact"
+
+// def multifieldData = [
+//     [name: "Google", link: "https://google.com", photo: "photo"],
+//     [name: "Adobe", link: "https://adobe.com", photo: "photo"],
+// ]
+
+componentPath="/content/tushar/language-masters/en/home/media-hub/movies/marathi/2024/navra-mazha-navsacha-2/jcr:content/root/container/container/media_metadata/metadata"
+
+def multifieldData = [
+    [key: "Google", value: "https://google.com"],
+    [key: "Adobe", value: "https://adobe.com"],
+    [key: "Gemini", value: "https://gemini.google.com"]
+]
+
+def status3 = setNodeProperties(
+    componentPath,
+    "myLinksMultifield", // This property name is irrelevant for the field itself, but good for context
+    multifieldData,
+    "multifield"
+)
+println "\n--- Multifield Result ---"
+println status3
+
+
+
+// ====================================================================
+// Mock/Example Usage (Uncomment to Test)
+// ====================================================================
+
+/*
+// --- MOCK SETUP ---
+// NOTE: In the AEM Groovy Console, you typically don't need this mock session setup.
+// You would usually just define the 'setNodeProperties' function and call it.
+def getSession() {
+    // In a real Groovy Console script, 'session' is usually provided automatically.
+    // For local testing, you would implement actual session login logic here.
+    return session
+}
+
+
+
+
+// After running, check your AEM instance for componentPath
+// You should see:
+// - componentTitle = "New Heading for the Component"
+// - allowedColors = ["red", "blue", "green", "yellow"]
+// - Child nodes under componentPath:
+//   - node0 (with properties: linkText="Google", linkURL="https://google.com")
+//   - node1 (with properties: linkText="Adobe", linkURL="https://adobe.com")
+//   - node2 (with properties: linkText="Gemini", linkURL="https://gemini.google.com")
+*/
+
+// --- IMPORTANT CLEANUP ---
+// In a standalone Groovy script (not Groovy Console), you would normally log out.
+// session.logout()
