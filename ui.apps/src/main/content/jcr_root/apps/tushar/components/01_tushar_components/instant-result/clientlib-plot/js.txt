@@ -1,6 +1,0 @@
-#base=js
-
-
-fullresult.js
-mobile.js
-site.js

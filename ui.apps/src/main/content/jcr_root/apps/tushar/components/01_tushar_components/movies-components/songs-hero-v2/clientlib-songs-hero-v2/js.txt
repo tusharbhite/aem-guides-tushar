@@ -1,4 +1,0 @@
-#base=js
-
-player.js
-site.js
