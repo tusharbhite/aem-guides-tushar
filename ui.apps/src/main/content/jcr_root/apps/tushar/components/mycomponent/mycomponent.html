@@ -1,0 +1,92 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" 
+    data-sly-call="${clientlib.all @ categories='tushar-social-share'}"/>
+<h1>Model</h1>
+    <div data-sly-use.model="${'com.tushar.aem.guides.core.models.MySlingModel' @ myAttribute='Some Value from Sightly'}">
+        <table>        
+          <tr>
+            <td>Key</td>
+            <td>Values</td>
+          </tr>
+
+          <tr data-sly-repeat.key="${model.details}">
+            <td>${key}</td>
+            <td>${model.details[key]}</td>
+          </tr>        
+        </table>
+	</div>
+<br/> <br/><br/>
+   
+
+<h1>Model- 2</h1>
+    <div data-sly-use.model2="${'com.tushar.aem.guides.core.models.MySlingModel2' @ myAttribute='Some Value from Sightly'}">
+        <table>        
+          <tr>
+            <td>Key</td>
+            <td>Values</td>
+          </tr>
+
+		  <tr>
+            <td>Respath</td>
+            <td>${model2.respath}</td>
+          </tr>
+
+          <tr data-sly-test="${model2.details}" data-sly-repeat.key="${model2.details}">
+            <td>${key}</td>
+            <td>${model2.details[key]}</td>
+          </tr>        
+        </table>
+	</div>
+
+
+
+<h1>Model- 3</h1>
+    <div data-sly-use.model3="${'com.tushar.aem.guides.core.models.MySlingModel3' @ myAttribute='Some Value from Sightly'}">
+        <table>        
+          <tr>
+            <td>Key</td>
+            <td>Values</td>
+          </tr>
+
+		  <tr>
+            <td>Respath</td>
+            <td>${model3.respath}</td>
+          </tr>
+
+          <tr data-sly-test="${model3.details}" data-sly-repeat.key="${model2.details}">
+            <td>${key}</td>
+            <td>${model.details[key]}</td>
+          </tr>        
+        </table>
+	</div>
+
+<h1>Context Aware Config</h1>
+
+    <div data-sly-use.cacModel="${'com.tushar.aem.guides.core.configurations.contextaware.MyCAConfigInterface'}">
+        <table>        
+          <tr>
+            <td>Key</td>
+            <td>Values</td>
+          </tr>
+
+		  <tr>
+            <td>SiteCountry</td>
+            <td>${cacModel.siteCountry}</td>
+          </tr>
+
+		  <tr>
+            <td>SiteLocale</td>
+            <td>${cacModel.siteLocale}</td>
+          </tr>
+
+		  <tr>
+            <td>siteAdmin</td>
+            <td>${cacModel.siteAdmin}</td>
+          </tr>
+
+		  <tr>
+            <td>siteSection</td>
+            <td>${cacModel.siteSection}</td>
+          </tr>
+
+        </table>
+	</div>

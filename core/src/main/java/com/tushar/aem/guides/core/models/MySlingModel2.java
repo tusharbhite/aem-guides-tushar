@@ -2,11 +2,13 @@ package com.tushar.aem.guides.core.models;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.components.ComponentContext;
 import com.day.cq.wcm.api.designer.Style;
+import com.tushar.aem.guides.core.services.MyServiceImpl;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
@@ -34,6 +36,9 @@ public class MySlingModel2 {
     public void init() {
         path=resource.getPath();
     }
+
+    @OSGiService
+    MyServiceImpl mysimpl;
 
     public String getUserName() {
        return userName;

@@ -1,7 +1,6 @@
 package com.tushar.aem.guides.core.models;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.components.ComponentContext;
-import com.tushar.aem.guides.core.services.QueryService;
 import org.apache.jackrabbit.api.security.user.UserManager;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -9,7 +8,6 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.scripting.SlingScriptHelper;
 import org.apache.sling.models.annotations.*;
 import org.apache.sling.models.annotations.injectorspecific.*;
-import org.apache.sling.models.spi.injectorspecific.InjectAnnotation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

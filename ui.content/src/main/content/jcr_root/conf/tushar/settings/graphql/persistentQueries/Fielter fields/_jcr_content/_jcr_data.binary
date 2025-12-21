@@ -1,0 +1,12 @@
+query personByName($name: String!) {
+  peopleProfileList(
+    filter: {first_name: {_expressions: [{value: $name, _operator: CONTAINS}]}}
+  ) {
+    items {
+      _path
+      fullName
+      date_of_birth
+      first_name
+    }
+  }
+}

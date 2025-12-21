@@ -4,7 +4,7 @@
     allowedPaths="[/content/entities(/.*)?]"
     ranking="{Long}100">
     <jcr:content
-        cq:lastModified="{Date}2024-09-27T18:53:14.409+05:30"
+        cq:lastModified="{Date}2025-10-12T21:30:00.777+05:30"
         cq:lastModifiedBy="admin"
         cq:scaffolding="/conf/tushar/settings/dam/cfm/models/people-profile/jcr:content/model"
         cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
@@ -26,16 +26,17 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="cq/gui/components/authoring/dialog">
                 <content
-                    jcr:lastModified="{Date}2024-09-27T18:53:14.409+05:30"
+                    jcr:lastModified="{Date}2025-10-12T21:30:00.777+05:30"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
                     <items
                         jcr:primaryType="nt:unstructured"
-                        maxGeneratedOrder="21">
+                        maxGeneratedOrder="20">
                         <_x0031_708792146184
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            emptyText="s"
                             fieldLabel="First Name"
                             listOrder="1"
                             maxlength="255"
@@ -96,7 +97,7 @@
                             sling:resourceType="dam/cfm/models/editor/components/contentreference"
                             fieldLabel="Thumbnail"
                             filter="hierarchy"
-                            listOrder="21"
+                            listOrder="8"
                             metaType="reference"
                             name="thumbnail"
                             nameSuffix="contentReference"
