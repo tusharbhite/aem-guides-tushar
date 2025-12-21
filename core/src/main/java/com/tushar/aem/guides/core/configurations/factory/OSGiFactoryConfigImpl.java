@@ -26,6 +26,7 @@ public class OSGiFactoryConfigImpl implements OSGiFactoryConfig {
         configID = config.configID();
         serviceName=config.serviceName();
         serviceURL=config.serviceURL();
+        LOGGER.info("MyOSGiFactoryConfigImpl:- "+" configID: "+configID+" serviceName: "+serviceName+" serviceURL: "+serviceURL);
     }
 
     @Reference(service = OSGiFactoryConfig.class, cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC)

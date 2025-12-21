@@ -1,0 +1,6 @@
+// Configuration created by Apache Sling JCR Installer
+{
+  "serviceName":"Service #4444",
+  "configID:Integer":4,
+  "serviceURL":"URL #4"
+}

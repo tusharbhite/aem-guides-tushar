@@ -1,0 +1,7 @@
+// Configuration created by Apache Sling JCR Installer
+{
+  "filter.methods":[
+    "DELETE"
+  ],
+  "allow.empty":true
+}
