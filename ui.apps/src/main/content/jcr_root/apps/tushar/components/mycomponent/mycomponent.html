@@ -90,3 +90,23 @@
 
         </table>
 	</div>
+
+
+
+<h1>Factory Config</h1>
+
+    <div data-sly-use.facModel="${'com.tushar.aem.guides.core.configurations.factory.MyFactoryConfigModelImpl'}">
+        <table>        
+          <tr>
+            <td>Key</td>
+            <td>Values</td>
+          </tr>
+
+		  <tr data-sly-test="${facModel.allOSGiConfigs}" data-sly-repeat.key="${facModel.allOSGiConfigs}">
+            <td>Service ID: <b>${key.configID}</b>, Service Name: <b>${key.serviceName},  Service URL : <b>${key.serviceURL}</b></td>
+            <td</td>
+          </tr>
+
+
+        </table>
+	</div>
