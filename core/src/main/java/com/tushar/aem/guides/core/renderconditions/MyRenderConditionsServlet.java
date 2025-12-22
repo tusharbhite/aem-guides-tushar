@@ -40,7 +40,7 @@ public class MyRenderConditionsServlet extends SlingSafeMethodsServlet {
     @Override
     protected void doGet(final SlingHttpServletRequest req, final SlingHttpServletResponse resp)
             throws ServletException, IOException {
-
+        logger.error("MyRenderConditionsServlet Error");
         boolean render = true;
         ValueMap cfg = ResourceUtil.getValueMap(req.getResource());
 
@@ -66,14 +66,16 @@ public class MyRenderConditionsServlet extends SlingSafeMethodsServlet {
 
     private boolean evaluateRenderCondition(String[] sitePatterns, String sitePath, String[] appPatterns, String appPath, boolean andCondition) {
         boolean siteRender = isPathAllowed(sitePatterns, sitePath);
-        boolean appRender = isPathAllowed(appPatterns, appPath);
         System.out.println("test");
 
-        return andCondition ? siteRender && appRender : siteRender || appRender;
+        return  siteRender;
+
     }
 
     private boolean isPathAllowed(String[] patterns, String path) {
         for (String pattern : patterns) {
+            logger.info("MyRenderConditionsServlet "+ path+" : "+pattern+" = "+path.matches(pattern));
+
             if (path.matches(pattern)) {
                 return false;
             }
