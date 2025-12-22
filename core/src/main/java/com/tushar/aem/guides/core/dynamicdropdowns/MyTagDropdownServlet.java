@@ -30,9 +30,9 @@ import java.util.Objects;
 @Component(service = Servlet.class, property = {Constants.SERVICE_DESCRIPTION + "= Tags value in dynamic Dropdown",
         "sling.servlet.paths=" + "/bin/colorTagLists", "sling.servlet.methods=" + HttpConstants.METHOD_GET
 })
-public class TagDropdownServlet extends SlingSafeMethodsServlet {
+public class MyTagDropdownServlet extends SlingSafeMethodsServlet {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TagDropdownServlet.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MyTagDropdownServlet.class);
 
     transient ResourceResolver resourceResolver;
     transient Resource pathResource;

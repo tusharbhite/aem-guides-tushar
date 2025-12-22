@@ -1,6 +1,5 @@
 package com.tushar.aem.guides.core.dynamicdropdowns;
 
-import com.adobe.granite.asset.api.Asset;
 import com.adobe.granite.ui.components.ds.DataSource;
 import com.adobe.granite.ui.components.ds.SimpleDataSource;
 import com.adobe.granite.ui.components.ds.ValueMapResource;
@@ -37,9 +36,9 @@ import java.util.*;
 @Component(service = Servlet.class, property = {Constants.SERVICE_DESCRIPTION + "= Json Data in dynamic Dropdown",
         "sling.servlet.paths=" + "/bin/jsonDataDropdown", "sling.servlet.methods=" + HttpConstants.METHOD_GET
 })
-public class JsonDataDropdownServlet extends SlingSafeMethodsServlet {
+public class MyJsonDataDropdownServlet extends SlingSafeMethodsServlet {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(JsonDataDropdownServlet.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MyJsonDataDropdownServlet.class);
 
     transient ResourceResolver resourceResolver;
     transient Resource pathResource;
