@@ -55,7 +55,7 @@
             type="PROCESS">
             <metaData
                 jcr:primaryType="nt:unstructured"
-                PROCESS="com.tushar.aem.guides.core.workflows.PracticeCustomWorkflowProcess"
+                PROCESS="com.tushar.aem.guides.core.workflows.MyPracticeCustomWorkflowProcess"
                 PROCESS_ARGS="User=tushar,age=28"/>
         </node5>
         <node6
@@ -64,7 +64,7 @@
             type="PROCESS">
             <metaData
                 jcr:primaryType="nt:unstructured"
-                PROCESS="com.tushar.aem.guides.core.workflows.PracticeFirstCustomWorkflowProcess"
+                PROCESS="com.tushar.aem.guides.core.workflows.MyPracticeFirstCustomWorkflowProcess"
                 PROCESS_ARGS="User=tushar,age=28"
                 PROCESS_AUTO_ADVANCE="true"/>
         </node6>
@@ -74,7 +74,7 @@
             type="PROCESS">
             <metaData
                 jcr:primaryType="nt:unstructured"
-                PROCESS="com.tushar.aem.guides.core.workflows.PracticeSecondWorkflowProcess"
+                PROCESS="com.tushar.aem.guides.core.workflows.MyPracticeSecondWorkflowProcess"
                 PROCESS_AUTO_ADVANCE="true"/>
         </node7>
         <node8

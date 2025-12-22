@@ -53,7 +53,7 @@
                         sling:resourceType="cq/workflow/components/model/process">
                         <metaData
                             jcr:primaryType="nt:unstructured"
-                            PROCESS="com.tushar.aem.guides.core.workflows.PracticeCustomWorkflowProcess"
+                            PROCESS="com.tushar.aem.guides.core.workflows.MyPracticeCustomWorkflowProcess"
                             PROCESS_ARGS="User=tushar,age=28"/>
                     </process>
                 </_x0031_>
@@ -68,7 +68,7 @@
                         sling:resourceType="cq/workflow/components/model/process">
                         <metaData
                             jcr:primaryType="nt:unstructured"
-                            PROCESS="com.tushar.aem.guides.core.workflows.PracticeFirstCustomWorkflowProcess"
+                            PROCESS="com.tushar.aem.guides.core.workflows.MyPracticeFirstCustomWorkflowProcess"
                             PROCESS_ARGS="User=tushar,age=28"
                             PROCESS_AUTO_ADVANCE="true"/>
                     </process_1233286389>
@@ -80,7 +80,7 @@
                         sling:resourceType="cq/workflow/components/model/process">
                         <metaData
                             jcr:primaryType="nt:unstructured"
-                            PROCESS="com.tushar.aem.guides.core.workflows.PracticeSecondWorkflowProcess"
+                            PROCESS="com.tushar.aem.guides.core.workflows.MyPracticeSecondWorkflowProcess"
                             PROCESS_AUTO_ADVANCE="true"/>
                     </process_1167326953>
                 </_x0032_>

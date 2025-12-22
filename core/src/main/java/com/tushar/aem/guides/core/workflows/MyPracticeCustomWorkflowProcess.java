@@ -13,9 +13,9 @@ import org.slf4j.LoggerFactory;
 
 @Component(service = WorkflowProcess.class,
         property = {"process.label=Practice Custom Workflow Process" })
-public class PracticeCustomWorkflowProcess implements WorkflowProcess{
+public class MyPracticeCustomWorkflowProcess implements WorkflowProcess{
 
-    protected final Logger logger = LoggerFactory.getLogger(PracticeCustomWorkflowProcess.class);
+    protected final Logger logger = LoggerFactory.getLogger(MyPracticeCustomWorkflowProcess.class);
 
     public void execute(WorkItem workItem, WorkflowSession wfSession,
         MetaDataMap metaDataMap) throws WorkflowException {

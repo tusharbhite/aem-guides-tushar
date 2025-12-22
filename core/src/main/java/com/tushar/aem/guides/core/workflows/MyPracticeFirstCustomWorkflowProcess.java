@@ -11,17 +11,16 @@ import org.slf4j.LoggerFactory;
 
 
 @Component(service = WorkflowProcess.class,
-        property = {"process.label=Practice Second Workflow Process 2nd " })
-public class PracticeSecondWorkflowProcess implements WorkflowProcess{
+        property = {"process.label=Practice Workflow pass value from one process step to another" })
+public class MyPracticeFirstCustomWorkflowProcess implements WorkflowProcess{
 
-    protected final Logger logger = LoggerFactory.getLogger(PracticeSecondWorkflowProcess.class);
+    protected final Logger logger = LoggerFactory.getLogger(MyPracticeFirstCustomWorkflowProcess.class);
 
     public void execute(WorkItem workItem, WorkflowSession wfSession,
         MetaDataMap metaDataMap) throws WorkflowException {
-        String name = workItem.getWorkflow().getMetaDataMap().get("user", String.class);
-        String age = workItem.getWorkflow().getMetaDataMap().get("Age", String.class);
+            logger.error("PracticeCustomWorkflowProcess called >>>>>>>>");
 
-        logger.error("Name >>>>>>> {}", name);
-        logger.error("Age >>>>>>> {}", age);
+            workItem.getWorkflow().getMetaDataMap().put("user", "Mike");
+            workItem.getWorkflow().getMetaDataMap().put("Age", "28");
     }
 }
