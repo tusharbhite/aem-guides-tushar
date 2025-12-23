@@ -1,0 +1,17 @@
+{
+  "mycomponent": {
+    "jcr:primaryType": "nt:unstructured",
+    "sling:resourceType": "tushar/components/mycomponent",
+    "userName": "testuser",
+    "designation": "developer",
+    "respath": false,
+    "details": {
+      "jcr:primaryType": "nt:unstructured",
+      "title": "Child Title"
+    },
+    "items": {
+      "item1": { "jcr:primaryType": "nt:unstructured" },
+      "item2": { "jcr:primaryType": "nt:unstructured" }
+    }
+  }
+}

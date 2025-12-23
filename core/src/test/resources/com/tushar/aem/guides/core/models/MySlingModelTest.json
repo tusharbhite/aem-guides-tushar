@@ -1,0 +1,37 @@
+{
+  "mycomponent": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "designation": " DesignationDesignationDesignation",
+            "jcr:created": "Thu Dec 11 2025 16:41:15 GMT+0530",
+            "username": "addsfdsfs",
+            "icon": "fa fa-align-center",
+            "jcr:lastModified": "Mon Dec 22 2025 21:17:31 GMT+0530",
+            "sling:resourceType": "tushar/components/mycomponent",
+            "listFrom": "resource",
+            "selectedColor": [
+                "GL 1",
+                "GL Item 2",
+                "navy",
+                "yellow",
+                "Tushar",
+                "cyan"
+            ],
+            "colorTags": "colours:black",
+            "details": {
+                "jcr:primaryType": "nt:unstructured",
+                "title": "tushar title"
+            },
+            "items": {
+                "jcr:primaryType": "nt:unstructured",
+                "item1": {
+                "jcr:primaryType": "nt:unstructured"
+                },
+                "item2": {
+                "jcr:primaryType": "nt:unstructured"
+            }
+        }
+    }
+
+}

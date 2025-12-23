@@ -5,4 +5,5 @@ import java.util.Map;
 public interface MySlingModelInterface {
 
   public Map<String,Object> getDetails();
+  public String getUserName();
 }

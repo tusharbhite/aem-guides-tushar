@@ -31,6 +31,8 @@ public class MySlingModel implements MySlingModelInterface {
 
     @Inject
     @Via("resource")
+    @Default(values="No Name")
+    @Optional
     private String username ;
 
     @ValueMapValue
@@ -61,17 +63,17 @@ public class MySlingModel implements MySlingModelInterface {
     @Self
     private SlingHttpServletRequest request;
 
-    @Self
-    private Resource resource;
-
-    @ScriptVariable
-    private Page svcurrentPage;
-
-    @ScriptVariable
-    protected ComponentContext componentContext;
-
-    @ScriptVariable
-    private Resource svresource;
+//    @Self
+//    private Resource resource;
+//
+//    @ScriptVariable
+//    private Page svcurrentPage;
+//
+//    @ScriptVariable
+//    protected ComponentContext componentContext;
+//
+//    @ScriptVariable
+//    private Resource svresource;
 
     @ScriptVariable
     private ResourceResolver svresourceResolver;
@@ -92,9 +94,9 @@ public class MySlingModel implements MySlingModelInterface {
     @ValueMapValue
     @Via("details") // Specifies that the value should be taken from the "details" child resource
     private String title;
-
-    @OSGiService
-    UserManager us;
+//
+//    @OSGiService
+//    UserManager us;
 
 
     public Map<String,Object> details=new HashMap<>();
@@ -157,6 +159,11 @@ public class MySlingModel implements MySlingModelInterface {
 //    @Override
     public Map<String,Object> getDetails(){
         return details;
+    }
+
+    @Override
+    public String getUserName(){
+        return username;
     }
 
 }
