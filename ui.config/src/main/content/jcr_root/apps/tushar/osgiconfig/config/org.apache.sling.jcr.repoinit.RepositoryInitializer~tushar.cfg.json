@@ -2,6 +2,8 @@
     "scripts": [
         "create path (sling:OrderedFolder) /content/dam/tushar",
         "create path (nt:unstructured) /content/dam/tushar/jcr:content",
-        "set properties on /content/dam/tushar/jcr:content\n  set cq:conf{String} to /conf/tushar\n  set jcr:title{String} to \"Tushar Sites Project\"\nend"
+        "set properties on /content/dam/tushar/jcr:content\n  set cq:conf{String} to /conf/tushar\n  set jcr:title{String} to \"Tushar Sites Project\"\nend",
+        "create service user rw-service-user with path system/cq:services/rw-service-user",
+        "set ACL for rw-service-user\nallow jcr:all on /content\nend"
     ]
 }

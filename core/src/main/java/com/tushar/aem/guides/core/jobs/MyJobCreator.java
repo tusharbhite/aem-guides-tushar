@@ -1,12 +1,9 @@
-package com.tushar.aem.guides.core.jobs.learnings;
+package com.tushar.aem.guides.core.jobs;
 
 
-import com.day.cq.replication.ReplicationAction;
-import com.day.cq.replication.ReplicationActionType;
 import org.apache.sling.api.SlingConstants;
 import org.apache.sling.event.jobs.Job;
 import org.apache.sling.event.jobs.JobManager;
-import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.event.Event;
@@ -15,12 +12,8 @@ import org.osgi.service.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-
-import org.apache.sling.event.jobs.JobManager;
 
 @Component(service = {EventHandler.class},
         immediate = true,
@@ -28,9 +21,9 @@ import org.apache.sling.event.jobs.JobManager;
                 EventConstants.EVENT_TOPIC + "=org/apache/sling/api/resource/Resource/ADDED",
                 EventConstants.EVENT_FILTER +"=(path=/content/tushar/us/en/*)"
         })
-public class GeeksJobCreator implements EventHandler {
+public class MyJobCreator implements EventHandler {
 
-    private static final Logger LOG = LoggerFactory.getLogger(GeeksJobCreator.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MyJobCreator.class);
 
     @Reference
     JobManager jobManager;

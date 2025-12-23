@@ -1,10 +1,8 @@
-package com.tushar.aem.guides.core.jobs.learnings;
+package com.tushar.aem.guides.core.jobs;
 
-import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.event.jobs.Job;
 import org.apache.sling.event.jobs.consumer.JobConsumer;
-import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
@@ -15,9 +13,9 @@ import org.slf4j.LoggerFactory;
             property = {
                 JobConsumer.PROPERTY_TOPICS + "=geeks/job"
         })
-public class GeeksJobConsumer implements JobConsumer {
+public class MyJobConsumer implements JobConsumer {
 
-    private static final Logger LOG = LoggerFactory.getLogger(GeeksJobConsumer.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MyJobConsumer.class);
 
     @Reference
     ResourceResolverFactory resourceResolverFactory;

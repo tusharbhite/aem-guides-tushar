@@ -1,0 +1,5 @@
+{
+  "user.mapping": [
+    "aem-guides-tushar.core:content-rwservice=rw-service-user"
+  ]
+}

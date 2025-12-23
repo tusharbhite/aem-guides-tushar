@@ -8,7 +8,6 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.osgi.service.component.annotations.Component;
@@ -17,13 +16,16 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.engine.EngineConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component(service = Filter.class,
            property = {
                EngineConstants.SLING_FILTER_SCOPE + "=" + EngineConstants.FILTER_SCOPE_REQUEST,
                EngineConstants.SLING_FILTER_PATTERN + "=" + "/bin/replicate"
            })
-public class PreventPublishFilter implements Filter {
+public class MyServletFilterPreventPublish implements Filter {
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
@@ -31,6 +33,9 @@ public class PreventPublishFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
+        SlingHttpServletRequest slingRequest = (SlingHttpServletRequest) request;
+
+        logger.info("Caught in PreventPublishFilter while publishing: "+slingRequest.getResource().getPath());
 
         SlingHttpServletRequest httpRequest = (SlingHttpServletRequest) request;
         SlingHttpServletResponse httpResponse = (SlingHttpServletResponse) response;

@@ -1,5 +1,4 @@
-package com.tushar.aem.guides.core.listeners.learninig;
-
+package com.tushar.aem.guides.core.listeners;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -14,28 +13,28 @@ import javax.jcr.observation.EventListener;
 
 
 @Component(immediate = true,service= EventListener.class)
-public class JCREventListener implements EventListener{
+public class MyJCREventListener implements EventListener{
 
-    private static final Logger log = LoggerFactory.getLogger(JCREventListener.class);
+    private static final Logger log = LoggerFactory.getLogger(MyJCREventListener.class);
     private Session session;
 
     @Reference
     SlingRepository slingRepository;
-    
+
 
     @Activate
     public void activate() throws Exception {
         try {
 
             String[] nodetypes={"cq:PageContent"};
-            session = slingRepository.loginService("geeksserviceuser",null);
+            session = slingRepository.loginService("content-rwservice",null);
             session.getWorkspace().getObservationManager().addEventListener(
                     this,                                 //handler
                     Event.NODE_ADDED | Event.PROPERTY_ADDED,      //int code for event type
                     "/content/tushar/us/en",          //path
                     true,                                        //is Deep?
                     null,                                    //UUIDs filter
-                    nodetypes,                                   //nodetypes filter
+                    null,                                   //nodetypes filter
                     true);
 
         } catch (RepositoryException e){
@@ -46,11 +45,13 @@ public class JCREventListener implements EventListener{
     public void onEvent(EventIterator eventIterator) {
         try {
             while (eventIterator.hasNext()){
-                log.info("\n Event Detected Property/Node Added or Removed at Path : {} ",eventIterator.nextEvent().getPath());
+                log.info("\n JCR Event Detescted: Path : {} ",eventIterator.nextEvent().getPath());
             }
         } catch(Exception e){
-            log.error("\n Error while processing events : {} ",e.getMessage());
+            //log.error("\n Error while processing events : {} ",e.getMessage());
         }
     }
+
+
 
 }
