@@ -1,0 +1,23 @@
+/* Add vertical spacing between all form fields in our tool */
+#bulk-page-updater .coral-Form-fieldwrapper {
+    margin-bottom: 1.5rem !important;
+    display: block;
+}
+
+/* Ensure the result area table looks clean */
+#result-area table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#result-area th, #result-area td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Add a gap between the buttons in the button group */
+#bulk-page-updater .coral3-ButtonGroup-item {
+    margin-right: 10px;
+}
